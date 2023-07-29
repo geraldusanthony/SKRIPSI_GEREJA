@@ -50,7 +50,7 @@ tr:nth-child(even) {
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:200px;margin-top:43px;margin-right:200px">
+<div class="w3-main" style="margin-left:450px;margin-top:30px;margin-right:450px">
   <header class="w3-container" style="padding-top:22px">
     <h2><b>Edit Data Persembahan Kolekte Umat</b></h2>
     <div class="modal-body">

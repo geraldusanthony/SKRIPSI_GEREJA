@@ -50,8 +50,8 @@ tr:nth-child(even) {
 <body class="w3-light-grey">
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:200px;margin-top:10px;margin-right:200px">
-  <header class="w3-container" style="padding-top:10px">
+<div class="w3-main" style="margin-left:200px;margin-top:43px;margin-right:200px">
+  <header class="w3-container" style="padding-top:22px">
     <h2><b>Edit Data Umat</b></h2>
     <div class="modal-body">
         <form action="{{route('editumat',['id'=>$umat->id])}}" method="POST" enctype="multipart/form-data">

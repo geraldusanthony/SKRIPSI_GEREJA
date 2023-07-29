@@ -42,6 +42,7 @@ p{
 			<tr>
             <th>Tanggal</th>
             <th>Tahun</th> 
+            <th>Keterangan Persembahan</th>
             <th>Nama Lingkungan</th> 
             <th>Jumlah</th>
 			</tr>
@@ -51,6 +52,7 @@ p{
             <tr>
             <td>{{$persembahanling->tanggal}}</td>   
             <td>{{$persembahanling->tahun}}</td> 
+            <td>{{$persembahanling->ket}}</td> 
             <td>{{$persembahanling->nama_ling}}</td> 
             <td>Rp.{{$persembahanling->jumlah}}</td>
 			</tr>

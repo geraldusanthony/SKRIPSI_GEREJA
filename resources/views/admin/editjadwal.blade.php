@@ -53,7 +53,7 @@ tr:nth-child(even) {
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-<div class="w3-main" style="margin-left:200px;margin-top:43px;margin-right:200px">
+<div class="w3-main" style="margin-left:450px;margin-top:30px;margin-right:450px">
   <header class="w3-container" style="padding-top:22px">
     <h2><b>Edit Data Jadwal Misa</b></h2>
     <div class="modal-body">
@@ -61,16 +61,8 @@ tr:nth-child(even) {
           {{csrf_field()}}
           <div class="form-group">
                  <label for="exampleInputEmail1">Hari </label>
-                 <select class="select2 form-control" name="hari" value="{{$jadwalmisa->hari}}">
-                 <option>Pilih Hari</option>
-                 <option>Senin</option>
-                 <option>Selasa</option>
-                 <option>Rabu</option>
-                 <option>Kamis</option>
-                 <option>Jumat</option>
-                 <option>Sabtu</option>
-                 <option>Minggu</option>
-                 </select>
+                 <input disabled class="form-control" name="hari" value="{{$jadwalmisa->hari}}">
+                 </input>
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Tanggal</label>
@@ -80,12 +72,10 @@ tr:nth-child(even) {
                  <label for="exampleInputEmail1">Jam </label>
                  <input class="form-control" name="jam" type="time" value="{{$jadwalmisa->jam}}" ></input>
             </div> 
-
             <div class="form-group">
             <label for="exampleInputEmail1">Keterangan</label> 
             <input name="keterangan" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$jadwalmisa->keterangan}}">
          </div>
-
          <div class="form-group">
             <label for="exampleInputEmail1">kuota</label> 
             <input name="kuota"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$jadwalmisa->kuota}}">
@@ -96,8 +86,6 @@ tr:nth-child(even) {
     </form>
     </div> 
   </header>
-  
-  
 </div>
 
 <script>

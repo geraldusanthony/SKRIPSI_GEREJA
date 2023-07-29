@@ -158,11 +158,11 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Kolekte 1</label>
-              <input name="jumlah" type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input name="jumlah" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
            </div>
            <div class="form-group">
               <label for="exampleInputEmail1">Kolekte 2</label>
-              <input name="jumlah2" type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input name="jumlah2" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
            </div>
            <div class="form-group">
               <label for="exampleInputEmail1">Keterangan</label>

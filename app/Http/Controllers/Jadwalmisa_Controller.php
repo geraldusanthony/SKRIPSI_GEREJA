@@ -32,7 +32,6 @@ class Jadwalmisa_Controller extends Controller
         $jadwalmisa = jadwalmisa::find($id);
         $jadwalmisa->hari = $request->input('hari');
         $jadwalmisa->tanggal = $request->input('tanggal');
-        $jadwalmisa->gereja = $request->input('gereja');
         $jadwalmisa->jam = $request->input('jam');
         $jadwalmisa->keterangan = $request->input('keterangan');
         $jadwalmisa->kuota = $request->input('kuota');

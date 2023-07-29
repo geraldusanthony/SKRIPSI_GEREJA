@@ -79,7 +79,6 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Nama Umat</label><input type="text" class="form-control" value="{{$umat->nama_umat}}"></div>
-                    <div class="col-md-12"><label class="labels">Nama Baptis</label><input type="text" class="form-control" value="{{$umat->nama_bpts}}"></div>
                     <div class="col-md-12"><label class="labels">Warga Negara</label><input type="text" class="form-control" value="{{$umat->warga}}"></div>
                     <div class="col-md-12"><label class="labels">Negara</label><input type="text" class="form-control" value="{{$umat->negara}}"></div>
                     <div class="col-md-12"><label class="labels">NIK</label><input type="text" class="form-control" value="{{$umat->nik}}"></div>
@@ -101,6 +100,26 @@
                     <p><a href="/daftarumat" class="col-md-12 w3-button w3-orange"><i class="fa fa-home"> </i>Kembali</a></p>
                 </div>
             </div>
+            <div class="col-md-4">
+            <div class="row mt-3">      
+                </div>     
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-3">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="text-right">Sakramen</h2>
+                </div>
+                <div class="col-md-12"><label class="labels">Nama Baptis</label><input type="text" class="form-control" value="{{$umat->nama_bpts}}"></div>
+                <div class="col-md-12"><label class="labels">Tanggal Baptis</label><input type="text" class="form-control" value="{{$umat->tgl_bpts}}"></div>
+                <div class="col-md-12"><label class="labels">Paroki Baptis</label><input type="text" class="form-control" value="{{$umat->paroki}}"></div>
+                <div class="col-md-12"><label class="labels">Wali Baptis</label><input type="text" class="form-control" value="{{$umat->wali_bpts}}"></div>
+                <div class="col-md-12"><label class="labels">Tanggal Komuni Pertama</label><input type="text" class="form-control" value="{{$umat->tanggal_kp}}"></div>
+                <div class="col-md-12"><label class="labels">Paroki Komuni Pertama</label><input type="text" class="form-control" value="{{$umat->paroki_kp}}"></div>
+            </div>
+        </div>
+    </div>
+        </div>
         </div>
         @endforeach
     </div>

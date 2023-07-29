@@ -53,16 +53,7 @@ tr:nth-child(even) {
           {{csrf_field()}}
            <div class="form-group">
                  <label for="exampleInputEmail1">Hari </label>
-                 <select class="selectpicker form-control" name="hari" value="{{$jadwalkegiatan->hari}}">
-                 <option>Pilih Hari</option>
-                 <option>Senin</option>
-                 <option>Selasa</option>
-                 <option>Rabu</option>
-                 <option>Kamis</option>
-                 <option>Jumat</option>
-                 <option>Sabtu</option>
-                 <option>Minggu</option>
-                 </select>
+                 <input class="form-control" name="hari" value="{{$jadwalkegiatan->hari}}"></input>
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Tanggal</label>

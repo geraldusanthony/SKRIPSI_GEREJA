@@ -192,7 +192,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
            </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Jumlah Persembahan</label>
-              <input name="jumlah" type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input name="jumlah" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
            </div>
            <p><b>- PERHATIAN! -</b></p>
            <p>Pastikan Data Yang Anda Tambahkan Telah Benar!</p>

@@ -106,7 +106,7 @@ tr:nth-child(even) {
           {{csrf_field()}}
            <div class="form-group">
                  <label for="exampleInputEmail1">Hari </label>
-                 <select class="form-control @error('hari') is-invalid @enderror" required autocomplete="hari" name="hari">
+                 <select class="select2 form-control @error('hari') is-invalid @enderror" required autocomplete="hari" name="hari">
                 <option></option>
                  <option>Senin</option>
                  <option>Selasa</option>
