@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Models\umat;
+use DataTables;
 
 class Tambahumat_Controller extends Controller
 {
@@ -30,12 +31,14 @@ class Tambahumat_Controller extends Controller
     {
         $request->validate([
             'nama_umat'=>'required',
-            'nama_bpts'=>'',
-            'tgl_bpts' =>'',
-            'paroki' =>'',
-            'wali_bpts' =>'',
-            'tgl_kp' =>'',
-            'paroki_kp' =>'',
+            'baptis'=>'nullable',
+            'nama_bpts'=>'nullable',
+            'tgl_bpts'=>'nullable',
+            'paroki'=>'nullable',
+            'wali_bpts'=>'nullable',
+            'komuni'=>'nullable',
+            'tgl_kp'=>'nullable',
+            'paroki_kp'=>'nullable',
             'warga'=>'required',
             'negara'=>'required',
             'nik'=>'required',
@@ -73,12 +76,14 @@ class Tambahumat_Controller extends Controller
     {
         $request->validate([
             'nama_umat'=>'required',
-            'nama_bpts'=>'nullable',
-            'tgl_bpts' =>'nullable',
-            'paroki' =>'nullable',
-            'wali_bpts' =>'nullable',
-            'tgl_kp' =>'nullable',
-            'paroki_kp' =>'nullable',
+            'baptis'=>'required|string',
+            'nama_bpts'=>'required|string',
+            'tgl_bpts'=>'required|date',
+            'paroki'=>'required|string',
+            'wali_bpts'=>'required|string',
+            'komuni'=>'required|string',
+            'tgl_kp'=>'required|date',
+            'paroki_kp'=>'required|string',
             'warga'=>'required',
             'negara'=>'required',
             'nik'=>'required',
@@ -101,20 +106,22 @@ class Tambahumat_Controller extends Controller
 
         $post = umat::find($request->id);
      
-            if($image = $request->file('images')){
-                $request->validate([
-                  'images' => 'required|mimes:jpg,png,jpeg,gif,svg|max:2048',
-                ]);
-                $imgname = $request->id . "_" ."umat".".". $request->file('images')->getClientOriginalExtension();
-                $destinationPath = 'umat/';
-                $image->move($destinationPath, $imgname);
-                $post->images = $imgname;
+        if($image = $request->file('images')){
+            $request->validate([
+              'images' => 'required|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            $imgname = $request->id . "_" ."umat".".". $request->file('images')->getClientOriginalExtension();
+            $destinationPath = 'umat/';
+            $image->move($destinationPath, $imgname);
+            $post->images = $imgname;
             }
             $post->nama_umat = $request->nama_umat;
+            $post->baptis = $request->baptis;
             $post->nama_bpts = $request->nama_bpts;
             $post->tgl_bpts = $request->tgl_bpts;
             $post->paroki = $request->paroki;
             $post->wali_bpts = $request->wali_bpts;
+            $post->komuni = $request->komuni;
             $post->tgl_kp = $request->tgl_kp;
             $post->paroki_kp = $request->paroki_kp;
             $post->warga = $request->warga;

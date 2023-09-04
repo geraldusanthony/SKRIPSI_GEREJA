@@ -87,4 +87,11 @@ class Persembahan_Controller extends Controller
         ];
         return view('admin.editpersembahanling',$data);
     }
+
+    public function viewdata($id){
+        $view_data = persembahanling::where('id',$id)->get();
+        $pdf = PDF::loadview('cetak.validasiling_pdf',['view_data'=>$view_data]);
+    	return $pdf->stream();
+    }
+    
 }

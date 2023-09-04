@@ -37,7 +37,7 @@
       <br></br>
       <h3>Silahkan lihat detail pendaftaran pada bagian</h3> 
       <h3><b>PNGUMUMAN Pendaftaran Misa</b></h3>
-      <p><a href="/indexumat" class="w3-button w3-orange"><i class="fa fa-home"> </i> Kembali Ke Halaman Utama</a></p>
+      <p><a href="/viewpendaftaranmisa" class="w3-button w3-orange"><i class="fa fa-eye"> KLIK DISINI</i></a></p>
     </div>
     <div class="w3-col m6">
       <img class="w3-image w3-round-large" src="asset\images\foto.webp" alt="" width="700" height="394">

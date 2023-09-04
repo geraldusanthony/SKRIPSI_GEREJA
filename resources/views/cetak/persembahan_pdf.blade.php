@@ -13,7 +13,7 @@
 
 td{
   border: 1px solid #dddddd;
-  text-align: left;
+  text-align: center;
   padding: 8px;
   text-align: center;
 }
@@ -21,9 +21,9 @@ td{
 th{
   background-color: orange;
   border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
   text-align: center;
+  padding: 8px;
+  text-align: center;   
 }
 
 h4{
@@ -40,9 +40,10 @@ p{
 	<table class='table table-bordered'>
 		<thead>
 			<tr>
-            <th>Tahun</th>
-            <th>Bulan</th> 
-            <th>Minggu Ke</th> 
+            <th>Tgl</th>
+            <th>Minggu</th> 
+            <th>Thn</th>
+            <th>Bln</th>   
             <th>Kolekte 1</th>
             <th>Kolekte 2</th>
             <th>Keterangan</th>
@@ -52,9 +53,10 @@ p{
         @foreach($persembahan as $persembahan) 
 		<tbody>       
             <tr>
+            <td>{{$persembahan->tanggal}}</td> 
+            <td>{{$persembahan->minggu}}</td> 
             <td>{{$persembahan->tahun}}</td>   
             <td>{{$persembahan->bulan}}</td> 
-            <td>{{$persembahan->minggu}}</td> 
             <td>Rp.{{$persembahan->jumlah}}</td> 
             <td>Rp.{{$persembahan->jumlah2}}</td>
             <td>{{$persembahan->keterangan}}</td> 
@@ -62,8 +64,7 @@ p{
 			</tr>	          
 		</tbody>
         @endforeach
-	</table>
-    
+	</table>    
 </body>
 </html>
 

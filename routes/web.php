@@ -31,17 +31,18 @@ Route::get('/loginpage','Admin_Controller@loginpage');
 
 Route::get('/homeadmin','Admin_Controller@homeadmin'); 
 
-Route::get('/statistik','Statistik_Controller@statistik'); 
-
+// Umat
 Route::get('/tambahumat','Tambahumat_Controller@tambahumat'); 
 Route::post('/addumat','Tambahumat_Controller@tambahdata'); 
 route::get('/deleteumat/{id}','Tambahumat_Controller@deleteumat');
 route::get('/prosesviewdata/{id}','Tambahumat_Controller@findid');
-route::post('/editumat/{id}','Tambahumat_Controller@editumat')->name('editumat');
-
-Route::get('/daftarumat','Daftarumat_Controller@daftarumat'); 
+route::post('/editumat/{id}','Tambahumat_Controller@editumat')->name('editumat'); 
+Route::get('/daftarumat', ['uses'=>'Daftarumat_Controller@daftarumat', 'as'=>'admin.daftarumat']);
 Route::get('/profileumat/{id}','Umat_Controller@viewdaftarumat'); 
-
+Route::get('/baptis','Daftarumat_Controller@baptis'); 
+Route::get('/komuni','Daftarumat_Controller@komuni'); 
+    
+// Jadwal Misa
 Route::get('/jadwalmisa','Jadwalmisa_Controller@jadwalmisa'); 
 Route::post('/addjadwalmisa','Jadwalmisa_Controller@addjadwalmisa');
 route::get('/deletejadwal/{id}','Jadwalmisa_Controller@deletejadwal');
@@ -51,6 +52,7 @@ route::get('/cetakjadwalmisa_pdf','Jadwalmisa_Controller@cetakjadwalmisa_pdf');
 
 Route::get('/pendaftaran','Jadwalmisa_Controller@pendaftaran'); 
 
+// Persembahan Kolekte
 Route::get('/persembahan','Persembahan_Controller@persembahan'); 
 Route::post('/addpersembahan','Persembahan_Controller@addpersembahan'); 
 route::get('/deletepersembahan/{id}','Persembahan_Controller@deletepersembahan');
@@ -58,13 +60,16 @@ route::get('/viewdatapersembahan/{id}','Persembahan_Controller@findpersembahan')
 route::get('/editpersembahan/{id}','Persembahan_Controller@editpersembahan')->name('editpersembahan');
 Route::get('/cetakpersembahan_pdf','Persembahan_Controller@cetakpersembahan_pdf'); 
 
+// Persembahan Lingkungan
 Route::get('/persembahanling','Persembahan_Controller@persembahanling'); 
 Route::post('/addpersembahanling','Persembahan_Controller@addpersembahanling'); 
 route::get('/deletepersembahanling/{id}','Persembahan_Controller@deletepersembahanling');
 route::get('/viewdatapersembahanling/{id}','Persembahan_Controller@findpersembahanling');
 route::get('/editpersembahanling/{id}','Persembahan_Controller@editpersembahanling')->name('editpersembahanling');
 Route::get('/cetakpersembahanling_pdf','Persembahan_Controller@cetakpersembahanling_pdf'); 
+route::get('/viewdata/{id}','Persembahan_Controller@viewdata');
 
+// Jadwal Kegiatan
 Route::get('/jadwalkegiatan','Jadwalkegiatan_Controller@jadwalkegiatan'); 
 Route::post('/addjadwalkegiatan','Jadwalkegiatan_Controller@addjadwalkegiatan');
 route::get('/deletejadwalkegiatan/{id}','Jadwalkegiatan_Controller@deletejadwalkegiatan');
@@ -78,6 +83,7 @@ Route::get('/pendaftaranmisa','Pendaftaran_Controller@homeumat');
 Route::post('/addpendaftaran','Pendaftaran_Controller@addpendaftaran');  
 route::get('/deletependaftaran/{id}','Pendaftaran_Controller@deletependaftaran');
 
+// Halaman Umat 
 Route::get('/indexumat','Umat_Controller@indexumat');
 Route::get('/loginumat','Umat_Controller@loginumat');
 Route::get('/index','Umat_Controller@index');
@@ -85,6 +91,7 @@ Route::get('/viewpersembahan','Umat_Controller@viewpersembahan');
 Route::get('/viewkegiatan','Umat_Controller@viewkegiatan');
 Route::get('/viewjadwalmisa','Umat_Controller@viewjadwalmisa');
 Route::get('/viewpendaftaranmisa','Umat_Controller@viewpendaftaranmisa');
+Route::get('/pilihjadwal','Umat_Controller@pilihjadwal');
 
 // Route::group(['namespace' => 'App\Http\Controllers'], function()
 // {   

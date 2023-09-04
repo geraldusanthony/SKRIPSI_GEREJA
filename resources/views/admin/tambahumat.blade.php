@@ -86,7 +86,12 @@ tr:nth-child(even) {
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     
     <a href="tambahumat" class="w3-bar-item w3-button w3-padding w3-orange"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
-    <a href="daftarumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
+    <a onclick="myAccFunc2()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn2"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Umat</a>
+    <div id="demoAcc2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="daftarumat" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
+      <a href="baptis" class="w3-bar-item w3-button w3-padding "><i class="fa fa-user fa-fw"></i>  Umat Belum baptis</a>
+      <a href="komuni" class="w3-bar-item w3-button w3-padding "><i class="fa fa-user fa-fw"></i>  Umat Belum Komuni</a>
+    </div>
     <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-calendar fa-fw"></i>  Tambah Jadwal Misa</a>
     <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa</a>
     <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Persembahan</a>
@@ -104,12 +109,12 @@ tr:nth-child(even) {
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px; margin-top:43px">
-<header class="w3-container w3-khaki w3-center" style="padding-top:30px;">
+<header class="w3-container w3-lght-gray w3-center" style="padding-top:30px;">
     <h2><b>FORM TAMBAH DATA UMAT</b></h2>
     <p>Berikut merupakan halaman untuk menambahkan data umat Paroki St. Maria Assumpta Gamping</p>
 </header>
-<header class="w3-container w3-khaki" style="padding-top:10px;">
-    <div class="modal-body" style="margin-left:250px;margin-right:250px">
+<header class="w3-container w3-lght-gray">
+    <div class="modal-body" style="margin-left:300px;margin-right:300px">
     <div class="modal-body">
         <form action="/addumat" method="POST" enctype="multipart/form-data">
           {{csrf_field()}}
@@ -123,12 +128,25 @@ tr:nth-child(even) {
               @enderror
            </div>
            <div class="form-group">
+                 <label for="exampleInputEmail1">Baptis : </label>
+                 <div>
+                 <input type="radio" id="" name="baptis" value="sudah" class=" @error('') is-invalid @enderror"  required autocomplete="" autofocus />
+                  <label for="">Sudah</label><br>
+                  <input type="radio" id="" name="baptis" value="belum"/>
+                  <label for="">Belum</label>
+                @error('baptis')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+           <div class="form-group">
               <label for="exampleInputEmail1">Nama Baptis : </label>
               <input name="nama_bpts" type="text" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp">  
            </div>
-           <div class="form-group">
+           <div class="form-group" style="width:50%">
               <label for="exampleInputEmail1">Tanggal Baptis : </label>
-              <input name="tgl_bpts" type="date" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp">              
+              <input name="tgl_bpts" type="date" class="form-control" value="" id="exampleInputEmail1" aria-describedby="emailHelp">              
            </div>
            <div class="form-group">
               <label for="exampleInputEmail1">Paroki Baptis/Penerima : </label>
@@ -139,8 +157,21 @@ tr:nth-child(even) {
               <input name="wali_bpts" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">                
            </div>
            <div class="form-group">
+                 <label for="exampleInputEmail1">Komuni Pertama: </label>
+                 <div>
+                 <input type="radio" id="" name="komuni" value="sudah" class=" @error('') is-invalid @enderror"  required autocomplete="" autofocus />
+                  <label for="">Sudah</label><br>
+                  <input type="radio" id="" name="komuni" value="belum"/>
+                  <label for="">Belum</label>
+                @error('komuni')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+           <div class="form-group" style="width:50%">
               <label for="exampleInputEmail1">Tanggal Komuni Pertama : </label>
-              <input name="tgl_kp" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">             
+              <input name="tgl_kp" type="date" class="form-control" value="-" id="exampleInputEmail1" aria-describedby="emailHelp">             
            </div>
            <div class="form-group">
               <label for="exampleInputEmail1">Paroki Komuni Pertama : </label>
@@ -159,15 +190,14 @@ tr:nth-child(even) {
                 </span>
                 @enderror
             </div>
-
             <div class="form-group">
                  <label for="exampleInputEmail1"> Negara : </label>
                  <select class="form-control select2 @error('negara') is-invalid @enderror" required autocomplete="negara" name="negara">
-                 <option></option>
-                 <option>Indonesia</option>
-                 <option>Afganistan</option>
-                 <option>Albania</option>
-                 <option>Aljazir</option>
+                  <option></option>
+                  <option>Indonesia</option>
+                  <option>Afganistan</option>
+                  <option>Albania</option>
+                  <option>Aljazir</option>
                   <option>Amerika Serikat</option>
                   <option>Andorra</option>
                   <option>Angola</option>
@@ -186,7 +216,6 @@ tr:nth-child(even) {
                 </span>
                 @enderror
             </div>
-
           <div class="form-group">
             <label for="exampleInputEmail1">NIK :</label> 
             <input name="nik"type="number" class="form-control @error('nik') is-invalid @enderror" required autocomplete="nik" id="exampleInputEmail1" aria-describedby="emailHelp" >
@@ -196,7 +225,6 @@ tr:nth-child(even) {
               </span>
             @enderror
          </div>
-
          <div class="form-group">
             <label for="exampleInputEmail1">No. Kartu Keluarga :</label> 
             <input name="no_kk" type="number" class="form-control @error('no_kk') is-invalid @enderror" required autocomplete="no_kk" id="exampleInputEmail1" aria-describedby="emailHelp" >
@@ -206,7 +234,6 @@ tr:nth-child(even) {
               </span>
             @enderror
          </div>
-
          <div class="form-group">
                  <label for="exampleInputEmail1">Jenis Kelamin : </label>
                  <div>
@@ -221,9 +248,8 @@ tr:nth-child(even) {
                 @enderror
             </div>
           </div>
-
           <div class="form-group">
-                 <label for="exampleInputEmail1">Pilih Lingkungan : </label>
+                <label for="exampleInputEmail1">Pilih Lingkungan : </label>
                  <select class="form-control select2 @error('ling') is-invalid @enderror" required autocomplete="ling" name="ling">
                  <option></option>
                  <option>St. Yohanes Pemandi Gamping lor</option>
@@ -267,9 +293,7 @@ tr:nth-child(even) {
                 </span>
                 @enderror
             </div>
-
-
-           <div class="form-group">
+           <div class="form-group" style="width:50%">
               <label for="exampleInputEmail1">Tanggal Lahir :</label>
               <input name="tgl_lahir" type="date" class="form-control @error('tgl_lahir') is-invalid @enderror" required autocomplete="tgl_lahir" id="exampleInputEmail1" aria-describedby="emailHelp" >
               @error('tgl_lahir')
@@ -288,10 +312,9 @@ tr:nth-child(even) {
                 </span>
               @enderror
            </div>
-
            <div class="form-group">
-                 <label for="exampleInputEmail1">Golongan Darah : </label>
-                 <select class="form-control select2 @error('gol_darah') is-invalid @enderror" required autocomplete="gol_darah" name="gol_darah">
+                <label for="exampleInputEmail1">Golongan Darah : </label>
+                <select class="form-control select2 @error('gol_darah') is-invalid @enderror" required autocomplete="gol_darah" name="gol_darah">
                  <option></option>
                  <option>A</option>
                  <option>B</option>
@@ -305,7 +328,6 @@ tr:nth-child(even) {
                 </span>
                 @enderror
             </div>
-
             <div class="form-group">
               <label for="exampleInputEmail1">Alamat : </label>
               <input name="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" required autocomplete="alamat" id="exampleInputEmail1" aria-describedby="emailHelp">  
@@ -315,7 +337,6 @@ tr:nth-child(even) {
                 </span>
               @enderror
            </div>
-
            <div class="form-group">
               <label for="exampleInputEmail1">Kota / Kabupaten : </label>
               <select class="form-control select2 @error('kota_kab') is-invalid @enderror" required autocomplete="kota_kab" name="kota_kab">
@@ -324,7 +345,7 @@ tr:nth-child(even) {
                  <option>Kabupaten Bantul</option>
                  <option>Kabupaten Kulon Progo</option>
                  <option>Kabupaten Gunung Kidul</option>
-                  <option>Kota Yogyakarta</option>
+                 <option>Kota Yogyakarta</option>
                  </select>
                @error('kota_kab')
                 <span class="invalid-feedback" role="alert" >
@@ -332,7 +353,6 @@ tr:nth-child(even) {
                 </span>
               @enderror
            </div>
-
            <div class="form-group">
               <label for="exampleInputEmail1">Kecamatan : </label>
               <select class="form-control select2 @error('kec') is-invalid @enderror" required autocomplete="kec" name="kec">
@@ -346,7 +366,6 @@ tr:nth-child(even) {
                 </span>
               @enderror
            </div>
-
            <div class="form-group">
               <label for="exampleInputEmail1">Kelurahan : </label>
               <input name="kel" type="text" class="form-control @error('kel') is-invalid @enderror" required autocomplete="kel" id="exampleInputEmail1" aria-describedby="emailHelp">  
@@ -356,7 +375,6 @@ tr:nth-child(even) {
                 </span>
               @enderror
            </div>
-
            <div class="form-group">
               <label for="exampleInputEmail1">No Handphone : </label>
               <input name="no_hp" type="number" class="form-control @error('no_hp') is-invalid @enderror" required autocomplete="no_hp" id="exampleInputEmail1" aria-describedby="emailHelp">  
@@ -366,7 +384,6 @@ tr:nth-child(even) {
                 </span>
               @enderror
            </div>
-
            <div class="form-group">
               <label for="exampleInputEmail1">Email : </label>
               <input name="email" type="text" class="form-control @error('email') is-invalid @enderror" required autocomplete="email" id="exampleInputEmail1" aria-describedby="emailHelp">  
@@ -376,7 +393,6 @@ tr:nth-child(even) {
                 </span>
               @enderror
            </div>
-
            <div class="form-group">
               <label for="exampleInputEmail1">Pendidikan Terakhir : </label>
               <select class="form-control select2 @error('pend') is-invalid @enderror" required autocomplete="pend" name="pend">
@@ -402,7 +418,6 @@ tr:nth-child(even) {
                 </span>
               @enderror
            </div>
-
            <div class="form-group">
               <label for="exampleInputEmail1">Pekerjaan : </label>
               <select class="form-control select2 @error('pekerjaan') is-invalid @enderror" required autocomplete="pekerjaan" name="pekerjaan">
@@ -429,7 +444,6 @@ tr:nth-child(even) {
                 </span>
               @enderror
            </div>
-
             <div class="form-group">
                   <label for="exampleInputEmail1">Foto Umat</label>
                   <input name="images" type="file" class="@error('images') is-invalid @enderror" required autocomplete="images" id="image" aria-describedby="emailHelp" placeholder="Nama Blog" accept="image/gif, image/jpeg, image/png">
@@ -439,7 +453,6 @@ tr:nth-child(even) {
                 </span>
                 @enderror
             </div>
-
         </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary w3-orange">Tambah</button>
@@ -489,6 +502,21 @@ function myAccFunc() {
 
 // Click on the "Jeans" link on page load to open the accordion for demo purposes
 document.getElementById("myBtn").click();
+</script>
+
+<script>
+// Accordion 
+function myAccFunc2() {
+  var x = document.getElementById("demoAcc2");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn2").click();
 </script>
 
 </body>

@@ -54,7 +54,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
   background-image: url('/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  width: 40%;
+  width: 20%;
   font-size: 14px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
@@ -68,31 +68,30 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     <h2><b>Data umat yang telah mendaftar misa</b></h2>
     <h4>Berikut merupakan data umat yang telah mendaftarkan diri untuk mengikuti misa sesuai jadwal</h4>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari..." title="Masukkan hari pelaksanaan">
-    </header>
     <div class="w3-row">
     </div>
         <table id="myTable" class="table, center">
         <tr>
         <tr>
         <th>Nama Lengkap</th> 
-        <th>No Kursi</td>
         <th>Jadwal Misa</th>
         <th>No Handphone</th> 
         <th>Alamat Lengkap</th>
         <th>Jenis Kelamin</th>
         <th>Usia</th>
         <th>Asal Lingkungan</th>
+        <th>Tempat Duduk</td>
         </tr>
         @foreach ($daftarmisa as $daftarmisa)
         <tr>
         <td>{{$daftarmisa->nama}}</td> 
-        <td>{{$daftarmisa->id}}</td> 
         <td>{{$daftarmisa->jadwal}}</td>  
         <td>{{$daftarmisa->no_hp}}</td> 
         <td>{{$daftarmisa->alamat}}</td> 
         <td>{{$daftarmisa->jns_klmn}}</td> 
         <td>{{$daftarmisa->usia}}</td> 
         <td>{{$daftarmisa->lingkungan}}</td> 
+        <td>{{$daftarmisa->duduk}}</td> 
         @endforeach
         </tr>
         </div>

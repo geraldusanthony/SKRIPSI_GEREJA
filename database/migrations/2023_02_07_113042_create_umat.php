@@ -16,11 +16,13 @@ return new class extends Migration
         Schema::create('umat', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_umat');
+            $table->string('baptis')->nullable();
             $table->string('nama_bpts')->nullable();
-            $table->string('tgl_bpts')->nullable();
+            $table->date('tgl_bpts')->nullable();
             $table->string('paroki')->nullable();
             $table->string('wali_bpts')->nullable();
-            $table->string('tgl_kp')->nullable();
+            $table->string('komuni')->nullable();
+            $table->date('tgl_kp')->nullable();
             $table->string('paroki_kp')->nullable();
             $table->string('warga');
             $table->string('negara');

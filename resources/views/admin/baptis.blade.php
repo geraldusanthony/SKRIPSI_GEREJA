@@ -8,16 +8,9 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -35,14 +28,37 @@ table {
   width: 100%;
 }
 
-td, th {
+td{
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  text-align: center;
+}
+
+th{
+  background-color: orange;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+tr:hover {background-color: rgba(255, 99, 71, 0.5);
+}
+
+#myInput {
+  background-image: url('/asset/images/searchicon.png');
+  background-position: -5px -5px;
+  background-repeat: no-repeat;
+  width: 40%;
+  font-size: 14px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
 }
 
 </style>
@@ -80,11 +96,11 @@ tr:nth-child(even) {
     <a href="tambahumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
     <a onclick="myAccFunc2()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn2"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Umat</a>
     <div id="demoAcc2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="daftarumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
-      <a href="baptis" class="w3-bar-item w3-button w3-padding "><i class="fa fa-user fa-fw"></i>  Umat Belum baptis</a>
+      <a href="daftarumat" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
+      <a href="baptis" class="w3-bar-item w3-button w3-padding w3-orange"><i class="fa fa-user fa-fw"></i>  Umat Belum baptis</a>
       <a href="komuni" class="w3-bar-item w3-button w3-padding "><i class="fa fa-user fa-fw"></i>  Umat Belum Komuni</a>
     </div>
-    <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding w3-orange"><i class="	fa fa-calendar fa-fw"></i> Tambah Jadwal Misa</a>
+    <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-calendar fa-fw"></i>  Tambah Jadwal Misa</a>
     <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa</a>
     <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Persembahan</a>
     <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
@@ -100,80 +116,111 @@ tr:nth-child(even) {
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
+<!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
-<header class="w3-container w3-lght-gray w3-center" style="padding-top:30px;">
-    <h2><b>FORM TAMBAH JADWAL MISA</b></h2>
-    <p>Berikut merupakan form untuk menambahkan data Jadwal Misa Gereja St. Maria Assumpta Gamping</p>
-</header>
-<header class="w3-container w3-lght-gray">
-    <div class="modal-body" style="margin-left:350px;margin-right:350px" >
-        <form action="/addjadwalmisa" method="POST">
-          {{csrf_field()}}
-           <div class="form-group">
-                 <label for="exampleInputEmail1">Hari </label>
-                 <select class="select2 form-control @error('hari') is-invalid @enderror" required autocomplete="hari" name="hari">
-                <option></option>
-                 <option>Senin</option>
-                 <option>Selasa</option>
-                 <option>Rabu</option>
-                 <option>Kamis</option>
-                 <option>Jumat</option>
-                 <option>Sabtu</option>
-                 <option>Minggu</option>
-                 @error('hari')
-                <span class="invalid-feedback" role="alert" >
-                	<strong>{{ $message }}</strong>
-                </span>
-              @enderror
-                 </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Tanggal</label>
-              <input name="tanggal" type="date" class="form-control @error('tanggal') is-invalid @enderror" required autocomplete="tanggal"></input>
-              @error('tanggal')
-                <span class="invalid-feedback" role="alert" >
-                	<strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>           
-            <div class="form-group">
-                 <label for="exampleInputEmail1">Jam </label>
-                 <input class="form-control @error('jam') is-invalid @enderror" required autocomplete="jam" name="jam" type="time"></input>
-                 @error('jam')
-                <span class="invalid-feedback" role="alert" >
-                	<strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-           <div class="form-group"> 
-                 <label for="exampleInputEmail1">Keterangan Misa </label>
-                 <p>Diisi jenis misa (Contoh : Misa Harian, Misa Mingguan, Misa Besar) serta diberikan keterangan bahasa yang digunakan.</p>
-                 <input class="form-control @error('keterangan') is-invalid @enderror" required autocomplete="keterangan" name="keterangan" type="text"></input>
-                 @error('keterangan')
-                <span class="invalid-feedback" role="alert" >
-                	<strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-         <div class="form-group">
-            <label for="exampleInputEmail1">kuota</label> 
-            <input name="kuota" type="number" class="form-control @error('kuota') is-invalid @enderror" required autocomplete="kuota">
-            @error('kuota')
-                <span class="invalid-feedback" role="alert" >
-                	<strong>{{ $message }}</strong>
-                </span>
-                @enderror
-         </div>
-         <p><b>- PERHATIAN! -</b></p>
-           <p>Pastikan Data Yang Anda Tambahkan Telah Benar!</p>
+  <header class="w3-container" style="padding-top:22px">
+    <h2><b>Data Umat Belum Baptis Paroki Santa Maria Assumpta Gamping</b></h2>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari Umat" title="Masukkan NIK umat"></input>
+    <div class="w3-row">
+      
+    </div>
+        <table id="myTable" class="table, center">
+        <tr>
+        <th>NIK</th>
+        <th>Nama Umat</th>
+        <th>Warga Negara</th>        
+        <th>Tanggal Lahir</th> 
+        <th>Jenis Kelamin</th> 
+        <th>Asal Lingkungan</th>
+        <th>Aksi</th>
+        </tr>
+        @foreach ($umat as $umat)
+        <tr>
+        <td>{{$umat->nik}}</td> 
+        <td>{{$umat->nama_umat}}</td>   
+        <td>{{$umat->warga}}</td>    
+        <td>{{$umat->tgl_lahir}}</td> 
+        <td>{{$umat->jns_kelamin}}</td>
+        <td>{{$umat->ling}}</td>
+        <td><a href="/prosesviewdata/{{$umat->id}}" class="btn fa fa-edit w3-orange"></a>
+        <!-- Modal -->
+        <button type="button" class="btn fa fa-trash w3-red" data-toggle="modal" data-target="#myModal"></button>
+          <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+        <div class="modal-header w3-orange">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title w3-center"><b>PERINGATAN !</b></h4>
+        </div>
+        <div class="modal-body">
+          <p>Apakah anda yakin menghapus data ini ?</p>
+        </div>
         <div class="modal-footer">
-        <button type="submit" class="btn btn-primary w3-orange">Tambah</button>
-    </form>
-    </div> 
-  </header>
-  
-  
+        <a href="/deleteumat/{{$umat->id}}" class="btn fa fa-trash w3-orangemary w3-red"> Hapus</a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+        <a href="/profileumat/{{$umat->id}}" class="btn fa fa-eye w3-blue"></a></td>
+        @endforeach
+        </tr>
+        </div>
+      </div>
+      </header>
+    </div>  
+  </div>
+
+
+  <script type="text/javascript">
+  $(function () {
+      
+    var table = $('.data-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: {
+          url: "{{ route('admin.daftarumat') }}",
+          data: function (d) {
+                d.ling = $('#ling').val(),
+                d.search = $('input[type="search"]').val()
+            }
+        },
+        columns: [
+            {data: 'nik', name: 'nik'},
+            {data: 'nama_umat', name: 'nama_umat'},
+            {data: 'tgl_lahir', name: 'tgl_lahir'},
+            {data: 'jns_kelamin', name: 'jns_kelamin'},
+            {data: 'ling', name: 'ling'},
+        ]
+    });
+  
+    $('#ling').change(function(){
+        table.draw();
+    });
+      
+  });
+</script> 
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 
 <script>
 // Get the Sidebar
@@ -198,10 +245,6 @@ function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
-</script>
-
-<script>
-    $('.select2').select2();
 </script>
 
 <script>
@@ -233,5 +276,6 @@ function myAccFunc2() {
 // Click on the "Jeans" link on page load to open the accordion for demo purposes
 document.getElementById("myBtn2").click();
 </script>
+
 </body>
 </html>

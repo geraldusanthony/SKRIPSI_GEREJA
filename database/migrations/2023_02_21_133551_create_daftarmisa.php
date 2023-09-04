@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('jns_klmn');
             $table->string('usia');
             $table->string('lingkungan');
+            $table->string('duduk');
             $table->timestamps();
         });
     }

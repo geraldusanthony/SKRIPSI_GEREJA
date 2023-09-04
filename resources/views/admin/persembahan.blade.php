@@ -87,12 +87,17 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     
     <a href="tambahumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
-    <a href="daftarumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
+    <a onclick="myAccFunc2()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn2"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Umat</a>
+    <div id="demoAcc2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="daftarumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
+      <a href="baptis" class="w3-bar-item w3-button w3-padding "><i class="fa fa-user fa-fw"></i>  Umat Belum baptis</a>
+      <a href="komuni" class="w3-bar-item w3-button w3-padding "><i class="fa fa-user fa-fw"></i>  Umat Belum Komuni</a>
+    </div>
     <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-calendar fa-fw"></i>  Tambah Jadwal Misa</a>
     <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa</a>
     <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Persembahan</a>
     <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="persembahan" class="w3-bar-item w3-button w3-light-white"><i class="fa fa-credit-card w3-margin-right"></i>Kolekte</a>
+      <a href="persembahan" class="w3-bar-item w3-button w3-orange"><i class="fa fa-credit-card w3-margin-right"></i>Kolekte</a>
       <a href="persembahanling" class="w3-bar-item w3-button w3-light-white"><i class="fa fa-credit-card w3-margin-right"></i>Persembahan Lingkungan</a>
     </div>
     <a href="datamisaumat" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-database fa-fw"></i>  Data Misa</a>
@@ -106,14 +111,18 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
-  <header class="w3-container w3-khaki w3-center" style="padding-top:30px;">
+  <header class="w3-container w3-lght-gray w3-center" style="padding-top:30px;">
     <h2><b>FORM TAMBAH DATA KOLEKTE UMAT</b></h2>
     <p>Berikut merupakan halaman untuk menambahkan data persembahan kolekte umat pada misa</p>
 </header>
-<header class="w3-container w3-khaki" style="padding-top:10px;">
-    <div class="modal-body" style="margin-left:250px;margin-right:250px">
+<header class="w3-container w3-lght-gray" style="padding-top:10px;">
+    <div class="modal-body" style="margin-left:350px;margin-right:350px">
         <form action="/addpersembahan" method="POST">
           {{csrf_field()}}
+          <div class="form-group">
+              <label for="exampleInputEmail1">Tanggal</label>
+              <input name="tanggal" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+           </div>
           <div class="form-group">
                  <label for="exampleInputEmail1">Tahun </label>
                  <select class="select2 form-control" name="tahun" type="">
@@ -154,6 +163,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
                  <option>Minggu Ke 2</option>
                  <option>Minggu ke 3</option>
                  <option>Minggu ke 4</option>
+                 <option>Minggu ke 5</option>
                  </select>
             </div>
             <div class="form-group">
@@ -168,7 +178,12 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
               <label for="exampleInputEmail1">Keterangan</label>
               <p>Untuk keterangan silahkan isikan keterangan terkait misa
               (Contoh : Misa Harian, Misa Mingguan, Misa Hari Besar, atau Misa Lainnya)</p>
-              <input name="keterangan" type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <select name="keterangan" type="" class="select2 form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <option>Misa Harian</option>
+              <option>Misa Sabtu Sore</option>
+              <option>Misa Minggu</option>
+              <option>Misa Jumat Pertama</option>
+              </select>
            </div>
            <p><b>- PERHATIAN! -</b></p>
            <p>Pastikan Data Yang Anda Tambahkan Telah Benar!</p>
@@ -177,7 +192,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     </form>
     </div> 
     </header>
-    <header class="w3-container" style="padding-top:22px">
+    <header class="w3-container">
     <h2><b>Data Persembahan Gereja</b></h2>
     <button type="button" class="btn fa fa-download w3-blue" onclick="window.location.href='/cetakpersembahan_pdf';"> Download Data</button>
     <P></P>
@@ -185,6 +200,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     </div>
         <table class="table, center">
         <tr>
+        <th>Tanggal</th>
         <th>Tahun</th>
         <th>Bulan</th> 
         <th>Minggu Ke</th> 
@@ -198,6 +214,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         </tr>
         @foreach ($persembahan as $persembahan)
         <tr>
+        <td>{{$persembahan->tanggal}}</td> 
         <td>{{$persembahan->tahun}}</td>   
         <td>{{$persembahan->bulan}}</td> 
         <td>{{$persembahan->minggu}}</td> 
@@ -277,6 +294,21 @@ function myAccFunc() {
 
 // Click on the "Jeans" link on page load to open the accordion for demo purposes
 document.getElementById("myBtn").click();
+</script>
+
+<script>
+// Accordion 
+function myAccFunc2() {
+  var x = document.getElementById("demoAcc2");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn2").click();
 </script>
 
 </body>

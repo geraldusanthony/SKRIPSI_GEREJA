@@ -52,7 +52,7 @@ tr:nth-child(even) {
   background-image: url('/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  width: 40%;
+  width: 20%;
   font-size: 14px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
@@ -65,32 +65,38 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 <body class="w3-light-grey">
     <header class="w3-container" style="padding-top:22px">
     <p><a href="/indexumat" class="w3-button w3-orange"><i class="fa fa-home"> </i>Kembali</a></p>
-    <h2><b>Data Persembahan</b></h2>
-    <h4>Berikut merupakan data persembahan umat Gereja St. Maria Assumpta Gamping</h4>
+    <h2><b>Data Persembahan Kolekte</b></h2>
+    <h4>Berikut merupakan data persembahan kolekte umat Gereja St. Maria Assumpta Gamping</h4>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari Bulan" title="Masukkan bulan">
-    </header>
     <div class="w3-row">
     </div>
         <table id="myTable" class="table, center">
         <tr>
         <th>Bulan</th> 
         <th>Tahun</th>
+        <th>Tanggal</th>   
         <th>Minggu Ke</th> 
         <th>Kolekte 1</th>
         <th>Kolekte 2</th>
         <th>Total Persembahan</th>
+        <th>Keterangan</th>
+        <th>Update Data</th>
         </tr>
         @foreach ($persembahan as $persembahan)
         <tr>
         <td>{{$persembahan->bulan}}</td> 
         <td>{{$persembahan->tahun}}</td> 
+        <td>{{$persembahan->tanggal}}</td> 
         <td>{{$persembahan->minggu}}</td> 
         <td>Rp.{{$persembahan->jumlah}}</td> 
         <td>Rp.{{$persembahan->jumlah2}}</td> 
         <td>Rp.{{$persembahan->jumlah + $persembahan->jumlah2}}</td>
+        <td>{{$persembahan->keterangan}}</td>
+        <td>{{$persembahan->updated_at}}</td> 
         @endforeach
         </tr>
         </div>
+      </div>
       </div>
   </header>
   </body>

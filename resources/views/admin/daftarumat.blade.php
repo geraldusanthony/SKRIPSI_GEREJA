@@ -51,8 +51,8 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);
 }
 
 #myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 10px;
+  background-image: url('/asset/images/searchicon.png');
+  background-position: -5px -5px;
   background-repeat: no-repeat;
   width: 40%;
   font-size: 14px;
@@ -94,7 +94,12 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="tambahumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
-    <a href="daftarumat" class="w3-bar-item w3-button w3-padding w3-orange"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
+    <a onclick="myAccFunc2()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn2"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Umat</a>
+    <div id="demoAcc2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="daftarumat" class="w3-bar-item w3-button w3-padding w3-orange"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
+      <a href="baptis" class="w3-bar-item w3-button w3-padding "><i class="fa fa-user fa-fw"></i>  Umat Belum baptis</a>
+      <a href="komuni" class="w3-bar-item w3-button w3-padding "><i class="fa fa-user fa-fw"></i>  Umat Belum Komuni</a>
+    </div>
     <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-calendar fa-fw"></i>  Tambah Jadwal Misa</a>
     <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa</a>
     <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Persembahan</a>
@@ -115,14 +120,59 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
   <header class="w3-container" style="padding-top:22px">
     <h2><b>Data Umat Paroki Santa Maria Assumpta Gamping</b></h2>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari nama umat" title="Masukkan nama umat"></input>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari Umat" title="Masukkan NIK umat"></input>
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <label><strong>Lingkungan :</strong></label>
+                <select id='status' class="form-control" style="width: 280px">
+                 <option value="">--Select Lingkungan--</option>
+                 <option value="1">St. Yohanes Pemandi Gamping lor</option>
+                 <option value="2">St. Agatha Gamping Tengah</option>
+                 <option value="3">St. Agustinus Gamping</option>
+                 <option value="4">St. Yusuf Gamping</option>
+                 <option value="5">St. Maria Fatimmah Demak Ijo</option>
+                 <option value="6">St. Ignatius Loyola Kaliabu</option>
+                 <option value="7">St. Caecilia Onggobayan</option>
+                 <option value="8">St. Antonius Mejing</option>
+                 <option value="9">St. Gregorius Mejing</option>
+                 <option value="10">St. Stefanus Mejing</option>
+                 <option value="11">St. Monica Mejing</option>
+                 <option value="12">St. Mateus Mejing</option>
+                 <option value="13">St. Paulus Sidoarum</option>
+                 <option value="14">St. Thomas Aquinas Sidoarum</option>
+                 <option value="15">St. Yustinus Martir Sidoarum</option>
+                 <option value="16">St. Anna Gesikan</option>
+                 <option value="17">St. Yoakim Gesikan</option>
+                 <option value="18">St. Hieronimus Gesikan</option>
+                 <option value="19">St. Fransiscus Asisi Pelem Hijau</option>
+                 <option value="20">St. Lucia Ngawen</option>
+                 <option value="21">St. Veronica Bantulan</option>
+                 <option value="22">St. Agustinus Gancahan</option>
+                 <option value="23">St. Petrus Gancahan</option>
+                 <option value="24">St. Tarcisius Semboh (Perak Bulus)</option>
+                 <option value="25">St. Maria Gancahan</option>
+                 <option value="26">St. Yohanes Pembaptis Sidokarto</option>
+                 <option value="27">St. Yusuf Gejawan Pasekan</option>
+                 <option value="28">St. Margareta Gejawan Puri</option>
+                 <option value="29">St. Georgius Nyamplung</option>
+                 <option value="30">St. Ludoviskus Nyamplung</option>
+                 <option value="31">St. Frans. Xaverius Sumber Gamol</option>
+                 <option value="32">St. Theodorikus Jatimas</option>
+                 <option value="33">St. Antonius Padua Jatisawit</option>
+                 <option value="34">St. Kristoforus Baleasri</option>
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="w3-row">
+      
     </div>
         <table id="myTable" class="table, center">
         <tr>
-        <th>Nama Umat</th>
-        <th>Warga Negara</th> 
         <th>NIK</th>
+        <th>Nama Umat</th>
+        <th>Warga Negara</th>        
         <th>Tanggal Lahir</th> 
         <th>Jenis Kelamin</th> 
         <th>Asal Lingkungan</th>
@@ -130,9 +180,9 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);
         </tr>
         @foreach ($umat as $umat)
         <tr>
-        <td>{{$umat->nama_umat}}</td>   
-        <td>{{$umat->warga}}</td> 
         <td>{{$umat->nik}}</td> 
+        <td>{{$umat->nama_umat}}</td>   
+        <td>{{$umat->warga}}</td>    
         <td>{{$umat->tgl_lahir}}</td> 
         <td>{{$umat->jns_kelamin}}</td>
         <td>{{$umat->ling}}</td>
@@ -166,6 +216,35 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);
     </div>  
   </div>
 
+
+  <script type="text/javascript">
+  $(function () {
+      
+    var table = $('.data-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: {
+          url: "{{ route('admin.daftarumat') }}",
+          data: function (d) {
+                d.ling = $('#ling').val(),
+                d.search = $('input[type="search"]').val()
+            }
+        },
+        columns: [
+            {data: 'nik', name: 'nik'},
+            {data: 'nama_umat', name: 'nama_umat'},
+            {data: 'tgl_lahir', name: 'tgl_lahir'},
+            {data: 'jns_kelamin', name: 'jns_kelamin'},
+            {data: 'ling', name: 'ling'},
+        ]
+    });
+  
+    $('#ling').change(function(){
+        table.draw();
+    });
+      
+  });
+</script> 
 <script>
 function myFunction() {
   var input, filter, table, tr, td, i, txtValue;
@@ -225,6 +304,21 @@ function myAccFunc() {
 
 // Click on the "Jeans" link on page load to open the accordion for demo purposes
 document.getElementById("myBtn").click();
+</script>
+
+<script>
+// Accordion 
+function myAccFunc2() {
+  var x = document.getElementById("demoAcc2");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn2").click();
 </script>
 
 </body>

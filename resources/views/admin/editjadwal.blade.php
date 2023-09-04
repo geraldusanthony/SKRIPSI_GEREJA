@@ -61,7 +61,7 @@ tr:nth-child(even) {
           {{csrf_field()}}
           <div class="form-group">
                  <label for="exampleInputEmail1">Hari </label>
-                 <input disabled class="form-control" name="hari" value="{{$jadwalmisa->hari}}">
+                 <input class="form-control" name="hari" value="{{$jadwalmisa->hari}}">
                  </input>
             </div>
             <div class="form-group">

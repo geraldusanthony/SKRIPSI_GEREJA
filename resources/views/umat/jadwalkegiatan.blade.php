@@ -54,7 +54,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
   background-image: url('/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  width: 40%;
+  width: 20%;
   font-size: 14px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
@@ -62,13 +62,12 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 }
 </style>
 </head>
-<body class="w3-light-grey">
+<body class="w3-light-yellow">
     <header class="w3-container" style="padding-top:22px">
     <p><a href="/indexumat" class="w3-button w3-orange"><i class="fa fa-home"> </i>Kembali</a></p>
     <h2><b>Jadwal Kegiatan Paroki</b></h2>
     <h4>Berikut merupakan jadwal kegiatan paroki yang akan datang</h4>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari hari kegiatan" title="Masukkan hari pelaksanaan">
-    </header>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari hari kegiatan" title="Masukkan hari pelaksanaan">  
     <div class="w3-row">
     </div>
         <table id="myTable" class="table, center">

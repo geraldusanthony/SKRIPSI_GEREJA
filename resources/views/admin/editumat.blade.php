@@ -50,21 +50,21 @@ tr:nth-child(even) {
 <body class="w3-light-grey">
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:200px;margin-top:43px;margin-right:200px">
-  <header class="w3-container" style="padding-top:22px">
+<div class="w3-main">
+  <header class="w3-container" style="margin-left:400px;margin-top:20px;margin-right:200px">
     <h2><b>Edit Data Umat</b></h2>
     <div class="modal-body">
         <form action="{{route('editumat',['id'=>$umat->id])}}" method="POST" enctype="multipart/form-data">
           {{csrf_field()}}
           <div class="form-group" style="width:60%;">
               <label for="exampleInputEmail1">Nama Umat</label>
-              <input disabled name="nama_umat"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$umat->nama_umat}}">  
+              <input name="nama_umat"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$umat->nama_umat}}">  
            </div>
            <div class="form-group" style="width:60%;">
               <label for="exampleInputEmail1">Nama Baptis : </label>
               <input name="nama_bpts" type="text" class="form-control" value="{{$umat->nama_bpts}}" id="exampleInputEmail1" aria-describedby="emailHelp">           
            </div>
-           <div class="form-group" style="width:60%;">
+           <div class="form-group" style="width:30%;">
               <label for="exampleInputEmail1">Tanggal Baptis : </label>
               <input name="tgl_bpts" type="date" class="form-control" value="{{$umat->tgl_bpts}}" id="exampleInputEmail1" aria-describedby="emailHelp">              
            </div>      
@@ -76,7 +76,7 @@ tr:nth-child(even) {
               <label for="exampleInputEmail1">Wali Baptis : </label>
               <input name="wali_bpts" type="text" class="form-control" value="{{$umat->wali_bpts}}" id="exampleInputEmail1" aria-describedby="emailHelp">                
            </div>
-           <div class="form-group" style="width:60%;">
+           <div class="form-group" style="width:30%;">
               <label for="exampleInputEmail1">Tanggal Komuni Pertama : </label>
               <input name="tgl_kp" type="date" class="form-control" value="{{$umat->tgl_kp}}" id="exampleInputEmail1" aria-describedby="emailHelp">             
            </div>
@@ -86,15 +86,15 @@ tr:nth-child(even) {
            </div>
            <div class="form-group" style="width:60%;">
                  <label for="exampleInputEmail1">Warga Negara : </label> 
-            <input disabled name="warga" type="text" class="form-control"  value="{{$umat->warga}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="warga" type="text" class="form-control"  value="{{$umat->warga}}" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="form-group" style="width:60%;">
                  <label for="exampleInputEmail1">Negara : </label>
-                 <input disabled name="negara" type="text" class="form-control"  value="{{$umat->negara}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                 <input name="negara" type="text" class="form-control"  value="{{$umat->negara}}" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
           <div class="form-group" style="width:60%;">
             <label for="exampleInputEmail1">NIK</label> 
-            <input disabled name="nik" type="text" class="form-control" value="{{$umat->nik}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="nik" type="text" class="form-control" value="{{$umat->nik}}" id="exampleInputEmail1" aria-describedby="emailHelp">
          </div>
          <div class="form-group" style="width:60%;">
             <label for="exampleInputEmail1">No. Kartu Keluarga</label> 
@@ -102,12 +102,12 @@ tr:nth-child(even) {
          </div>
          <div class="form-group" style="width:60%;">
                  <label for="exampleInputEmail1">Jenis Kelamin : </label>
-                 <input disabled name="jns_kelamin" type="text" class="form-control" value="{{$umat->jns_kelamin}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                 <input name="jns_kelamin" type="text" class="form-control" value="{{$umat->jns_kelamin}}" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="form-group" style="width:60%;">
                  <label for="exampleInputEmail1">Pilih Lingkungan </label>
                  <select class="select2 form-control" name="ling">
-                 <option></option>
+                 <option>{{$umat->ling}}</option>
                  <option>St. Yohanes Pemandi Gamping lor</option>
                  <option>St. Agatha Gamping Tengah</option>
                  <option>St. Agustinus Gamping</option>
@@ -146,16 +146,16 @@ tr:nth-child(even) {
             </div>
            <div class="form-group" style="width:30%;">
               <label for="exampleInputEmail1">Tanggal Lahir</label>
-              <input disabled name="tgl_lahir" type="date" class="form-control"  value="{{$umat->tgl_lahir}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input name="tgl_lahir" type="date" class="form-control"  value="{{$umat->tgl_lahir}}" id="exampleInputEmail1" aria-describedby="emailHelp">
            </div>
            <div class="form-group" style="width:60%;">
               <label for="exampleInputEmail1">Tempat Lahir : </label>
-              <input disabled name="tmp_lhr" type="text" class="form-control"  value="{{$umat->tmp_lhr}}" id="exampleInputEmail1" aria-describedby="emailHelp">             
+              <input name="tmp_lhr" type="text" class="form-control"  value="{{$umat->tmp_lhr}}" id="exampleInputEmail1" aria-describedby="emailHelp">             
            </div>
            <div class="form-group" style="width:60%;">
                  <label for="exampleInputEmail1">Golongan Darah : </label>
-                 <select class="form-control select2 @error('gol_darah') is-invalid @enderror" required autocomplete="gol_darah" name="gol_darah" value="{{$umat->gol_darah}}">
-                 <option></option>
+                 <select class="form-control select2 @error('gol_darah') is-invalid @enderror" required autocomplete="gol_darah" name="gol_darah">
+                 <option>{{$umat->gol_darah}}</option>
                  <option>A</option>
                  <option>B</option>
                  <option>O</option>
@@ -179,8 +179,8 @@ tr:nth-child(even) {
            </div>
            <div class="form-group" style="width:60%;">
               <label for="exampleInputEmail1">Kota / Kabupaten : </label>
-              <select class="form-control select2 @error('kota_kab') is-invalid @enderror" required autocomplete="kota_kab" name="kota_kab" value="{{$umat->kota_kab}}" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <option></option>
+              <select class="select2 form-control @error('kota_kab') is-invalid @enderror" required autocomplete="kota_kab" name="kota_kab" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <option>{{$umat->kota_kab}}</option>
                  <option>Kabupaten Sleman</option>
                  <option>Kabupaten Bantul</option>
                  <option>Kabupaten Kulon Progo</option>
@@ -195,8 +195,8 @@ tr:nth-child(even) {
            </div>
            <div class="form-group" style="width:60%;">
               <label for="exampleInputEmail1">Kecamatan : </label>
-              <select class="form-control select2 @error('kec') is-invalid @enderror" required autocomplete="kec" name="kec" value="{{$umat->kec}}" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <option></option>
+              <select class="form-control select2 @error('kec') is-invalid @enderror" required autocomplete="kec" name="kec" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <option>{{$umat->kec}}</option>
                  <option>Gamping</option>
                  <option>Godean</option>
                  </select>
@@ -235,8 +235,8 @@ tr:nth-child(even) {
            </div>
            <div class="form-group" style="width:60%;">
               <label for="exampleInputEmail1">Pendidikan Terakhir : </label>
-              <select class="form-control select2 @error('pend') is-invalid @enderror" required autocomplete="pend" name="pend" value="{{$umat->tgl_pend}}">
-              <option></option>
+              <select class="form-control select2 @error('pend') is-invalid @enderror" required autocomplete="pend" name="pend">
+              <option>{{$umat->pend}}</option>
                  <option>Lain-Lain</option>
                  <option>KB/TK</option>
                  <option>SD</option>
@@ -260,8 +260,8 @@ tr:nth-child(even) {
            </div>
            <div class="form-group" style="width:60%;">
               <label for="exampleInputEmail1">Pekerjaan : </label>
-              <select class="form-control select2 @error('pekerjaan') is-invalid @enderror" required autocomplete="pekerjaan" name="pekerjaan" value="{{$umat->tgl_pekerjaan}}">
-              <option></option>
+              <select class="form-control select2 @error('pekerjaan') is-invalid @enderror" required autocomplete="pekerjaan" name="pekerjaan">
+              <option>{{$umat->pekerjaan}}</option>
                  <option>Belum/Tidak Bekerja</option>
                  <option>Mengurus Rumah Tangga</option>
                  <option>Pelajar/Mahasiswa</option>
@@ -299,11 +299,13 @@ tr:nth-child(even) {
         <div class="modal-footer" style="width:60%;">
         <button type="submit" class="btn btn-primary w3-orange">Simpan</button>
     </form>
+    </header>
     </div> 
-  </header>
+  
 
   <script>
     $('.select2').select2();
 </script>
+
 </body>
 </html>

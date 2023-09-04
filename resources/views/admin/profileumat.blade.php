@@ -68,9 +68,14 @@
 <body>
     <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
-        <div class="col-md-3 border-right">
+        <div class="col-md-3 border-right ">
             @foreach($view_umat as $umat)
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{{asset('umat/'.$umat->images)}}"><span class="font-weight-bold">{{$umat->nama_umat}}</span><span class="text-black-50"></span><span> </span></div>
+        <div class="w3-card" style="width:100%">
+        <img src="{{asset('umat/'.$umat->images)}}" alt="Person" style="width:100%">
+        <div class="w3-container text-center d-flex flex-column ">
+        <h4><b>{{$umat->nama_umat}}</b></h4>
+    </div>
+  </div>
         </div>
         <div class="col-md-5 border-right">
             <div class="p-3">
@@ -114,7 +119,7 @@
                 <div class="col-md-12"><label class="labels">Tanggal Baptis</label><input type="text" class="form-control" value="{{$umat->tgl_bpts}}"></div>
                 <div class="col-md-12"><label class="labels">Paroki Baptis</label><input type="text" class="form-control" value="{{$umat->paroki}}"></div>
                 <div class="col-md-12"><label class="labels">Wali Baptis</label><input type="text" class="form-control" value="{{$umat->wali_bpts}}"></div>
-                <div class="col-md-12"><label class="labels">Tanggal Komuni Pertama</label><input type="text" class="form-control" value="{{$umat->tanggal_kp}}"></div>
+                <div class="col-md-12"><label class="labels">Tanggal Komuni Pertama</label><input type="text" class="form-control" value="{{$umat->tgl_kp}}"></div>
                 <div class="col-md-12"><label class="labels">Paroki Komuni Pertama</label><input type="text" class="form-control" value="{{$umat->paroki_kp}}"></div>
             </div>
         </div>

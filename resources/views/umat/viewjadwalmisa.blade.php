@@ -54,7 +54,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
   background-image: url('/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  width: 40%;
+  width: 20%;
   font-size: 14px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
@@ -67,24 +67,21 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     <p><a href="/indexumat" class="w3-button w3-orange"><i class="fa fa-home"> </i>Kembali</a></p>
     <h2><b>Jadwal Misa Gereja St. Maria Assumpta Gamping</b></h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari jadwal misa" title="Masukkan jadwal misa">
-    </header>
     <div class="w3-row">
     </div>
         <table id="myTable" class="table, center">
         <tr>
-        <th>Keterangan</th>
         <th>Hari</th>
+        <th>Keterangan</th> 
         <th>Tanggal</th> 
-        <th>Gereja</th> 
         <th>Jam</th>        
         <th>Kuota</th>
         </tr>
         @foreach ($jadwalmisa as $jadwalmisa)
         <tr>
+        <td>{{$jadwalmisa->hari}}</td> 
         <td>{{$jadwalmisa->keterangan}}</td>
-        <td>{{$jadwalmisa->hari}}</td>   
         <td>{{$jadwalmisa->tanggal}}</td> 
-        <td>{{$jadwalmisa->gereja}}</td> 
         <td>{{$jadwalmisa->jam}}</td> 
         <td>{{$jadwalmisa->kuota}}</td> 
         @endforeach

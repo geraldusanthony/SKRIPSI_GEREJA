@@ -42,13 +42,13 @@ p{
 			<tr>
             <th>Tanggal</th>
             <th>Tahun</th> 
-            <th>Keterangan Persembahan</th>
+            <th>Keterangan</th>
             <th>Nama Lingkungan</th> 
             <th>Jumlah</th>
 			</tr>
 		</thead>
 		<tbody>
-        @foreach ($persembahanling as $persembahanling)  
+        @foreach ($persembahanling as $persembahanling)
             <tr>
             <td>{{$persembahanling->tanggal}}</td>   
             <td>{{$persembahanling->tahun}}</td> 

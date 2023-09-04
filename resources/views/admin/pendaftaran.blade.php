@@ -48,8 +48,8 @@ tr:nth-child(even) {
 tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 
 #myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 10px;
+  background-image: url('/asset/images/searchicon.png');
+  background-position: -5px -5px;
   background-repeat: no-repeat;
   width: 40%;
   font-size: 14px;
@@ -90,7 +90,12 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="tambahumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
-    <a href="daftarumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
+    <a onclick="myAccFunc2()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn2"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Umat</a>
+    <div id="demoAcc2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="daftarumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
+      <a href="baptis" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw"></i>  Umat Belum baptis</a>
+      <a href="komuni" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw"></i>  Umat Belum Komuni</a>
+    </div>
     <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding "><i class="fa fa-calendar fa-fw"></i>  Tambah Jadwal Misa</a>
     <a href="pendaftaran" class="w3-bar-item w3-button w3-padding w3-orange"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa</a>
     <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Persembahan</a>
@@ -163,7 +168,6 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
   
 </div>
 
-//search bar
 <script>
 function myFunction() {
   var input, filter, table, tr, td, i, txtValue;
@@ -223,6 +227,21 @@ function myAccFunc() {
 
 // Click on the "Jeans" link on page load to open the accordion for demo purposes
 document.getElementById("myBtn").click();
+</script>
+
+<script>
+// Accordion 
+function myAccFunc2() {
+  var x = document.getElementById("demoAcc2");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn2").click();
 </script>
 
 </body>

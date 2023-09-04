@@ -8,6 +8,7 @@ use App\Models\persembahan;
 use App\Models\pendaftaran;
 use App\Models\jadwalkegiatan;
 use App\Models\umat;
+use App\Models\persembahanling;
 
 class Umat_Controller extends Controller
 {
@@ -31,7 +32,8 @@ class Umat_Controller extends Controller
 
     public function viewpersembahan(request $request){
         $persembahan = persembahan::all();
-        return view('umat.persembahan',compact('persembahan'));
+        $persembahanling = persembahanling::all();
+        return view('umat.persembahan',compact('persembahan','persembahanling'));
     }
 
     public function viewkegiatan(request $request){
@@ -53,7 +55,10 @@ class Umat_Controller extends Controller
         return view('umat.home');
     }
 
-
+    public function pilihjadwal(request $request){
+        $jadwalmisa = jadwalmisa::all();
+        return view('umat.pilihjadwal',compact('jadwalmisa'));
+    }
 
 
 }

@@ -57,6 +57,10 @@ tr:nth-child(even) {
         <form action="{{route('editpersembahan',['id'=>$persembahan->id])}}" method="GET">
           {{csrf_field()}}
           <div class="form-group">
+              <label for="exampleInputEmail1">Tanggal</label>
+              <input name="tanggal" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$persembahan->tanggal}}" disabled>
+           </div>
+          <div class="form-group">
                  <label for="exampleInputEmail1">Tahun </label>
                  <input class="select2 form-control" name="tahun" value="{{$persembahan->tahun}}" disabled>
                  </input>
@@ -81,13 +85,14 @@ tr:nth-child(even) {
            </div>
            <div class="form-group">
               <label for="exampleInputEmail1">Keterangan</label>
-              <input name="keterangan"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$persembahan->keterangan}}" disabled>
+              <input name="keterangan"type="" class="select2 form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$persembahan->keterangan}}" disabled>
            </div>
         </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary w3-orange">Simpan</button>
     </form>
     </div> 
+</header>
   
 
 <script>

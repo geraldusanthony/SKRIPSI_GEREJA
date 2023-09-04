@@ -12,6 +12,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -45,9 +49,10 @@ tr:nth-child(even) {
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-<div class="w3-main" style="margin-left:200px;margin-top:43px;margin-right:200px">
+<div class="w3-main" style="margin-left:450px;margin-top:30px;margin-right:450px">
   <header class="w3-container" style="padding-top:22px">
     <h2><b>Edit Data Jadwal Kegiatan Paroki</b></h2>
+    <p>Berikut halaman untuk melakukan edit pada jadwal kegiatan Paroki St. Maria Assumpta Gamping</p>
     <div class="modal-body">
         <form action="{{route('editjadwalkegiatan',['id'=>$jadwalkegiatan->id])}}" method="GET">
           {{csrf_field()}}
@@ -74,8 +79,9 @@ tr:nth-child(even) {
             </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary w3-orange">Simpan</button>
-    </form>
-    </div> 
+        </form>  
+      </div> 
+      
   </header>
   
   

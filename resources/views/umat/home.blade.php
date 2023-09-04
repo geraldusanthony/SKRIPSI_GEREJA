@@ -39,17 +39,15 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 </style>
 </head>
-<body class="w3-white">
 
-  <!-- About Section -->
+<body class="w3-light-gray"> 
   <div class="w3-content w3-justify w3-text-black" id="about">
+  <header class="w3-container" style="margin-left:150px;margin-right:150px">
     <h2 class="w3-text-light-black">Ayo Daftar Misa</h2> 
     <hr style="width:240px" class="w3-opacity">
     <p>Silahkan isi form dibawah ini : </p>
     <p>Sebelum mengikuti misa, seluruh umat diwajibkan untuk mengisi segala bentuk informasi yang dibutuhkan secara <b>JUJUR dan AKURAT</b>. 
-        Seluruh informasi dalam proses pendaftaran akan tersimpan kedalam database yang dimiliki dan dikelola oleh pihak gereja.</p>
-      
-  <header class="w3-container">
+        Seluruh informasi dalam proses pendaftaran akan tersimpan kedalam database yang dimiliki dan dikelola oleh pihak gereja.</p> 
     <div class="modal-body">
         <form action="/addpendaftaran" method="POST">
           {{csrf_field()}}
@@ -67,8 +65,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                 	<strong>{{ $message }}</strong>
                 </span>
                 @enderror
-            </div>
-            
+            </div>          
             <div class="form-group">
             <label for="exampleInputEmail1">Nama Umat (Isi sesuai KTP)</label>
             <input id="exampleInputEmail1" type="" placeholder="" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autocomplete="nama" autofocus />
@@ -78,7 +75,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                 </span>
             @enderror
            </div>
-
             <div class="form-group">
               <label for="exampleInputEmail1">No Handphone</label>
               <input id="exampleInputEmail1" type="number" placeholder="" class="form-control @error('nama') is-invalid @enderror" name="no_hp" value="{{ old('no_hp') }}" required autocomplete="no_hp" autofocus />
@@ -88,7 +84,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                 </span>
             @enderror
            </div>
-
            <div class="form-group">
               <label for="exampleInputEmail1">Alamat Lengkap (Sesuai domisili saat ini)</label>
               <input id="exampleInputEmail1" type="" placeholder="" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" required autocomplete="alamat" autofocus />
@@ -98,7 +93,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                 </span>
               @enderror
            </div>
-
            <div class="form-group">
                  <label for="exampleInputEmail1">Jenis Kelamin </label>
                  <div>
@@ -108,7 +102,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                   <label for="">Perempuan</label>
                  </div>
            </div>
-
             <div class="form-group">
                  <label for="exampleInputEmail1">Usia </label><br>
                  <input type="radio" id="" name="usia" value="Bawah 13 Tahun" class=" @error('') is-invalid @enderror" name="" value="" required autocomplete="" autofocus />
@@ -123,8 +116,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                  <label for="">51-60 Tahun</label><br>
                  <input type="radio" id="" name="usia" value="Di atas 60 Tahun" />
                  <label for="">Di atas 60 Tahun</label>
-            </div>
-            
+            </div>           
             <div class="form-group">
                  <label for="exampleInputEmail1">Pilih Asal Lingkungan </label>
                  <select class="form-control select2" name="lingkungan" class="form-control @error('lingkungan') is-invalid @enderror" name="lingkungan" value="{{ old('lingkungan') }}" required autocomplete="lingkungan" autofocus />             
@@ -170,8 +162,19 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                 </span>
                 @enderror
             </div>
-         </div>
-
+            <div class="form-group">
+                 <label for="exampleInputEmail1">Pilih Tempat Duduk </label>
+                 <div>
+                  <input type="radio" id="" name="duduk" value="Gedung Utama" class=" @error('') is-invalid @enderror" required autocomplete="" autofocus />
+                  <label for="">Gedung Utama</label><br>
+                  <input type="radio" id="" name="duduk" value="Sayap Utara" />
+                  <label for="">Sayap Utara</label>
+                  <div>
+                  <input type="radio" id="" name="duduk" value="Sayap Selatan" />
+                  <label for="">Sayap Selatan</label>
+                  </div>
+                 </div>
+                 </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary w3-orange">DAFTAR</button>
       </form>

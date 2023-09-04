@@ -14,7 +14,7 @@
 td{
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 8px;
+ 
   text-align: center;
 }
 
@@ -35,7 +35,7 @@ p{
 }
 	</style>
       
-    <h4>Data Kolekte Persembahan Umat</h4>
+    <h4>Data Jadwal Misa</h4>
     <P>Gereja Santa Maria Assumpta Gamping</P>
 	<table class='table table-bordered'>
 		<thead>
