@@ -63,11 +63,10 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 <body class="w3-light-grey">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-white w3-large" style="z-index:4">
+<div class="w3-bar w3-top w3-orange w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">
-     <img src="asset\images\logo2.jpg" class="w3-circle" style="width:70px">
-     <span class="w3-bar-item w3-right">Data Umat St Maria Assumpta Gamping</span>
+  <span class="">
+  <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:10%;"></img>
   </span>
 </div>
 
@@ -125,10 +124,6 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <tr>
         <th>Jadwal Misa</th>
         <th>Nama Lengkap</th> 
-        <th>No Handphone</th> 
-        <th>Alamat Lengkap</th>
-        <th>Jenis Kelamin</th>
-        <th>Usia</th>
         <th>Asal Lingkungan</th>
         <th>Tempat Duduk</th>
         <th>Aksi</th>
@@ -137,10 +132,6 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <tr>
         <td>{{$daftarmisa->jadwal}}</td>
         <td>{{$daftarmisa->nama}}</td> 
-        <td>{{$daftarmisa->no_hp}}</td> 
-        <td>{{$daftarmisa->alamat}}</td> 
-        <td>{{$daftarmisa->jns_klmn}}</td> 
-        <td>{{$daftarmisa->usia}}</td> 
         <td>{{$daftarmisa->lingkungan}}</td> 
         <td>{{$daftarmisa->duduk}}</td> 
         <td><a href="/deletependaftaran/{{$daftarmisa->id}}" class="btn fa fa-trash w3-orange"></a></td>

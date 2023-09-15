@@ -43,14 +43,16 @@
 </style>
 </head>
 <body>
-
+<div class="w3-bar w3-white w3-border-bottom w3-xxlarge w3-card">
+  <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:12%;"></img>
+</div>
 @foreach ($jadwalmisa as $jadwalmisa)
 <div class="w3-col l3 m6 w3-margin-top ">
 <div class="card">
-  <img class="w3-round-large"src="asset/images/foto3.jpg" alt="Denim Jeans" style="width:100%">
+  <img class="w3-round-large"src="asset/images/gamping.png" alt="Denim Jeans" style="width:52%">
   <h4>{{$jadwalmisa->hari}}, {{$jadwalmisa->tanggal}}</h4>
   <p class="price">{{$jadwalmisa->keterangan}} - {{$jadwalmisa->jam}}</p>
-  <p><button>PILIH JADWAL</button></p>
+  <p><a href="/lihatjadwal/{{$jadwalmisa->id}}" class="w3-button w3-black w3-block w3-round-large">PILIH JADWAL</a></p>
 </div>
 </div>
 @endforeach

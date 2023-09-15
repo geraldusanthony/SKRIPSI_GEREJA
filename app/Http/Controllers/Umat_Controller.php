@@ -60,5 +60,9 @@ class Umat_Controller extends Controller
         return view('umat.pilihjadwal',compact('jadwalmisa'));
     }
 
+    public function lihatjadwal($id){
+        $jadwalmisa = jadwalmisa::where('id',$id)->get();
+        return view('umat.daftarmisa',compact('jadwalmisa'));
+    }
 
 }

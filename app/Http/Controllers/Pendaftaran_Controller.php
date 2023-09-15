@@ -23,8 +23,8 @@ class Pendaftaran_Controller extends Controller
         return redirect('validasi')->with('sukses','Data Telah Di Tambah!');   
     }
 
-    public function datamisa(){
-        $daftarmisa = pendaftaran::all();
+    public function validasi($id){
+        $daftarmisa = pendaftaran::where('id',$id)->get();
         return view('umat.validasi',compact('daftarmisa'));
     }
     

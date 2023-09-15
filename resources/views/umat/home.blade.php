@@ -41,6 +41,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 </head>
 
 <body class="w3-light-gray"> 
+<div class="w3-bar w3-white w3-border-bottom w3-xxlarge w3-card">
+  <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:12%;"></img>
+</div>
   <div class="w3-content w3-justify w3-text-black" id="about">
   <header class="w3-container" style="margin-left:150px;margin-right:150px">
     <h2 class="w3-text-light-black">Ayo Daftar Misa</h2> 
@@ -57,7 +60,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                  <select name="jadwal" class="form-control select2 @error('jadwal') is-invalid @enderror" name="jadwal" value="{{ old('jadwal')}}" required autocomplete="jadwal" autofocus />>
                  <option></option>
                  @foreach($jadwalmisa as $jadwalmisa)
-                 <option>{{$jadwalmisa->keterangan}} - Hari : {{$jadwalmisa->hari}} Tanggal : {{$jadwalmisa->tanggal}} Jam : {{$jadwalmisa->jam}} </option>
+                 <option>{{$jadwalmisa->keterangan}} - Hari : {{$jadwalmisa->hari}}, Tanggal : {{$jadwalmisa->tanggal}}, Jam : {{$jadwalmisa->jam}} </option>
                  @endforeach
                  </select>                 
                  @error('jadwal')
@@ -118,44 +121,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                  <label for="">Di atas 60 Tahun</label>
             </div>           
             <div class="form-group">
-                 <label for="exampleInputEmail1">Pilih Asal Lingkungan </label>
-                 <select class="form-control select2" name="lingkungan" class="form-control @error('lingkungan') is-invalid @enderror" name="lingkungan" value="{{ old('lingkungan') }}" required autocomplete="lingkungan" autofocus />             
-                 <option></option>
-                 <option>St. Yohanes Pemandi Gamping lor</option>
-                 <option>St. Agatha Gamping Tengah</option>
-                 <option>St. Agustinus Gamping</option>
-                 <option>St. Yusuf Gamping</option>
-                 <option>St. Maria Fatimmah Demak Ijo</option>
-                 <option>St. Ignatius Loyola Kaliabu</option>
-                 <option>St. Caecilia Onggobayan</option>
-                 <option>St. Antonius Mejing</option>
-                 <option>St. Gregorius Mejing</option>
-                 <option>St. Stefanus Mejing</option>
-                 <option>St. Monica Mejing</option>
-                 <option>St. Mateus Mejing</option>
-                 <option>St. Paulus Sidoarum</option>
-                 <option>St. Thomas Aquinas Sidoarum</option>
-                 <option>St. Yustinus Martir Sidoarum</option>
-                 <option>St. Anna Gesikan</option>
-                 <option>St. Yoakim Gesikan</option>
-                 <option>St. Hieronimus Gesikan</option>
-                 <option>St. Fransiscus Asisi Pelem Hijau</option>
-                 <option>St. Lucia Ngawen</option>
-                 <option>St. Veronica Bantulan</option>
-                 <option>St. Agustinus Gancahan</option>
-                 <option>St. Petrus Gancahan</option>
-                 <option>St. Tarcisius Semboh (Perak Bulus)</option>
-                 <option>St. Maria Gancahan</option>
-                 <option>St. Yohanes Pembaptis Sidokarto</option>
-                 <option>St. Yusuf Gejawan Pasekan</option>
-                 <option>St. Margareta Gejawan Puri</option>
-                 <option>St. Georgius Nyamplung</option>
-                 <option>St. Ludoviskus Nyamplung</option>
-                 <option>St. Frans. Xaverius Sumber Gamol</option>
-                 <option>St. Theodorikus Jatimas</option>
-                 <option>St. Antonius Padua Jatisawit</option>
-                 <option>St. Kristoforus Baleasri</option>
-                 </select>
+                 <label for="exampleInputEmail1">Asal Lingkungan </label>
+                 <input class="form-control" name="lingkungan" class="form-control @error('lingkungan') is-invalid @enderror" name="lingkungan" value="{{ old('lingkungan') }}" required autocomplete="lingkungan" autofocus />             
                  @error('lingkungan')
                 <span class="invalid-feedback" role="alert" >
                 	<strong>{{ $message }}</strong>

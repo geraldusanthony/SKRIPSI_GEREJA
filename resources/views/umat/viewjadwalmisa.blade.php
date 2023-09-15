@@ -63,8 +63,11 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 </style>
 </head>
 <body class="w3-light-grey">
+<div class="w3-bar w3-white w3-border-bottom w3-xxlarge w3-card">
+  <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:12%;"></img>
+</div>
     <header class="w3-container" style="padding-top:22px">
-    <p><a href="/indexumat" class="w3-button w3-orange"><i class="fa fa-home"> </i>Kembali</a></p>
+    <p><a href="/indexumat" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
     <h2><b>Jadwal Misa Gereja St. Maria Assumpta Gamping</b></h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari jadwal misa" title="Masukkan jadwal misa">
     <div class="w3-row">

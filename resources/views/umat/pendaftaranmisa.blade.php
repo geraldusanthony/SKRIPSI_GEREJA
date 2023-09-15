@@ -63,8 +63,11 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 </style>
 </head>
 <body class="w3-light-grey">
+<div class="w3-bar w3-white w3-border-bottom w3-xxlarge w3-card">
+  <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:12%;"></img>
+</div>
     <header class="w3-container" style="padding-top:22px">
-    <p><a href="/indexumat" class="w3-button w3-orange"><i class="fa fa-home"> </i>Kembali</a></p>
+    <p><a href="/indexumat" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
     <h2><b>Data umat yang telah mendaftar misa</b></h2>
     <h4>Berikut merupakan data umat yang telah mendaftarkan diri untuk mengikuti misa sesuai jadwal</h4>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari..." title="Masukkan hari pelaksanaan">
@@ -75,10 +78,6 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <tr>
         <th>Nama Lengkap</th> 
         <th>Jadwal Misa</th>
-        <th>No Handphone</th> 
-        <th>Alamat Lengkap</th>
-        <th>Jenis Kelamin</th>
-        <th>Usia</th>
         <th>Asal Lingkungan</th>
         <th>Tempat Duduk</td>
         </tr>
@@ -86,10 +85,6 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <tr>
         <td>{{$daftarmisa->nama}}</td> 
         <td>{{$daftarmisa->jadwal}}</td>  
-        <td>{{$daftarmisa->no_hp}}</td> 
-        <td>{{$daftarmisa->alamat}}</td> 
-        <td>{{$daftarmisa->jns_klmn}}</td> 
-        <td>{{$daftarmisa->usia}}</td> 
         <td>{{$daftarmisa->lingkungan}}</td> 
         <td>{{$daftarmisa->duduk}}</td> 
         @endforeach

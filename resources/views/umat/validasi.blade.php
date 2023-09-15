@@ -15,7 +15,7 @@
     body {font-family: "Open Sans"}
     
     body {
-	  background: linear-gradient(to left, orange, #FF416C);
+	  /* background: linear-gradient(to left, orange, #FF416C); */
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -24,25 +24,46 @@
 	  height: 96vh;
 	  margin: -20px 0 50px;
     }
+
+    .container {
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px;
+}
+
+.select2-container .select2-selection--single{
+    height:34px !important;
+}
+.select2-container--default .select2-selection--single{
+         border: 1px solid #ccc !important; 
+     border-radius: 0px !important; 
+}
+* {
+  box-sizing: border-box;
+}
     
 </style>
 </head>
 <body class="w3-light-grey">
-<div class="body" style="padding:160px 16px">
+@foreach ($daftarmisa as $daftarmisa)
+<div class="container w3-card">
+<div class="body" style="padding:40px 10px">
   <div class="w3-row-padding" >
     <div class="w3-col m6">
       <h1>Terimakasih telah melakukan pendaftaran misa.</h1>
       <h3>Silahkan datang sesuai dengan <b>JADWAL</b> yang telah dipilih<br>
       <h3>Tuhan Yesus Memberkati </h3>
       <br></br>
-      <h3>Silahkan lihat detail pendaftaran pada bagian</h3> 
-      <h3><b>PNGUMUMAN Pendaftaran Misa</b></h3>
-      <p><a href="/viewpendaftaranmisa" class="w3-button w3-orange"><i class="fa fa-eye"> KLIK DISINI</i></a></p>
+      <h3>{{$daftarmisa->nama}}, {{$daftarmisa->lingkungan}}</h3> 
+      <h3>{{$daftarmisa->jadwal}}</h3> 
+      <p><a href="/viewpendaftaranmisa" class="w3-button w3-orange"><i class="fa fa-download"> Download</i></a></p>
     </div>
     <div class="w3-col m6">
-      <img class="w3-image w3-round-large" src="asset\images\foto.webp" alt="" width="700" height="394">
+      <img class="w3-image w3-round-large" src="http://127.0.0.1:8000/asset/images/gamping.png" alt="" width="410" height="410">
     </div>
   </div>
 </div>
+</div>
+@endforeach
 </body>
 </html>

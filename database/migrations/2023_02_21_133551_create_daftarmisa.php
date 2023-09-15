@@ -17,10 +17,10 @@ return new class extends Migration
             $table->increments('id');
             $table->string('jadwal');
             $table->string('nama');
-            $table->string('no_hp');
-            $table->string('alamat');
-            $table->string('jns_klmn');
-            $table->string('usia');
+            $table->string('no_hp')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('jns_klmn')->nullable();
+            $table->string('usia')->nullable();
             $table->string('lingkungan');
             $table->string('duduk');
             $table->timestamps();

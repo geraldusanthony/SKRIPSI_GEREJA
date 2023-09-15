@@ -46,7 +46,7 @@ Route::get('/komuni','Daftarumat_Controller@komuni');
 Route::get('/jadwalmisa','Jadwalmisa_Controller@jadwalmisa'); 
 Route::post('/addjadwalmisa','Jadwalmisa_Controller@addjadwalmisa');
 route::get('/deletejadwal/{id}','Jadwalmisa_Controller@deletejadwal');
-route::get('/viewdata/{id}','Jadwalmisa_Controller@findjadwal');
+route::get('/viewdatamisa/{id}','Jadwalmisa_Controller@findjadwal');
 route::get('/editjadwal/{id}','Jadwalmisa_Controller@editjadwal')->name('editjadwal');
 route::get('/cetakjadwalmisa_pdf','Jadwalmisa_Controller@cetakjadwalmisa_pdf');
 
@@ -77,8 +77,7 @@ route::get('/viewdatakegiatan/{id}','Jadwalkegiatan_Controller@findjadwalkegiata
 route::get('/editjadwalkegiatan{id}','Jadwalkegiatan_Controller@editjadwalkegiatan')->name('editjadwalkegiatan');
 
 Route::get('/datamisaumat','Pendaftaran_Controller@datamisaumat'); 
-
-Route::get('/validasi','Pendaftaran_Controller@datamisa'); 
+Route::get('/validasi/{id}','Pendaftaran_Controller@validasi'); 
 Route::get('/pendaftaranmisa','Pendaftaran_Controller@homeumat'); 
 Route::post('/addpendaftaran','Pendaftaran_Controller@addpendaftaran');  
 route::get('/deletependaftaran/{id}','Pendaftaran_Controller@deletependaftaran');
@@ -92,6 +91,7 @@ Route::get('/viewkegiatan','Umat_Controller@viewkegiatan');
 Route::get('/viewjadwalmisa','Umat_Controller@viewjadwalmisa');
 Route::get('/viewpendaftaranmisa','Umat_Controller@viewpendaftaranmisa');
 Route::get('/pilihjadwal','Umat_Controller@pilihjadwal');
+Route::get('/lihatjadwal/{id}','Umat_Controller@lihatjadwal');
 
 // Route::group(['namespace' => 'App\Http\Controllers'], function()
 // {   

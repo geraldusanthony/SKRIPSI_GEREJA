@@ -9,13 +9,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+html,body,h1,h2,h3,h4,h5 {font-family: "raleway", sans-serif}
 
 .w3-sidebar {
   z-index: 3;
   width: 250px;
   top: 43px;
-  bottom: 0;
+  bottom: 0; 
   height: inherit;
 }
 
@@ -36,14 +36,13 @@ tr:nth-child(even) {
 }
 </style>
 </head>
-<body class="w3-orange">
+<body class="w3-light-gray">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-white w3-large" style="z-index:4">
+<div class="w3-bar w3-top w3-orange w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">
-     <img src="asset\images\logo2.jpg" class="w3-circle" style="width:70px">
-     <span class="w3-bar-item w3-right">Data Umat St Maria Assumpta Gamping</span>
+  <span class="">
+     <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:10%;"></img>
   </span>
 </div>
 
@@ -99,7 +98,7 @@ tr:nth-child(even) {
     <body onload="startTime()">
       <h2><div id="txt"></div></h2>
   </header>
-
+  
   <script>
     function startTime() {
     const today = new Date();

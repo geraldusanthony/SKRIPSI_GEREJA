@@ -60,6 +60,19 @@ tr:nth-child(even) {
               <label for="exampleInputEmail1">Nama Umat</label>
               <input name="nama_umat"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$umat->nama_umat}}">  
            </div>
+           <div class="form-group">
+                 <label for="exampleInputEmail1">Baptis : </label>
+                 <div>
+                 <input type="radio" id="" name="baptis" value="sudah" class=" @error('') is-invalid @enderror"  required autocomplete="" autofocus />
+                  <label for="">Sudah</label><br>
+                  <input type="radio" id="" name="baptis" value="belum"/>
+                  <label for="">Belum</label>
+                @error('baptis')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
            <div class="form-group" style="width:60%;">
               <label for="exampleInputEmail1">Nama Baptis : </label>
               <input name="nama_bpts" type="text" class="form-control" value="{{$umat->nama_bpts}}" id="exampleInputEmail1" aria-describedby="emailHelp">           
@@ -76,6 +89,19 @@ tr:nth-child(even) {
               <label for="exampleInputEmail1">Wali Baptis : </label>
               <input name="wali_bpts" type="text" class="form-control" value="{{$umat->wali_bpts}}" id="exampleInputEmail1" aria-describedby="emailHelp">                
            </div>
+           <div class="form-group">
+                 <label for="exampleInputEmail1">Komuni Pertama: </label>
+                 <div>
+                 <input type="radio" id="" name="komuni" value="sudah" class=" @error('') is-invalid @enderror"  required autocomplete="" autofocus />
+                  <label for="">Sudah</label><br>
+                  <input type="radio" id="" name="komuni" value="belum"/>
+                  <label for="">Belum</label>
+                @error('komuni')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
            <div class="form-group" style="width:30%;">
               <label for="exampleInputEmail1">Tanggal Komuni Pertama : </label>
               <input name="tgl_kp" type="date" class="form-control" value="{{$umat->tgl_kp}}" id="exampleInputEmail1" aria-describedby="emailHelp">             
