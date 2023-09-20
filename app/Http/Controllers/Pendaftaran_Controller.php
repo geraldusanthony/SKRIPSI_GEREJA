@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\pendaftaran;
 use App\Models\persembahan;
 use App\Models\jadwalmisa;
+use PDF;
 
 
 
@@ -27,7 +28,7 @@ class Pendaftaran_Controller extends Controller
         $daftarmisa = pendaftaran::where('id',$id)->get();
         return view('umat.validasi',compact('daftarmisa'));
     }
-    
+     
     public function deletependaftaran($id){
         pendaftaran::where('id',$id)->delete();
         return redirect()->back();
@@ -47,5 +48,10 @@ class Pendaftaran_Controller extends Controller
         return view('admin.datamisa',compact('daftarmisa'));
     }
     
+    public function downloaddata($id){
+        $daftarmisa = pendaftaran::where('id',$id)->get();
+        $pdf = PDF::loadview('cetak.validasimisa_pdf',['daftarmisa'=>$daftarmisa]);
+    	return $pdf->stream();  
+    }
 
 }

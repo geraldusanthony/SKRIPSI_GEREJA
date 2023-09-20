@@ -63,10 +63,10 @@ body { background: #FFF; border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0,
 header { margin: 0 0 3em; }
 header:after { clear: both; content: ""; display: table; }
 
-header h1 { background: orange; border-radius: 0.25em; color: black; margin: 0 0 1em; padding: 0.5em 0; }
+header h1 { background: white; border-radius: 0.25em; color: black; margin: 0 0 1em; padding: 0.5em 0; }
 header address { float: left; font-size: 90%; font-style: normal; line-height: 1.25; margin: 0 1em 1em 0; }
 header address p {margin: 0 0 0.25em;  }
-header span, header img { display: block; float: right; }
+header span, header img { display: block; float: left; }
 header span { margin: 0 0 1em 1em; max-height: 25%; max-width: 60%; position: relative; }
 header img { max-height: 100%; max-width: 100%; }
 header input { cursor: pointer; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; height: 100%; left: 0; opacity: 0; position: absolute; top: 0; width: 100%; }
@@ -155,10 +155,12 @@ tr:hover .cut { opacity: 1; }
 }
 
 @page { margin: 0; }
+
         </style>
 	<body>
 	@foreach ($view_data as $persembahanling)
 		<header>
+		<img src="asset/images/logogerejabaru.jpg" width="180"><img>
 			<h1>Bukti Penyerahan Persembahan Lingkungan</h1>
 			<address contenteditable>
 				<p>Gereja St. Maria Assumpta Gamping</p>

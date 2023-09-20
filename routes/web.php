@@ -77,10 +77,11 @@ route::get('/viewdatakegiatan/{id}','Jadwalkegiatan_Controller@findjadwalkegiata
 route::get('/editjadwalkegiatan{id}','Jadwalkegiatan_Controller@editjadwalkegiatan')->name('editjadwalkegiatan');
 
 Route::get('/datamisaumat','Pendaftaran_Controller@datamisaumat'); 
-Route::get('/validasi/{id}','Pendaftaran_Controller@validasi'); 
+Route::get('/validasi/{id}','Pendaftaran_Controller@validasi');
 Route::get('/pendaftaranmisa','Pendaftaran_Controller@homeumat'); 
 Route::post('/addpendaftaran','Pendaftaran_Controller@addpendaftaran');  
 route::get('/deletependaftaran/{id}','Pendaftaran_Controller@deletependaftaran');
+Route::get('/downloaddata/{id}','Pendaftaran_Controller@downloaddata');
 
 // Halaman Umat 
 Route::get('/indexumat','Umat_Controller@indexumat');

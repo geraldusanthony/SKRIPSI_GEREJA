@@ -52,14 +52,14 @@
     <div class="w3-col m6">
       <h1>Terimakasih telah melakukan pendaftaran misa.</h1>
       <h3>Silahkan datang sesuai dengan <b>JADWAL</b> yang telah dipilih<br>
-      <h3>Tuhan Yesus Memberkati </h3>
-      <br></br>
-      <h3>{{$daftarmisa->nama}}, {{$daftarmisa->lingkungan}}</h3> 
-      <h3>{{$daftarmisa->jadwal}}</h3> 
-      <p><a href="/viewpendaftaranmisa" class="w3-button w3-orange"><i class="fa fa-download"> Download</i></a></p>
+      <h3>Tuhan Yesus Memberkati</h3>
+      <br>
+      <h4>{{$daftarmisa->nama}} ({{$daftarmisa->lingkungan}})</h4>
+      <h4>{{$daftarmisa->jadwal}}</h4> 
+      <p><a href="/downloaddata/{{$daftarmisa->id}}" class="w3-button w3-orange"><i class="fa fa-download"> Download</i></a></p>
     </div>
     <div class="w3-col m6">
-      <img class="w3-image w3-round-large" src="http://127.0.0.1:8000/asset/images/gamping.png" alt="" width="410" height="410">
+      <img class="w3-image w3-round-large w3-right" src="http://127.0.0.1:8000/asset/images/gamping.png" alt="" width="400" height="400">
     </div>
   </div>
 </div>

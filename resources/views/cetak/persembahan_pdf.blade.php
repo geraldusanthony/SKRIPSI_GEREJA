@@ -19,7 +19,7 @@ td{
 }
 
 th{
-  background-color: orange;
+  background-color: white;
   border: 1px solid #dddddd;
   text-align: center;
   padding: 8px;
