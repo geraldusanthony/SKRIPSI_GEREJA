@@ -23,7 +23,8 @@ class Umat_Controller extends Controller
     }
 
     public function indexumat(){
-        return view('umat.index');
+        $user = auth()->user();
+        return view('umat.index',compact('user'));
     }
 
     public function loginumat(){
@@ -57,12 +58,14 @@ class Umat_Controller extends Controller
 
     public function pilihjadwal(request $request){
         $jadwalmisa = jadwalmisa::all();
-        return view('umat.pilihjadwal',compact('jadwalmisa'));
+        $daftarmisa = pendaftaran::all();
+        return view('umat.pilihjadwal',compact('jadwalmisa' , 'daftarmisa'));
     }
 
     public function lihatjadwal($id){
         $jadwalmisa = jadwalmisa::where('id',$id)->get();
-        return view('umat.daftarmisa',compact('jadwalmisa'));
+        $umat = umat::all();
+        return view('umat.daftarmisa',compact('jadwalmisa','umat'));
     }
 
 }

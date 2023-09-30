@@ -69,7 +69,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     <header class="w3-container" style="padding-top:22px">
     <p><a href="/indexumat" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
     <h2><b>Jadwal Misa Gereja St. Maria Assumpta Gamping</b></h2>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari jadwal misa" title="Masukkan jadwal misa">
+    <input class="w3-round-large" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari jadwal misa" title="Masukkan jadwal misa">
     <div class="w3-row">
     </div>
         <table id="myTable" class="table, center">

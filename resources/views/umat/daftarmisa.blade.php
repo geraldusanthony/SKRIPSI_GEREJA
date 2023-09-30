@@ -106,6 +106,7 @@ input[type=submit]:hover {
     <div class="w3-panel w3-padding-16 w3-white w3-card w3-hover-opacity-off">
     <div class="container">
     <div class="row">
+    <input type="text" name="misa_id" value="{{$jadwalmisa->id}}"/>
     <h2>{{$jadwalmisa->keterangan}} {{$jadwalmisa->tanggal}}</h2>
     <br>
       <div class="col-25">
@@ -161,7 +162,12 @@ input[type=submit]:hover {
         <label for="lname">Nama :</label>
       </div>
       <div class="col-75">
-        <input type="text" id="lname" name="nama" placeholder="Masukkan Nama . .">
+      @foreach ($umat as $umat)
+        <select class=" select2 @error('nama') is-invalid @enderror" required autocomplete="nama" type="select2" id="nama" name="nama">
+          <option></option>
+          <option>{{$umat->nama_umat}}</option>
+        </select>
+      @endforeach
       </div>
     </div>
     <div class="row">
@@ -190,9 +196,9 @@ input[type=submit]:hover {
     <div class="col-25">
     <button type="submit" class="btn btn-primary w3-orange w3-center">DAFTAR</button>
     </div>
+    @endforeach
   </form>
 </div>
-  @endforeach
   <script>
 // Tabs
 function openLink(evt, linkName) {

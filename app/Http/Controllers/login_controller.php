@@ -40,64 +40,72 @@ class login_controller extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-        $user=User::where('email',$request->email)->first();
-        if(isset($user)){
-            switch ($user->role_id) {
-                case '1':
-                    $guard="Admin";
-                    break;
-                case '2':
-                    $guard="Umat";
-                    break;
+        $userr=User::where('email',$request->email)->first();
+        if(isset($userr)){
+            // switch ($userr->role_id) {
+            //     case '1':
+            //          $guard="admin";
+            //         break;
+            //     case '2':
+            //         $guard="umat";
+            //         break;
+            // }
+            if($userr->role_id == '1'){
+                $guard='admin';
+            }elseif($userr->role_id == '2'){
+                $guard='umat';
             }
-            if(auth()->guard($guard)->attempt([
+            // ->guard($guard)
+            if(auth()->attempt([
                 'email' => $request->email,
                 'password' => $request->password,
-            ])) {
-                $user = auth()->guard($guard)->user();
+            ]))
+
+            {
+                $userr = auth()->user();
                 if($request->rememberme=='on'){
                     $cookie1 = Cookie::make('email', $request->email, $minutes);
                     $cookie2 = Cookie::make('pass', $request->password, $minutes);
-                    if ($guard=='Admin') {
-                        return redirect()->intended(url('/dashboard'))->withCookie($cookie1)->withCookie($cookie2);
-                    }elseif ($guard=='Umat') {
-                        return redirect()->intended(url('/homeumat'))->withCookie($cookie1)->withCookie($cookie2);
+                    if ($guard=='admin') {
+                        return redirect('/homeadmin')->withCookie($cookie1)->withCookie($cookie2);
+                    }elseif ($guard=='umat') {
+                        return redirect('/indexumat')->withCookie($cookie1)->withCookie($cookie2);
+                        // return redirect('/indexumat')->withInput();
                     }
                     
                 }else{
                     $cookie1 = Cookie::forget('email');
                     $cookie2 = Cookie::forget('pass');
-                    if ($guard=='Admin') {
-                        return redirect()->intended(url('/dashboard'))->withCookie($cookie1)->withCookie($cookie2);
-                    }elseif ($guard=='Umat') {
-                        return redirect()->intended(url('/homeumat'))->withCookie($cookie1)->withCookie($cookie2);
+                    if ($guard=='admin') {
+                        return redirect('/homeadmin')->withCookie($cookie1)->withCookie($cookie2);
+                    }elseif ($guard=='umat') {
+                        return redirect('/indexumat')->withCookie($cookie1)->withCookie($cookie2);
                     }
                     
                 }
             } else {
                 return redirect()->back()->withError('Credentials doesn\'t match.');
             }
-        }else{
-            return redirect()->back()->withError('Credentials doesn\'t match.');
+            
         }
         
         
         
     }
 
-    public function logout(Request $request)
-    {
-        if(Auth::guard('admin')->check()){
-            Auth::guard('admin')->logout();
-        } elseif(Auth::guard('umat')->check()){
-            Auth::guard('umat')->logout();
-        }
-        $request->session()->invalidate();
+    // public function logout(Request $request)
+    // {
+    //     if(Auth::guard('admin')->check()){
+    //         Auth::guard('admin')->logout();
+    //     } elseif(Auth::guard('umat')->check()){
+    //         Auth::guard('umat')->logout();
+    //     }
+    //     $request->session()->invalidate();
 
-        $request->session()->regenerateToken();
+    //     $request->session()->regenerateToken();
 
-        return redirect()->route('loginfinal');
-    }
+    //     return redirect()->route('/loginpage');
+    // }
 
 
     protected function Register(Request $request)
@@ -105,7 +113,7 @@ class login_controller extends Controller
          User::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'role_id' => '2',
+            'role_id' => '1',
             'password' => Hash::make($request['password']),
         ]);
         return redirect()->back();

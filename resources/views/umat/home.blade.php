@@ -52,7 +52,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <p>Sebelum mengikuti misa, seluruh umat diwajibkan untuk mengisi segala bentuk informasi yang dibutuhkan secara <b>JUJUR dan AKURAT</b>. 
         Seluruh informasi dalam proses pendaftaran akan tersimpan kedalam database yang dimiliki dan dikelola oleh pihak gereja.</p> 
     <div class="modal-body">
-        <form action="/addpendaftaran" method="POST">
+        <form action="/addpendaftaran/{id}" method="POST">
           {{csrf_field()}}
            <div class="form-group">
            <label for="jadwalmisa">Pilih Jadwal</label>      

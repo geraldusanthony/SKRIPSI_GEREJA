@@ -20,13 +20,25 @@ class Pendaftaran_Controller extends Controller
     }
 
     public function addpendaftaran(Request $request){ 
-        pendaftaran::create($request->all());
-        return redirect('validasi')->with('sukses','Data Telah Di Tambah!');   
+        $pendaftaran=pendaftaran::create($request->all());
+        $kuota=$pendaftaran->id;
+        $jadwal=$pendaftaran->misa_id;
+        if($kuota){
+            $kurangkuota=jadwalmisa::where('id',$jadwal)->first();
+            $kuotakurang=$kurangkuota->decrement('kuota', 1);
+            // $sukses=$kurangkuota-1;
+        }
+        return redirect('pilihjadwal')->with('sukses','Data Telah Di Tambah!');   
     }
 
     public function validasi($id){
-        $daftarmisa = pendaftaran::where('id',$id)->get();
-        return view('umat.validasi',compact('daftarmisa'));
+        $view_daftarmisa = pendaftaran::where('id',$id)->get();
+        return view('umat.validasi',compact('view_daftarmisa'));
+    }
+
+    public function viewtiket(){
+        $daftarmisa = pendaftaran::all();
+        return view('umat.viewtiket',compact('daftarmisa'));
     }
      
     public function deletependaftaran($id){

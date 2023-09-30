@@ -26,7 +26,7 @@
 
 .font2 {
   color: black;
-  font-size: 20px;
+  font-size: 16px;
   text-transform: uppercase;
 }
 
@@ -52,20 +52,15 @@
 <body>
 <div class="w3-bar w3-white w3-border-bottom w3-xlarge w3-card">
   <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:12%;"></img>
-  <a href="/viewtiket" class="w3-bar-item w3-right w3-hide-small"><i class="font fa fa-ticket"> Lihat Tiket Anda</i></a>
+  <a href="/pilihjadwal" class="w3-bar-item w3-right w3-hide-small"><i class="font 	fa fa-arrow-left"> Kembali</i></a>
 </div>
-@foreach ($jadwalmisa as $jadwalmisa)
+@foreach ($daftarmisa as $daftarmisa)
 <div class="w3-col l3 m6 w3-margin-top ">
 <div class="card">
-  <img class="w3-round-large" src="asset/images/gamping.png" alt="Denim Jeans" style="width:52%">
-  <h4 class="font2">{{$jadwalmisa->hari}} - {{$jadwalmisa->tanggal}}</h4>
-  <h4 class="font">Kuota Tersedia : {{$jadwalmisa->kuota}}</h4>
-  <p class="font">{{$jadwalmisa->keterangan}} - {{$jadwalmisa->jam}}</p>
-  @if($jadwalmisa->kuota == "0")
-  <p class="w3-red font w3-round-large">KUOTA TELAH PENUH</p>
-  @else
-  <p><a href="/lihatjadwal/{{$jadwalmisa->id}}" class="w3-button w3-black w3-block w3-round-large">PILIH JADWAL</a></p>
-  @endif
+<img class="w3-round-large" src="asset/images/gamping.png" alt="Denim Jeans" style="width:52%">
+  <h5 class="font2">{{$daftarmisa->nama}}</h5> 
+  <h5 class="font">{{$daftarmisa->jadwal}}</h5>
+  <p><a href="/downloaddata/{{$daftarmisa->id}}" class="w3-button w3-black w3-block w3-round-large">CETAK TIKET</a></p>
 </div>
 </div>
 @endforeach

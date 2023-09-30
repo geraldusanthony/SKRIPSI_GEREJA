@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Home Umat </title>
+<title>Home</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="asset/images/foto4.jpg">
@@ -46,10 +46,22 @@ body, html {
     <div class="w3-right w3-hide-small">
     <a href="#home" class="w3-bar-item w3-button w3-wide"><i class="fa fa-home"></i> HOME</a>
       <a href="#about" class="w3-bar-item w3-button w3-wide"> TENTANG</a>
-      <a href="#daftar" class="w3-bar-item w3-button w3-wide"><i class="fa fa-database"></i> DAFTAR MISA</a>
+      @if($user)
+      @else
+      <a href="/loginpage" class="w3-bar-item w3-button w3-wide"><i class="fa fa-database"></i> LOGIN ADMIN</a>
+      @endif
       <a href="#pengumuman" class="w3-bar-item w3-button w3-wide"><i class="fa fa-bullhorn"></i> PENGUMUMAN</a>
       <a href="#work" class="w3-bar-item w3-button w3-wide"><i class="fa fa-picture-o"></i> GALERI</a>
       <a href="#contact" class="w3-bar-item w3-button w3-wide"><i class="fa fa-phone"></i> KONTAK</a>
+      @if($user)
+      <form class="w3-right w3-hide-small" action="logout" method="POST">
+		  @csrf
+      <a><button type="submit" class="w3-bar-item w3-button w3-wide"><i></i>LOGOUT</button></a>
+      </form>
+    @else
+      <p> </p>
+    
+    @endif
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
     
@@ -72,9 +84,12 @@ body, html {
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
   <div class="w3-display-left w3-text-white" style="padding:48px">
-    <span class="w3-jumbo w3-hide-small w3-text-orange w3-black"><b>SELAMAT DATANG UMAT<b></span><br>
-    <span class="w3-large w3-black w3-text-orange"><b>Di Website Gereja Santa Maria Assumpta Gamping</b></span>
-    <p><a href="#daftar" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Daftar Misa Sekarang !</a></p>
+    <span class="w3-round-large w3-jumbo w3-hide-small w3-text-orange w3-black"><b>SELAMAT DATANG UMAT<b></span><br>
+    <span class="w3-round-large w3-large w3-black w3-text-orange"><b>Di Website Gereja Santa Maria Assumpta Gamping</b></span>
+    @if($user)
+    <p><a href="/pilihjadwal" class="w3-round-large w3-button w3-black w3-padding-large w3-large w3-margin-top w3-hover-opacity-off">Daftar Misa Sekarang !</a></p>
+    @else<p><a href="#daftar" class="w3-round-large w3-button w3-black w3-padding-large w3-large w3-margin-top w3-hover-opacity-off">Daftar Misa Sekarang !</a></p>
+    @endif
   </div> 
 </header>
 
@@ -116,13 +131,16 @@ body, html {
 </div>
 
 <!-- Promo Section - "We know design" -->
+@if($user)
+<p></p>
+@else
 <div id="daftar" class="w3-container w3-light-grey" style="padding:180px 50px">
   <div class="w3-row-padding">
     <div class="w3-col m6">
       <h1 class="w3-text-orange"><b>Mari Misa Dirumah Tuhan</b></h1>
       <h5 class="text-justify">Segera daftarkan diri Anda pada platform ini untuk dapat mengikuti jadwal Misa yang tersedia</h5>
       <h5 class="text-justify">Login terlebih dahulu untuk dapat mendaftar mengikuti misa</h5>
-      <p><a href="/loginumat" class="w3-button w3-orange w3-round-large"><i class="fa fa-sign-in"> </i>Masuk Untuk Mendaftar Bagi Umat Dari Paroki Gamping</a></p>
+      <p><a href="/loginpage" class="w3-button w3-orange w3-round-large"><i class="fa fa-sign-in"> </i>LOGIN UMAT</a></p>
       <p><a href="/pendaftaranmisa" class="w3-button w3-red w3-round-large"><i class="fa fa-sign-in"> </i>Masuk Untuk Mendaftar Bagi Umat Dari Luar Paroki Gamping</a></p>
     </div>
     <div class="w3-col m6">
@@ -130,6 +148,7 @@ body, html {
     </div>
   </div>
 </div>
+@endif
 
 <!-- Team Section -->
 <div id="pengumuman" class="w3-container" style="padding:100px 16px" id="team">
@@ -268,7 +287,7 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
 </script>
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15811.693942312208!2d110.3262443!3d-7.7979257!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7af8013adfe681%3A0xfde1f2a8450eaabc!2sGereja%20Katolik%20Santa%20Maria%20Assumpta%2C%20Gamping!5e0!3m2!1sid!2sid!4v1679505535420!5m2!1sid!2sid" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe class="w3-round-large" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15811.693942312208!2d110.3262443!3d-7.7979257!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7af8013adfe681%3A0xfde1f2a8450eaabc!2sGereja%20Katolik%20Santa%20Maria%20Assumpta%2C%20Gamping!5e0!3m2!1sid!2sid!4v1679505535420!5m2!1sid!2sid" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
       </div>
     </div>
@@ -277,7 +296,7 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
 <!-- Footer -->
 <footer class="w3-center w3-white" style="padding: 10px 5px">
-  <a href="#home" class="w3-button w3-light-white w3-text-black"><i class="fa fa-arrow-up w3-margin-right"></i>Kembali ke atas</a>
+  <a href="#home" class="w3-round-large w3-button w3-light-white w3-text-black"><i class="fa fa-arrow-up w3-margin-right"></i>Kembali ke atas</a>
 </footer>
  
 <script>

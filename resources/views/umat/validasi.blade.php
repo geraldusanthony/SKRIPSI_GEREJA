@@ -45,7 +45,7 @@
 </style>
 </head>
 <body class="w3-light-grey">
-@foreach ($daftarmisa as $daftarmisa)
+  
 <div class="container w3-card">
 <div class="body" style="padding:40px 10px">
   <div class="w3-row-padding" >
@@ -54,9 +54,12 @@
       <h3>Silahkan datang sesuai dengan <b>JADWAL</b> yang telah dipilih<br>
       <h3>Tuhan Yesus Memberkati</h3>
       <br>
-      <h4>{{$daftarmisa->nama}} ({{$daftarmisa->lingkungan}})</h4>
-      <h4>{{$daftarmisa->jadwal}}</h4> 
-      <p><a href="/downloaddata/{{$daftarmisa->id}}" class="w3-button w3-orange"><i class="fa fa-download"> Download</i></a></p>
+      @foreach($view_daftarmisa as $view_daftarmisa)
+      <p>{{$view_daftarmisa->nama}}</p>
+      <p>{{$view_daftarmisa->lingkungan}} - {{$view_daftarmisa->duduk}}</p>
+      <p>{{$view_daftarmisa->jadwal}}</p> 
+      <p><a href="/downloaddata/{{$view_daftarmisa->id}}" class="w3-button w3-orange"><i class="fa fa-download"> Download</i></a></p>
+      @endforeach
     </div>
     <div class="w3-col m6">
       <img class="w3-image w3-round-large w3-right" src="http://127.0.0.1:8000/asset/images/gamping.png" alt="" width="400" height="400">
@@ -64,6 +67,6 @@
   </div>
 </div>
 </div>
-@endforeach
+
 </body>
 </html>

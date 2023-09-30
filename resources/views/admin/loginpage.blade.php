@@ -285,7 +285,7 @@ footer a {
 	<div class="form-container sign-up-container">
 		<form action="/register" method="POST">
 		@csrf
-			<h1>Buat Akun Umat </h1>
+			<h1>Buat Akun </h1>
 			<p></p>
 			<input id="name" type="text" placeholder="Name"  class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus />
 			@if ($errors->has('name'))
@@ -299,7 +299,7 @@ footer a {
                     <strong>{{ $errors->first('email') }}</strong>
                 </span>
             @endif
-			<input id="paassword" type="password" placeholder="Password"  class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="{{ old('password') }}" required autofocus  />
+			<input id="password" type="password" placeholder="Password"  class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="{{ old('password') }}" required autofocus  />
 			@if ($errors->has('password'))
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('password') }}</strong>
@@ -311,9 +311,10 @@ footer a {
 	<!-- register login -->
 	<!-- page login -->
 	<div class="form-container sign-in-container">
-		<form action="{{ route('sublogin') }} method="post">
+		<form action="{{ route('sublogin') }}" method="post">
 		@csrf
-			<h1>Login User</h1>
+		
+			<h1>Login</h1>
 			<br></br>
 			<input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
 			@error('email')
@@ -328,6 +329,7 @@ footer a {
                 </span>
             @enderror
 			<a href="#">Forgot your password?</a>
+			
 			<button>Login</button>
 		</form>
 	</div>
@@ -336,12 +338,12 @@ footer a {
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>
-				<p>Silahkan login dengan user dan password Anda</p>
+				<p>Silahkan login dengan Email dan Password Anda</p>
 				<button class="ghost" id="signIn">Sign In</button>
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1>Hello, Umat Yesus</h1>
-				<p>Silahkan isi form untuk registrasi</p>
+				<p>Silahkan isi form untuk Registrasi</p>
 				<button class="ghost" id="signUp">Registrasi</button>
 			</div>
 		</div>

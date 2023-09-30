@@ -13,12 +13,12 @@ class logout_Controller extends Controller
      *
      * @return \Illuminate\Routing\Redirector
      */
-    public function perform()
+    public function logout()
     {
         Session::flush();
         
         Auth::logout();
 
-        return redirect('login');
+        return redirect('/indexumat');
     }
 }

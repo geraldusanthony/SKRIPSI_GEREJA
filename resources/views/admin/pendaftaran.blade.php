@@ -78,7 +78,10 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     <div class="w3-col s8 w3-bar">
       <span>Berkah dalem, Selamat Datang <strong>Admin</strong></span><br>
       <a href="homeadmin" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
-      <a href="loginpage" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
+      <form action="{{ route('logout') }}" method="POST">
+		  @csrf
+      <button type="submit" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></button>
+      </form>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
     </div>
   </div>
