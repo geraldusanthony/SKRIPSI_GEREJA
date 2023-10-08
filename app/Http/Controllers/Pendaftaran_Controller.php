@@ -22,10 +22,11 @@ class Pendaftaran_Controller extends Controller
     public function addpendaftaran(Request $request){ 
         $pendaftaran=pendaftaran::create($request->all());
         $kuota=$pendaftaran->id;
+        $jumlah =$pendaftaran->jumlah;
         $jadwal=$pendaftaran->misa_id;
         if($kuota){
             $kurangkuota=jadwalmisa::where('id',$jadwal)->first();
-            $kuotakurang=$kurangkuota->decrement('kuota', 1);
+            $kuotakurang=$kurangkuota->decrement('kuota', $jumlah);
             // $sukses=$kurangkuota-1;
         }
         return redirect('pilihjadwal')->with('sukses','Data Telah Di Tambah!');   
@@ -57,7 +58,8 @@ class Pendaftaran_Controller extends Controller
 
     public function datamisaumat(){
         $daftarmisa = pendaftaran::all();
-        return view('admin.datamisa',compact('daftarmisa'));
+        $user = auth()->user();
+        return view('admin.datamisa',compact('daftarmisa','user'));
     }
     
     public function downloaddata($id){

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="icon" type="image/x-icon" href="asset/images/logo2.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Login Admin</title>
+    <title>Halaman Login</title>
 <style>
     
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
@@ -120,9 +120,9 @@ input {
     position: relative;
 	overflow: hidden;
 	width: 400px;
-	max-width: 100%;
+	max-width: 150%;
 	min-height: 480px;
-    top : -100px;
+    top : -60px;
     left : -450px;
 	
     
@@ -285,7 +285,7 @@ footer a {
 	<div class="form-container sign-up-container">
 		<form action="/register" method="POST">
 		@csrf
-			<h1>Buat Akun </h1>
+			<h1>BUAT AKUN </h1>
 			<p></p>
 			<input id="name" type="text" placeholder="Name"  class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus />
 			@if ($errors->has('name'))
@@ -314,7 +314,7 @@ footer a {
 		<form action="{{ route('sublogin') }}" method="post">
 		@csrf
 		
-			<h1>Login</h1>
+			<h1>LOGIN</h1>
 			<br></br>
 			<input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
 			@error('email')
@@ -337,8 +337,8 @@ footer a {
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>Silahkan login dengan Email dan Password Anda</p>
+				<h1>Selamat Datang Kembali !</h1>
+				<p>Silahkan Login dengan Email dan Password Anda</p>
 				<button class="ghost" id="signIn">Sign In</button>
 			</div>
 			<div class="overlay-panel overlay-right">
@@ -350,10 +350,8 @@ footer a {
 	</div>
 </div>
 <div class="container2" id="container">
-	<h2>HALO Umat Allah</h2>
-    <h2>Selamat datang kembali,</h2>
-    <h2>Banyak hal menarik, Ayo segera masuk untuk melihatnya.</h2>
-	</div>
+	<img src="asset\images\logogereja.png" style="width:100%;"></img>
+</div>
 
     <script>
     const signUpButton = document.getElementById('signUp');

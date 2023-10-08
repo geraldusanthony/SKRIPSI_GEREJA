@@ -34,6 +34,7 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
 </style>
 </head>
 <body class="w3-light-gray">
@@ -53,7 +54,9 @@ tr:nth-child(even) {
       <img src="asset\images\user.png" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8 w3-bar">
-      <span>Berkah dalem, Selamat Datang <strong>Admin</strong></span><br>
+      @if($user)
+      <span>Berkah dalem, Selamat Datang <strong>{{$user->name}}</strong></span><br>
+      @endif
       <a href="homeadmin" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
       <form action="{{ route('logout') }}" method="POST">
 		  @csrf
@@ -95,11 +98,13 @@ tr:nth-child(even) {
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
   <!-- Header -->
-  <header class="w3-container" style="padding-top:22px">
-    <h1><b>Dashboard Admin</b></h1>
-    <h4>Berkah Dalem, Jangan Lupa Bahagia</h4>
+  <header class="w3-container" style="padding-top:11px">
+  @if($user)
+    <h1><b>Selamat Datang, {{$user->name}}</b></h1>
+    <h4>Berkah Dalem, Jangan Lupa Bahagia !</h4>
     <body onload="startTime()">
       <h2><div id="txt"></div></h2>
+  @endif
   </header>
   
   <script>

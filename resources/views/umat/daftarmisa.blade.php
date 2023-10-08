@@ -84,6 +84,13 @@ input[type=submit]:hover {
   clear: both;
 }
 
+.font {
+  color: orange;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   .col-25, .col-75, input[type=submit] {
@@ -91,12 +98,17 @@ input[type=submit]:hover {
     margin-top: 0;
   }
 }
+input[type="number"] {
+  width: 100px;
+  margin-top: 10px;
+}
 </style>
 </head>
 <body class="w3-light-gray">
 <!-- Navigation Bar -->
-<div class="w3-bar w3-white w3-border-bottom w3-xxlarge w3-card">
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge w3-card">
   <img src="http://127.0.0.1:8000/asset/images/logogereja.png" class="w3-bar-item w3-left" style="width:12%;"></img>
+  <a href="/pilihjadwal" class="w3-bar-item w3-right w3-hide-small"><i class="font fa fa-arrow-left"> Kembali</i></a>
 </div>
    <!-- Newsletter -->
    <form action="/addpendaftaran" method="POST">
@@ -106,7 +118,9 @@ input[type=submit]:hover {
     <div class="w3-panel w3-padding-16 w3-white w3-card w3-hover-opacity-off">
     <div class="container">
     <div class="row">
-    <input type="text" name="misa_id" value="{{$jadwalmisa->id}}"/>
+    <div class="col-25">
+    <input  type="hidden" name="misa_id" value="{{$jadwalmisa->id}}"/>
+    </div>
     <h2>{{$jadwalmisa->keterangan}} {{$jadwalmisa->tanggal}}</h2>
     <br>
       <div class="col-25">
@@ -162,12 +176,15 @@ input[type=submit]:hover {
         <label for="lname">Nama :</label>
       </div>
       <div class="col-75">
-      @foreach ($umat as $umat)
-        <select class=" select2 @error('nama') is-invalid @enderror" required autocomplete="nama" type="select2" id="nama" name="nama">
-          <option></option>
-          <option>{{$umat->nama_umat}}</option>
-        </select>
-      @endforeach
+        <input readonly type="text" name="nama" value="{!! $user->name !!}"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Jumlah yang didaftarkan :</label>
+      </div>
+      <div class="col-75">
+        <input type="number" name="jumlah" min="1" max="4"/>
       </div>
     </div>
     <div class="row">

@@ -70,7 +70,9 @@ tr:nth-child(even) {
       <img src="asset\images\user.png" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8 w3-bar">
-      <span>Berkah dalem, Selamat Datang <strong>Admin</strong></span><br>
+    @if($user)
+      <span>Berkah dalem, Selamat Datang <strong>{{$user->name}}</strong></span><br>
+      @endif
       <a href="homeadmin" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
       <form action="{{ route('logout') }}" method="POST">
 		  @csrf

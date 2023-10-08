@@ -9,6 +9,7 @@ use DataTables;
 class Daftarumat_Controller extends Controller
 {
     public function daftarumat(request $request){
+        $user = auth()->user();
         $umat = umat::all();
         if ($request->ajax()) {
             $umat = umat::select('ling');
@@ -37,7 +38,7 @@ class Daftarumat_Controller extends Controller
                     ->rawColumns(['ling'])
                     ->make(true);
         }
-        return view('admin.daftarumat',compact('umat'));
+        return view('admin.daftarumat',compact('umat','user'));
     }
 
     public function profileumat(request $request){
@@ -46,13 +47,15 @@ class Daftarumat_Controller extends Controller
     }
 
     public function baptis(request $request){
+        $user = auth()->user();
         $umat = umat::where('baptis','belum')->get();
-        return view('admin.baptis',compact('umat'));
+        return view('admin.baptis',compact('umat','user'));
     }
 
     public function komuni(request $request){
+        $user = auth()->user();
         $umat = umat::where('komuni','belum')->get();
-        return view('admin.komuni',compact('umat'));
+        return view('admin.komuni',compact('umat','user'));
     }
 
 }

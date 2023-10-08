@@ -10,5 +10,11 @@ class pendaftaran extends Model
     use HasFactory;
     protected $table = 'daftarmisa';
     protected $primarykey = 'id';
-    protected $fillable = ['jadwal','nama','no_hp','alamat','jns_klmn','usia','lingkungan','duduk','misa_id']; 
+    protected $fillable = ['jadwal','nama','no_hp','alamat','jns_klmn','usia','lingkungan','duduk','misa_id','jumlah']; 
+    public function jadwalmisa(): BelongsTo
+    {
+        return $this->belongsTo(jadwalmisa::class);
+    }
 }
+
+

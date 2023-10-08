@@ -8,8 +8,9 @@ use App\Models\jadwalkegiatan;
 class Jadwalkegiatan_Controller extends Controller
 {
     public function jadwalkegiatan(request $request){
+        $user = auth()->user();
         $jadwalkegiatan = jadwalkegiatan::all();
-        return view('admin.jadwalkegiatan',compact('jadwalkegiatan'));
+        return view('admin.jadwalkegiatan',compact('jadwalkegiatan','user'));
     }
 
     public function addjadwalkegiatan(Request $request){ 

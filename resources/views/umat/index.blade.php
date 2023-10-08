@@ -16,6 +16,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 body, html {
   height: 100%;
   line-height: 1.8;
+  
 }
 
 /* Full height image header */
@@ -48,7 +49,7 @@ body, html {
       <a href="#about" class="w3-bar-item w3-button w3-wide"> TENTANG</a>
       @if($user)
       @else
-      <a href="/loginpage" class="w3-bar-item w3-button w3-wide"><i class="fa fa-database"></i> LOGIN ADMIN</a>
+      <a href="/loginpage" class="w3-bar-item w3-button w3-wide"><i class="fa fa-sign-in"></i> LOGIN ADMIN</a>
       @endif
       <a href="#pengumuman" class="w3-bar-item w3-button w3-wide"><i class="fa fa-bullhorn"></i> PENGUMUMAN</a>
       <a href="#work" class="w3-bar-item w3-button w3-wide"><i class="fa fa-picture-o"></i> GALERI</a>
@@ -56,7 +57,7 @@ body, html {
       @if($user)
       <form class="w3-right w3-hide-small" action="logout" method="POST">
 		  @csrf
-      <a><button type="submit" class="w3-bar-item w3-button w3-wide"><i></i>LOGOUT</button></a>
+      <a><button type="submit" class="w3-bar-item w3-button w3-wide"><i class="fa fa-sign-out"></i>LOGOUT</button></a>
       </form>
     @else
       <p> </p>
@@ -84,7 +85,10 @@ body, html {
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
   <div class="w3-display-left w3-text-white" style="padding:48px">
-    <span class="w3-round-large w3-jumbo w3-hide-small w3-text-orange w3-black"><b>SELAMAT DATANG UMAT<b></span><br>
+  @if($user)
+    <span class="w3-round-large w3-jumbo w3-hide-small w3-text-orange w3-black"><b>SELAMAT DATANG {{$user->name}}<b></span><br>
+    @else <span class="w3-round-large w3-jumbo w3-hide-small w3-text-orange w3-black"><b>SELAMAT DATANG<b></span><br>
+    @endif 
     <span class="w3-round-large w3-large w3-black w3-text-orange"><b>Di Website Gereja Santa Maria Assumpta Gamping</b></span>
     @if($user)
     <p><a href="/pilihjadwal" class="w3-round-large w3-button w3-black w3-padding-large w3-large w3-margin-top w3-hover-opacity-off">Daftar Misa Sekarang !</a></p>
@@ -140,8 +144,8 @@ body, html {
       <h1 class="w3-text-orange"><b>Mari Misa Dirumah Tuhan</b></h1>
       <h5 class="text-justify">Segera daftarkan diri Anda pada platform ini untuk dapat mengikuti jadwal Misa yang tersedia</h5>
       <h5 class="text-justify">Login terlebih dahulu untuk dapat mendaftar mengikuti misa</h5>
-      <p><a href="/loginpage" class="w3-button w3-orange w3-round-large"><i class="fa fa-sign-in"> </i>LOGIN UMAT</a></p>
-      <p><a href="/pendaftaranmisa" class="w3-button w3-red w3-round-large"><i class="fa fa-sign-in"> </i>Masuk Untuk Mendaftar Bagi Umat Dari Luar Paroki Gamping</a></p>
+      <p><a href="/loginpage" class="w3-button w3-orange w3-round-large"><i class="fa fa-sign-in"> </i> LOGIN UMAT</a></p>
+      <p><a href="/pendaftaranmisa" class="w3-button w3-red w3-round-large"><i class="fa fa-sign-in"> </i> DAFTAR BAGI UMAT LUAR PAROKI</a></p>
     </div>
     <div class="w3-col m6">
       <img class="w3-image w3-round-large" src="asset/images/foto4.jpg" alt="Buildings" width="700" height="394">

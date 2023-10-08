@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class Admin_Controller extends Controller
 {
     public function homeadmin(){
-        return view('admin.home');
+        $user = auth()->user();
+        return view('admin.home', compact('user'));
     }
 
     public function login(){

@@ -10,7 +10,8 @@ use PDF;
 class Jadwalmisa_Controller extends Controller
 {
     public function jadwalmisa(){
-        return view('admin.jadwalmisa');
+        $user = auth()->user();
+        return view('admin.jadwalmisa', compact('user'));
     }
 
     public function addjadwalmisa(Request $request){ 
@@ -19,8 +20,9 @@ class Jadwalmisa_Controller extends Controller
     }
 
     public function pendaftaran(request $request){
+        $user = auth()->user();
         $jadwalmisa = jadwalmisa::all();
-        return view('admin.pendaftaran',compact('jadwalmisa'));
+        return view('admin.pendaftaran',compact('jadwalmisa','user'));
     }
 
     public function deletejadwal($id){

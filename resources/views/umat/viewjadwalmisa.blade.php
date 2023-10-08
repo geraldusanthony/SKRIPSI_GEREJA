@@ -60,6 +60,26 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
   border: 1px solid #ddd;
   margin-bottom: 12px;
 }
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 350px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  border-radius: 10px 10px;
+}
+.font {
+  color: orange;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+.font2 {
+  color: black;
+  font-size: 20px;
+  text-transform: uppercase;
+}
 </style>
 </head>
 <body class="w3-light-grey">
@@ -69,28 +89,21 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     <header class="w3-container" style="padding-top:22px">
     <p><a href="/indexumat" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
     <h2><b>Jadwal Misa Gereja St. Maria Assumpta Gamping</b></h2>
-    <input class="w3-round-large" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari jadwal misa" title="Masukkan jadwal misa">
-    <div class="w3-row">
-    </div>
-        <table id="myTable" class="table, center">
-        <tr>
-        <th>Hari</th>
-        <th>Keterangan</th> 
-        <th>Tanggal</th> 
-        <th>Jam</th>        
-        <th>Kuota</th>
-        </tr>
-        @foreach ($jadwalmisa as $jadwalmisa)
-        <tr>
-        <td>{{$jadwalmisa->hari}}</td> 
-        <td>{{$jadwalmisa->keterangan}}</td>
-        <td>{{$jadwalmisa->tanggal}}</td> 
-        <td>{{$jadwalmisa->jam}}</td> 
-        <td>{{$jadwalmisa->kuota}}</td> 
-        @endforeach
-        </tr>
-        </div>
-      </div>
+    
+    @foreach ($jadwalmisa as $jadwalmisa)
+<div class="w3-col l3 m6 w3-margin-top ">
+<div class="card w3-white">
+  <img class="w3-round-large" src="asset/images/gamping.png" alt="Denim Jeans" style="width:52%">
+  <h4 class="font2">{{$jadwalmisa->hari}} - {{$jadwalmisa->tanggal}}</h4>
+  <h4 class="font">Kuota Tersedia : {{$jadwalmisa->kuota}}</h4>
+  <p class="font">{{$jadwalmisa->keterangan}} - {{$jadwalmisa->jam}}</p>
+  @if($jadwalmisa->kuota == "0")
+  <p class="w3-red font w3-round-large">KUOTA TELAH PENUH</p>
+  @endif
+</div>
+</div>
+@endforeach
+  </div>
   </header>
 </body>
 

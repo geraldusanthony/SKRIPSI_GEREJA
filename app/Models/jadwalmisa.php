@@ -11,4 +11,8 @@ class jadwalmisa extends Model
     protected $table = 'jadwalmisa';
     protected $primarykey = 'id';
     protected $fillable = ['hari','tanggal','jam','keterangan','kuota']; 
+    public function pendaftaran(): HasOne
+    {
+        return $this->hasOne(pendaftaran::class);
+    }
 }

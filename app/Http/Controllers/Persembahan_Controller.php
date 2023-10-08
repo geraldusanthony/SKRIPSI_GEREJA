@@ -18,7 +18,8 @@ class Persembahan_Controller extends Controller
 
     public function persembahan(request $request){
         $persembahan = persembahan::all();
-        return view('admin.persembahan',compact('persembahan'));
+        $user = auth()->user();
+        return view('admin.persembahan',compact('persembahan','user'));
     }
 
     public function deletepersembahan($id){
@@ -57,7 +58,8 @@ class Persembahan_Controller extends Controller
 
     public function persembahanling(request $request){
         $persembahanling = persembahanling::all();
-        return view('admin.persembahanling',compact('persembahanling'));
+        $user = auth()->user();
+        return view('admin.persembahanling',compact('persembahanling','user'));
     }
 
     public function cetakpersembahanling_pdf()

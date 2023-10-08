@@ -52,6 +52,7 @@
 <body>
 <div class="w3-bar w3-white w3-border-bottom w3-xlarge w3-card">
   <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:12%;"></img>
+  <a href="/indexumat" class="w3-bar-item w3-right w3-hide-small"><i class="font2 fa fa-home "> Home</i></a>
   <a href="/viewtiket" class="w3-bar-item w3-right w3-hide-small"><i class="font fa fa-ticket"> Lihat Tiket Anda</i></a>
 </div>
 @foreach ($jadwalmisa as $jadwalmisa)

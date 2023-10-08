@@ -57,15 +57,25 @@ class Umat_Controller extends Controller
     }
 
     public function pilihjadwal(request $request){
-        $jadwalmisa = jadwalmisa::all();
-        $daftarmisa = pendaftaran::all();
-        return view('umat.pilihjadwal',compact('jadwalmisa' , 'daftarmisa'));
+        $user = \Auth::user();
+        $iduser = $user->name;
+        $didaftar = pendaftaran::where('nama',$iduser)->first();
+        // $misaid = $didaftar->misa_id;
+        $misaid = pendaftaran::where('nama', $iduser)->pluck('misa_id')->toArray();
+        if($misaid == null)
+        {$jadwalmisa = jadwalmisa::all();} 
+        else{
+        $jadwalmisa = jadwalmisa::whereNotIn('id', $misaid)->get();}
+        // $jadwalmisa = jadwalmisa::all();
+        // $daftarmisa = pendaftaran::all();
+        return view('umat.pilihjadwal',compact('jadwalmisa','didaftar','misaid'));
     }
 
     public function lihatjadwal($id){
         $jadwalmisa = jadwalmisa::where('id',$id)->get();
         $umat = umat::all();
-        return view('umat.daftarmisa',compact('jadwalmisa','umat'));
+        $user = \Auth::user();
+        return view('umat.daftarmisa',compact('user','jadwalmisa','umat'));
     }
 
 }

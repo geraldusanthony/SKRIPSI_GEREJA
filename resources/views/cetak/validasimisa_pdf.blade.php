@@ -107,6 +107,7 @@ a
 			<h3>Nama : {{$daftarmisa->nama}}</h3>
       <h3>Lingkungan : {{$daftarmisa->lingkungan}}</h3>
       <h3>Jadwal : {{$daftarmisa->jadwal}}</h3> 
+      <h3>Jumlah Terdaftar : {{$daftarmisa->jumlah}} Orang</h3> 
       <br>
       <h3>Posisi Duduk : {{$daftarmisa->duduk}}</h3> 
 			<p>Silahkan datang sesuai dengan <b>JADWAL</b> yang telah dipilih</p>

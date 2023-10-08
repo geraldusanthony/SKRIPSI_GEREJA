@@ -10,7 +10,8 @@ use DataTables;
 class Tambahumat_Controller extends Controller
 {
     public function tambahumat(){
-        return view('admin.tambahumat');
+        $user = auth()->user();
+        return view('admin.tambahumat',compact('user'));
     }
 
     public function findid($id){
