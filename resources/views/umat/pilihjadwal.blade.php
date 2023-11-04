@@ -47,6 +47,15 @@
   opacity: 0.7;
 }
 
+.font3 {
+  color: orange;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 150px;
+  text-transform: uppercase;
+}
+
+
 </style>
 </head>
 <body>
@@ -55,6 +64,9 @@
   <a href="/indexumat" class="w3-bar-item w3-right w3-hide-small"><i class="font2 fa fa-home "> Home</i></a>
   <a href="/viewtiket" class="w3-bar-item w3-right w3-hide-small"><i class="font fa fa-ticket"> Lihat Tiket Anda</i></a>
 </div>
+@if(count($jadwalmisa) == 0)
+    <h2 class="font3">Jadwal Kosong</h2>
+@else
 @foreach ($jadwalmisa as $jadwalmisa)
 <div class="w3-col l3 m6 w3-margin-top ">
 <div class="card">
@@ -70,5 +82,6 @@
 </div>
 </div>
 @endforeach
+@endif
 </body>
 </html>

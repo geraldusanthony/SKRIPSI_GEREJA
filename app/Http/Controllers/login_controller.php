@@ -42,14 +42,6 @@ class login_controller extends Controller
         ]);
         $userr=User::where('email',$request->email)->first();
         if(isset($userr)){
-            // switch ($userr->role_id) {
-            //     case '1':
-            //          $guard="admin";
-            //         break;
-            //     case '2':
-            //         $guard="umat";
-            //         break;
-            // }
             if($userr->role_id == '1'){
                 $guard='admin';
             }elseif($userr->role_id == '2'){
@@ -87,10 +79,7 @@ class login_controller extends Controller
                 return redirect()->back()->withError('Credentials doesn\'t match.');
             }
             
-        }
-        
-        
-        
+        }    
     }
 
     // public function logout(Request $request)

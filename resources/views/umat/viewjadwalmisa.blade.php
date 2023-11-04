@@ -80,6 +80,14 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
   font-size: 20px;
   text-transform: uppercase;
 }
+
+.font3 {
+  color: orange;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 150px;
+  text-transform: uppercase;
+}
 </style>
 </head>
 <body class="w3-light-grey">
@@ -87,9 +95,11 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
   <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:12%;"></img>
 </div>
     <header class="w3-container" style="padding-top:22px">
-    <p><a href="/indexumat" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
+    <p><a href="/" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
     <h2><b>Jadwal Misa Gereja St. Maria Assumpta Gamping</b></h2>
-    
+    @if(count($jadwalmisa) == 0)
+    <h2 class="font3">Jadwal Kosong</h2>
+    @else
     @foreach ($jadwalmisa as $jadwalmisa)
 <div class="w3-col l3 m6 w3-margin-top ">
 <div class="card w3-white">
@@ -103,6 +113,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 </div>
 </div>
 @endforeach
+@endif
   </div>
   </header>
 </body>

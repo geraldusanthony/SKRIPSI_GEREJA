@@ -45,7 +45,8 @@ route::post('/editumat/{id}','Tambahumat_Controller@editumat')->name('editumat')
 Route::get('/daftarumat', ['uses'=>'Daftarumat_Controller@daftarumat', 'as'=>'admin.daftarumat'])->middleware(['auth', 'admin']); 
 Route::get('/profileumat/{id}','Umat_Controller@viewdaftarumat')->middleware(['auth', 'admin']);  
 Route::get('/baptis','Daftarumat_Controller@baptis')->middleware(['auth', 'admin']);  
-Route::get('/komuni','Daftarumat_Controller@komuni')->middleware(['auth', 'admin']);  
+Route::get('/komuni','Daftarumat_Controller@komuni')->middleware(['auth', 'admin']); 
+
     // Jadwal Misa
 Route::get('/jadwalmisa','Jadwalmisa_Controller@jadwalmisa')->middleware(['auth', 'admin']);  
 Route::post('/addjadwalmisa','Jadwalmisa_Controller@addjadwalmisa')->middleware(['auth', 'admin']); 
@@ -54,6 +55,7 @@ route::get('/viewdatamisa/{id}','Jadwalmisa_Controller@findjadwal')->middleware(
 route::get('/editjadwal/{id}','Jadwalmisa_Controller@editjadwal')->name('editjadwal')->middleware(['auth', 'admin']); 
 route::get('/cetakjadwalmisa_pdf','Jadwalmisa_Controller@cetakjadwalmisa_pdf')->middleware(['auth', 'admin']); 
 Route::get('/pendaftaran','Jadwalmisa_Controller@pendaftaran')->middleware(['auth', 'admin']); 
+
     // Persembahan Kolekte
 Route::get('/persembahan','Persembahan_Controller@persembahan')->middleware(['auth', 'admin']);  
 Route::post('/addpersembahan','Persembahan_Controller@addpersembahan')->middleware(['auth', 'admin']);  
@@ -61,6 +63,7 @@ route::get('/deletepersembahan/{id}','Persembahan_Controller@deletepersembahan')
 route::get('/viewdatapersembahan/{id}','Persembahan_Controller@findpersembahan')->middleware(['auth', 'admin']); 
 route::get('/editpersembahan/{id}','Persembahan_Controller@editpersembahan')->name('editpersembahan')->middleware(['auth', 'admin']); 
 Route::get('/cetakpersembahan_pdf','Persembahan_Controller@cetakpersembahan_pdf')->middleware(['auth', 'admin']); 
+
     // Persembahan Lingkungan
 Route::get('/persembahanling','Persembahan_Controller@persembahanling')->middleware(['auth', 'admin']);  
 Route::post('/addpersembahanling','Persembahan_Controller@addpersembahanling')->middleware(['auth', 'admin']);  
@@ -69,6 +72,7 @@ route::get('/viewdatapersembahanling/{id}','Persembahan_Controller@findpersembah
 route::get('/editpersembahanling/{id}','Persembahan_Controller@editpersembahanling')->name('editpersembahanling')->middleware(['auth', 'admin']); 
 Route::get('/cetakpersembahanling_pdf','Persembahan_Controller@cetakpersembahanling_pdf')->middleware(['auth', 'admin']);  
 route::get('/viewdata/{id}','Persembahan_Controller@viewdata')->middleware(['auth', 'admin']); 
+
     // Jadwal Kegiatan
 Route::get('/jadwalkegiatan','Jadwalkegiatan_Controller@jadwalkegiatan')->middleware(['auth', 'admin']);  
 Route::post('/addjadwalkegiatan','Jadwalkegiatan_Controller@addjadwalkegiatan')->middleware(['auth', 'admin']); 
@@ -79,17 +83,19 @@ route::get('/editjadwalkegiatan{id}','Jadwalkegiatan_Controller@editjadwalkegiat
 
 //BAGIAN UMAT
 Route::get('/datamisaumat','Pendaftaran_Controller@datamisaumat'); 
-Route::get('/validasi/{id}','Pendaftaran_Controller@validasi')->middleware(['auth', 'umat']); 
+Route::get('/validasi','Pendaftaran_Controller@validasi'); 
 Route::get('/pendaftaranmisa','Pendaftaran_Controller@homeumat'); 
 route::post('/addpendaftaran','Pendaftaran_Controller@addpendaftaran')->name('addpendaftaran')->middleware(['auth', 'umat']);  
 route::get('/deletependaftaran/{id}','Pendaftaran_Controller@deletependaftaran');
 Route::get('/downloaddata/{id}','Pendaftaran_Controller@downloaddata');
 Route::get('/viewtiket','Pendaftaran_Controller@viewtiket')->middleware(['auth', 'umat']); 
+route::post('/daftar','Pendaftaran_Controller@daftar')->name('daftar');
 
 // Halaman Umat 
 Route::get('/','Umat_Controller@indexumat');
 Route::get('/indexumat','Umat_Controller@indexumat')->middleware(['auth', 'umat']); 
 Route::get('/loginumat','Umat_Controller@loginumat');
+
 //Route::get('/index','Umat_Controller@index');
 Route::get('/viewpersembahan','Umat_Controller@viewpersembahan');
 Route::get('/viewkegiatan','Umat_Controller@viewkegiatan');
@@ -133,6 +139,6 @@ Auth::routes();
 
 Route::post('/register','login_controller@Register')->name('register'); 
 Route::post('/submit/login','login_controller@login')->name('sublogin');
-
+Route::get('/umatdaftar/{ling}','daftarumat_controller@umatdaftar');
 Route::get('itemPdfView',[ItemController::class,'itemPdfView']);
 Route::post('itemPdfView',array('as'=>'itemPdfView','uses'=>'ItemController@itemPdfView')); 

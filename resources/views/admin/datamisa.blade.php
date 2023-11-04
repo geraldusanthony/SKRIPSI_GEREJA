@@ -131,6 +131,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <th>Nama Lengkap</th> 
         <th>Asal Lingkungan</th>
         <th>Tempat Duduk</th>
+        <th>Jumlah Pendaftar</th>
         <th>Aksi</th>
         </tr>
         @foreach ($daftarmisa as $daftarmisa)
@@ -139,6 +140,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <td>{{$daftarmisa->nama}}</td> 
         <td>{{$daftarmisa->lingkungan}}</td> 
         <td>{{$daftarmisa->duduk}}</td> 
+        <td>{{$daftarmisa->jumlah}} Orang</td>
         <td><a href="/deletependaftaran/{{$daftarmisa->id}}" class="btn fa fa-trash w3-orange"></a></td>
         @endforeach
         </tr>

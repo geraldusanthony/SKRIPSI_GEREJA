@@ -37,12 +37,19 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
      border-radius: 0px !important; 
 }
 
+.font {
+  color: orange;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
 </style>
 </head>
 
 <body class="w3-light-gray"> 
-<div class="w3-bar w3-white w3-border-bottom w3-xxlarge w3-card">
-  <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:12%;"></img>
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge w3-card">
+  <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:10%;"></img>
+  <a href="/" class="w3-bar-item w3-right w3-hide-small"><i class="font fa fa-arrow-left"> Kembali</i></a>
 </div>
   <div class="w3-content w3-justify w3-text-black" id="about">
   <header class="w3-container" style="margin-left:150px;margin-right:150px">
@@ -52,16 +59,24 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <p>Sebelum mengikuti misa, seluruh umat diwajibkan untuk mengisi segala bentuk informasi yang dibutuhkan secara <b>JUJUR dan AKURAT</b>. 
         Seluruh informasi dalam proses pendaftaran akan tersimpan kedalam database yang dimiliki dan dikelola oleh pihak gereja.</p> 
     <div class="modal-body">
-        <form action="/addpendaftaran/{id}" method="POST">
+        <form action="/daftar" method="POST">
           {{csrf_field()}}
            <div class="form-group">
-           <label for="jadwalmisa">Pilih Jadwal</label>      
-           <p>( Jika jadwal tidak tersedia kemungkinan kuota sudah penuh )</p>    
-                 <select name="jadwal" class="form-control select2 @error('jadwal') is-invalid @enderror" name="jadwal" value="{{ old('jadwal')}}" required autocomplete="jadwal" autofocus />>
+           <input type="hidden" name="jumlah" value="1"/>
+           <label for="jadwalmisa">Pilih Jadwal</label>                        
+                 @if(count($jadwalmisa) == 0) 
+                 <p>Jadwal Misa Kosong</p>
+                 @else
+                 <select name="jadwal" class="form-control select2 @error('jadwal') is-invalid @enderror" name="jadwal" value="{{ old('jadwal')}}" required autocomplete="jadwal" autofocus />
                  <option></option>
                  @foreach($jadwalmisa as $jadwalmisa)
-                 <option>{{$jadwalmisa->keterangan}} - Hari : {{$jadwalmisa->hari}}, Tanggal : {{$jadwalmisa->tanggal}}, Jam : {{$jadwalmisa->jam}} </option>
+                 @if($jadwalmisa->kuota == "0")
+                 @else 
+                 <option>{{$jadwalmisa->keterangan}} - Hari : {{$jadwalmisa->hari}}, Tanggal : {{$jadwalmisa->tanggal}}, Jam : {{$jadwalmisa->jam}}</option>
+                 @endif
+                 <input type="hidden" name="misa_id" value="{{$jadwalmisa->id}}"/>
                  @endforeach
+                 @endif
                  </select>                 
                  @error('jadwal')
                 <span class="invalid-feedback" role="alert" >

@@ -120,6 +120,7 @@ input[type="number"] {
     <div class="row">
     <div class="col-25">
     <input  type="hidden" name="misa_id" value="{{$jadwalmisa->id}}"/>
+    <input  type="hidden" name="user_id" value="{!!$user->id!!}"/>
     </div>
     <h2>{{$jadwalmisa->keterangan}} {{$jadwalmisa->tanggal}}</h2>
     <br>

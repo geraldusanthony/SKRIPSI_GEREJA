@@ -67,7 +67,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
   <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:12%;"></img>
 </div>
     <header class="w3-container" style="padding-top:22px">
-    <p><a href="/indexumat" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
+    <p><a href="/" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
     <h2><b>Data Persembahan Kolekte</b></h2>
     <h4>Berikut merupakan data persembahan kolekte umat Gereja St. Maria Assumpta Gamping</h4>
     <input class="w3-round-large" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari Bulan" title="Masukkan bulan">

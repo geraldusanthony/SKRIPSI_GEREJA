@@ -15,9 +15,11 @@ class logout_Controller extends Controller
      */
     public function logout()
     {
-        Session::flush();
-        
         Auth::logout();
+ 
+        $request->session()->invalidate();
+ 
+        $request->session()->regenerateToken();
 
         return redirect('/indexumat');
     }

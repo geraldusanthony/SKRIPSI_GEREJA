@@ -44,7 +44,6 @@ tr:nth-child(even) {
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
 <div class="w3-main" style="margin-left:450px;margin-top:30px;margin-right:450px">
   <header class="w3-container" style="padding-top:22px">
     <h2><b>Edit Data Persembahan Lingkungan</b></h2>

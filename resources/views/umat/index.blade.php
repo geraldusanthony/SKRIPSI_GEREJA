@@ -35,6 +35,7 @@ body, html {
   font-size:15px;
 }
 
+
 </style>
 </head>
 <body>
@@ -49,7 +50,6 @@ body, html {
       <a href="#about" class="w3-bar-item w3-button w3-wide"> TENTANG</a>
       @if($user)
       @else
-      <a href="/loginpage" class="w3-bar-item w3-button w3-wide"><i class="fa fa-sign-in"></i> LOGIN ADMIN</a>
       @endif
       <a href="#pengumuman" class="w3-bar-item w3-button w3-wide"><i class="fa fa-bullhorn"></i> PENGUMUMAN</a>
       <a href="#work" class="w3-bar-item w3-button w3-wide"><i class="fa fa-picture-o"></i> GALERI</a>
@@ -105,9 +105,9 @@ body, html {
     <div class="w3-quarter">
       <i class="fa fa-info-circle w3-text-purple w3-margin-bottom w3-jumbo w3-center"></i>
       <p class="w3-large">SEKILAS</p>
-      <p class="text-justify">Gereja Paroki Santa Maria Assumpta Gamping terletak di Dusun Gamping Tengah, Desa Ambarketawang, Kecamatan Gamping, 
-        Kabupaten Sleman, Daerah Istimewa Yogyakarta.</p>
-        <p class="text-justify"> Terletak lebih kurang 5 km sebelah barat pusat Kota Yogyakarta.</p>
+      <p class="text-justify">Gereja Paroki Santa Maria Assumpta Gamping terletak di Dusun Gamping Tengah,
+         Desa Ambarketawang, Kecamatan Gamping, Kabupaten Sleman, Daerah Istimewa Yogyakarta.</p>
+      <p class="text-justify"> Terletak lebih kurang 5 km sebelah barat pusat Kota Yogyakarta.</p>
     </div>
     <div class="w3-quarter">
       <i class="fa fa-flag w3-text-purple w3-margin-bottom w3-jumbo"></i>
@@ -144,7 +144,7 @@ body, html {
       <h1 class="w3-text-orange"><b>Mari Misa Dirumah Tuhan</b></h1>
       <h5 class="text-justify">Segera daftarkan diri Anda pada platform ini untuk dapat mengikuti jadwal Misa yang tersedia</h5>
       <h5 class="text-justify">Login terlebih dahulu untuk dapat mendaftar mengikuti misa</h5>
-      <p><a href="/loginpage" class="w3-button w3-orange w3-round-large"><i class="fa fa-sign-in"> </i> LOGIN UMAT</a></p>
+      <p><a href="/loginpage" class="w3-button w3-orange w3-round-large"><i class="fa fa-sign-in"> </i> LOGIN </a></p>
       <p><a href="/pendaftaranmisa" class="w3-button w3-red w3-round-large"><i class="fa fa-sign-in"> </i> DAFTAR BAGI UMAT LUAR PAROKI</a></p>
     </div>
     <div class="w3-col m6">

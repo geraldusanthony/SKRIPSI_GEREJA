@@ -1,72 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="asset/images/logo2.jpg">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Validasi Data</title>
-    <style>
-    h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
-    body {font-family: "Open Sans"}
-    
-    body {
-	  /* background: linear-gradient(to left, orange, #FF416C); */
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  flex-direction: column;
-	  font-family: 'Montserrat', sans-serif;
-	  height: 96vh;
-	  margin: -20px 0 50px;
-    }
+<title>Gereja Santa Maria Assumpta Gamping</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="asset/images/logo2.jpg">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
-    .container {
-  border-radius: 5px;
-  background-color: white;
-  padding: 10px;
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
 }
 
-.select2-container .select2-selection--single{
-    height:34px !important;
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
-.select2-container--default .select2-selection--single{
-         border: 1px solid #ccc !important; 
-     border-radius: 0px !important; 
+
+td{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
 }
-* {
-  box-sizing: border-box;
+
+th{
+  background-color: orange;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
 }
-    
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+tr:hover {background-color: rgba(255, 99, 71, 0.5);}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 20%;
+  font-size: 14px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
 </style>
 </head>
 <body class="w3-light-grey">
-  
-<div class="container w3-card">
-<div class="body" style="padding:40px 10px">
-  <div class="w3-row-padding" >
-    <div class="w3-col m6">
-      <h1>Terimakasih telah melakukan pendaftaran misa.</h1>
-      <h3>Silahkan datang sesuai dengan <b>JADWAL</b> yang telah dipilih<br>
-      <h3>Tuhan Yesus Memberkati</h3>
-      <br>
-      @foreach($view_daftarmisa as $view_daftarmisa)
-      <p>{{$view_daftarmisa->nama}}</p>
-      <p>{{$view_daftarmisa->lingkungan}} - {{$view_daftarmisa->duduk}}</p>
-      <p>{{$view_daftarmisa->jadwal}}</p> 
-      <p><a href="/downloaddata/{{$view_daftarmisa->id}}" class="w3-button w3-orange"><i class="fa fa-download"> Download</i></a></p>
-      @endforeach
-    </div>
-    <div class="w3-col m6">
-      <img class="w3-image w3-round-large w3-right" src="http://127.0.0.1:8000/asset/images/gamping.png" alt="" width="400" height="400">
-    </div>
-  </div>
+<div class="w3-bar w3-white w3-border-bottom w3-xxlarge w3-card">
+  <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:12%;"></img>
 </div>
-</div>
+    <header class="w3-container" style="padding-top:22px">
+    <p><a href="/" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
+    <h2><b>Data umat yang telah mendaftar misa</b></h2>
+    <h4>Berikut merupakan data umat yang telah mendaftarkan diri untuk mengikuti misa sesuai jadwal</h4>
+    <input class="w3-round-large" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari..." title="Masukkan hari pelaksanaan">
+    <div class="w3-row">
+    </div>
+        <table id="myTable" class="table, center">
+        <tr>
+        <tr>
+        <th>Nama Lengkap</th> 
+        <th>Jadwal Misa</th>
+        <th>Asal Lingkungan</th>
+        <th>Tempat Duduk</td>
+        <th>Download Tiket</th>
+        </tr>
+        @foreach ($daftarmisa as $daftarmisa)
+        <tr>
+        <td>{{$daftarmisa->nama}}</td> 
+        <td>{{$daftarmisa->jadwal}}</td>  
+        <td>{{$daftarmisa->lingkungan}}</td> 
+        <td>{{$daftarmisa->duduk}}</td> 
+        <td><a href="/downloaddata/{{$daftarmisa->id}}" class="w3-button w3-red w3-block w3-round-large">CETAK TIKET</a></td>
+        @endforeach
+        </tr>
+        </div>
+      </div>
+  </header>
+  </body>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 
 </body>
 </html>

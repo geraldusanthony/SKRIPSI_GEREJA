@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use App\Models\jadwalmisa;
 use App\Models\persembahan;
@@ -38,13 +38,18 @@ class Umat_Controller extends Controller
     }
 
     public function viewkegiatan(request $request){
-        $jadwalkegiatan = jadwalkegiatan::all();
-        return view('umat.jadwalkegiatan',compact('jadwalkegiatan'));
+        $datenow = Carbon::now()->format('Y-m-d');
+        $tanggal = jadwalkegiatan::pluck('tanggal')->toArray();
+        $jadwalkegiatan = jadwalkegiatan::where('tanggal', '>', $datenow)->get();
+        return view('umat.jadwalkegiatan',compact('jadwalkegiatan','datenow'));
     }
     
     public function viewjadwalmisa(request $request){
+        $datenow = Carbon::now()->format('Y-m-d');
         $jadwalmisa = jadwalmisa::all();
-        return view('umat.viewjadwalmisa',compact('jadwalmisa'));
+        $tanggal = jadwalmisa::pluck('tanggal')->toArray();
+        $jadwalmisa = jadwalmisa::where('tanggal', '>', $datenow)->get();
+        return view('umat.viewjadwalmisa',compact('jadwalmisa','datenow'));
     }
 
     public function viewpendaftaranmisa(request $request){
@@ -57,18 +62,19 @@ class Umat_Controller extends Controller
     }
 
     public function pilihjadwal(request $request){
+        $datenow = Carbon::now()->format('Y-m-d');
         $user = \Auth::user();
         $iduser = $user->name;
         $didaftar = pendaftaran::where('nama',$iduser)->first();
         // $misaid = $didaftar->misa_id;
         $misaid = pendaftaran::where('nama', $iduser)->pluck('misa_id')->toArray();
         if($misaid == null)
-        {$jadwalmisa = jadwalmisa::all();} 
+        {$jadwalmisa = jadwalmisa::whereDate('tanggal', '>', $datenow)->get();} 
         else{
-        $jadwalmisa = jadwalmisa::whereNotIn('id', $misaid)->get();}
+        $jadwalmisa = jadwalmisa::whereNotIn('id', $misaid)->where('tanggal', '>', $datenow)->get();}
         // $jadwalmisa = jadwalmisa::all();
         // $daftarmisa = pendaftaran::all();
-        return view('umat.pilihjadwal',compact('jadwalmisa','didaftar','misaid'));
+        return view('umat.pilihjadwal',compact('datenow','jadwalmisa','didaftar','misaid'));
     }
 
     public function lihatjadwal($id){

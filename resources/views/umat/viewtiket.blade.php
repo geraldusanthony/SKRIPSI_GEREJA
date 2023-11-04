@@ -47,13 +47,24 @@
   opacity: 0.7;
 }
 
+.font3 {
+  color: orange;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 150px;
+  text-transform: uppercase;
+}
+
 </style>
 </head>
 <body>
 <div class="w3-bar w3-white w3-border-bottom w3-xlarge w3-card">
   <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:12%;"></img>
-  <a href="/pilihjadwal" class="w3-bar-item w3-right w3-hide-small"><i class="font 	fa fa-arrow-left"> Kembali</i></a>
+  <a href="/pilihjadwal" class="w3-bar-item w3-right w3-hide-small"><i class="font fa fa-arrow-left"> Kembali</i></a>
 </div>
+@if(count($daftarmisa) == 0)
+<h2 class="font3">Anda Tidak Memiliki Tiket Misa</h2>
+@else
 @foreach ($daftarmisa as $daftarmisa)
 <div class="w3-col l3 m6 w3-margin-top ">
 <div class="card">
@@ -64,5 +75,6 @@
 </div>
 </div>
 @endforeach
+@endif
 </body>
 </html>

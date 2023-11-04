@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "raleway", sans-serif}
 
@@ -35,6 +38,19 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 550px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+        
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;} 
+    }
 </style>
 </head>
 <body class="w3-light-gray">
@@ -106,7 +122,18 @@ tr:nth-child(even) {
       <h2><div id="txt"></div></h2>
   @endif
   </header>
-  
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter">
+      <div class="w3-container w3-red w3-padding-16">
+        <div class="w3-left"><i class="fa fa-user w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{count($umat)}} Umat</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Jumlah Umat</h4>
+      </div>
+    </div>
+
   <script>
     function startTime() {
     const today = new Date();

@@ -80,6 +80,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <th>Jadwal Misa</th>
         <th>Asal Lingkungan</th>
         <th>Tempat Duduk</td>
+        <th>Jumlah Terdaftar</th>
         </tr>
         @foreach ($daftarmisa as $daftarmisa)
         <tr>
@@ -87,6 +88,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <td>{{$daftarmisa->jadwal}}</td>  
         <td>{{$daftarmisa->lingkungan}}</td> 
         <td>{{$daftarmisa->duduk}}</td> 
+        <td>{{$daftarmisa->jumlah}} Orang</td>
         @endforeach
         </tr>
         </div>

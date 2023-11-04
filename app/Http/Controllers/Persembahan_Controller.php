@@ -52,7 +52,18 @@ class Persembahan_Controller extends Controller
     }
 
     public function addpersembahanling(Request $request){ 
-        persembahanling::create($request->all());
+        // persembahanling::create($request->all());
+        $jumlahinput = $request->jumlah;
+        $jumlahbefore = $jumlahinput*(10/100);
+        $jumlahdiskon = $jumlahinput-$jumlahbefore; 
+        $data = [
+            'tanggal'=>$request->tanggal,
+            'tahun'=>$request->tahun,
+            'ket'=>$request->ket,
+            'nama_ling'=>$request->nama_ling,
+            'jumlah'=>$jumlahdiskon
+        ];
+        persembahanling::create($data);
         return redirect('persembahanling')->with('sukses','Data Telah Di Tambah!');   
     }
 

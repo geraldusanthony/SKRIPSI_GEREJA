@@ -60,6 +60,14 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
   border: 1px solid #ddd;
   margin-bottom: 12px;
 }
+
+.font3 {
+  color: orange;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 150px;
+  text-transform: uppercase;
+}
 </style>
 </head>
 <body class="w3-light-yellow">
@@ -67,9 +75,12 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
   <img src="asset\images\logogereja.png" class="w3-bar-item w3-left" style="width:12%;"></img>
 </div>
     <header class="w3-container" style="padding-top:22px">
-    <p><a href="/indexumat" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
+    <p><a href="/" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
     <h2><b>Jadwal Kegiatan Paroki</b></h2>
     <h4>Berikut merupakan jadwal kegiatan paroki yang akan datang</h4>
+    @if(count($jadwalkegiatan) == 0)
+    <h2 class="font3">Tidak Ada Jadwal Kegiatan</h2>
+    @else
     <input class="w3-round-large" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari hari kegiatan" title="Masukkan hari pelaksanaan">  
     <div class="w3-row">
     </div>
@@ -89,6 +100,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <td>{{$jadwalkegiatan->tempat}}</td> 
         <td>{{$jadwalkegiatan->kegiatan}}</td> 
         @endforeach
+        @endif
         </tr>
         </div>
       </div>

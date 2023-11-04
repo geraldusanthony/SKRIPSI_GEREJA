@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -123,54 +124,56 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
   <header class="w3-container" style="padding-top:22px">
+  <!-- <div id="cobali">
+<li> dd</li>
+</div> -->
     <h2><b>Data Umat Paroki Santa Maria Assumpta Gamping</b></h2>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari Umat" title="Masukkan NIK umat"></input>
     <div class="card">
         <div class="card-body">
             <div class="form-group">
                 <label><strong>Lingkungan :</strong></label>
-                <select id='status' class="form-control" style="width: 280px">
+                <select id='status' class="form-control target" style="width: 280px">
                  <option value="">--Select Lingkungan--</option>
-                 <option value="1">St. Yohanes Pemandi Gamping lor</option>
-                 <option value="2">St. Agatha Gamping Tengah</option>
-                 <option value="3">St. Agustinus Gamping</option>
-                 <option value="4">St. Yusuf Gamping</option>
-                 <option value="5">St. Maria Fatimmah Demak Ijo</option>
-                 <option value="6">St. Ignatius Loyola Kaliabu</option>
-                 <option value="7">St. Caecilia Onggobayan</option>
-                 <option value="8">St. Antonius Mejing</option>
-                 <option value="9">St. Gregorius Mejing</option>
-                 <option value="10">St. Stefanus Mejing</option>
-                 <option value="11">St. Monica Mejing</option>
-                 <option value="12">St. Mateus Mejing</option>
-                 <option value="13">St. Paulus Sidoarum</option>
-                 <option value="14">St. Thomas Aquinas Sidoarum</option>
-                 <option value="15">St. Yustinus Martir Sidoarum</option>
-                 <option value="16">St. Anna Gesikan</option>
-                 <option value="17">St. Yoakim Gesikan</option>
-                 <option value="18">St. Hieronimus Gesikan</option>
-                 <option value="19">St. Fransiscus Asisi Pelem Hijau</option>
-                 <option value="20">St. Lucia Ngawen</option>
-                 <option value="21">St. Veronica Bantulan</option>
-                 <option value="22">St. Agustinus Gancahan</option>
-                 <option value="23">St. Petrus Gancahan</option>
-                 <option value="24">St. Tarcisius Semboh (Perak Bulus)</option>
-                 <option value="25">St. Maria Gancahan</option>
-                 <option value="26">St. Yohanes Pembaptis Sidokarto</option>
-                 <option value="27">St. Yusuf Gejawan Pasekan</option>
-                 <option value="28">St. Margareta Gejawan Puri</option>
-                 <option value="29">St. Georgius Nyamplung</option>
-                 <option value="30">St. Ludoviskus Nyamplung</option>
-                 <option value="31">St. Frans. Xaverius Sumber Gamol</option>
-                 <option value="32">St. Theodorikus Jatimas</option>
-                 <option value="33">St. Antonius Padua Jatisawit</option>
-                 <option value="34">St. Kristoforus Baleasri</option>
+                 <option value="St. Yohanes Pemandi Gamping lor">St. Yohanes Pemandi Gamping lor</option>
+                 <option value="St. Agatha Gamping Tengah">St. Agatha Gamping Tengah</option>
+                 <option value="St. Agustinus Gamping">St. Agustinus Gamping</option>
+                 <option value="St. Yusuf Gamping">St. Yusuf Gamping</option>
+                 <option value="St. Maria Fatimmah Demak Ijo">St. Maria Fatimmah Demak Ijo</option>
+                 <option value="St. Ignatius Loyola Kaliabu">St. Ignatius Loyola Kaliabu</option>
+                 <option value="St. Caecilia Onggobayan">St. Caecilia Onggobayan</option>
+                 <option value="St. Antonius Mejing">St. Antonius Mejing</option>
+                 <option value="St. Gregorius Mejing">St. Gregorius Mejing</option>
+                 <option value="St. Stefanus Mejing">St. Stefanus Mejing</option>
+                 <option value="St. Monica Mejing">St. Monica Mejing</option>
+                 <option value="12St. Mateus Mejing">St. Mateus Mejing</option>
+                 <option value="St. Paulus Sidoarum">St. Paulus Sidoarum</option>
+                 <option value="St. Thomas Aquinas Sidoarum">St. Thomas Aquinas Sidoarum</option>
+                 <option value="St. Yustinus Martir Sidoarum">St. Yustinus Martir Sidoarum</option>
+                 <option value="St. Anna Gesikan">St. Anna Gesikan</option>
+                 <option value="St. Yoakim Gesikan">St. Yoakim Gesikan</option>
+                 <option value="St. Hieronimus Gesikan">St. Hieronimus Gesikan</option>
+                 <option value="St. Fransiscus Asisi Pelem Hijau">St. Fransiscus Asisi Pelem Hijau</option>
+                 <option value="St. Lucia Ngawen">St. Lucia Ngawen</option>
+                 <option value="St. Veronica Bantulan">St. Veronica Bantulan</option>
+                 <option value="St. Agustinus Gancahan">St. Agustinus Gancahan</option>
+                 <option value="St. Petrus Gancahan">St. Petrus Gancahan</option>
+                 <option value="St. Tarcisius Semboh (Perak Bulus)">St. Tarcisius Semboh (Perak Bulus)</option>
+                 <option value="St. Maria Gancahan">St. Maria Gancahan</option>
+                 <option value="St. Yohanes Pembaptis Sidokarto">St. Yohanes Pembaptis Sidokarto</option>
+                 <option value="St. Yusuf Gejawan Pasekan">St. Yusuf Gejawan Pasekan</option>
+                 <option value="St. Margareta Gejawan Puri">St. Margareta Gejawan Puri</option>
+                 <option value="St. Georgius Nyamplung">St. Georgius Nyamplung</option>
+                 <option value="St. Ludoviskus Nyamplung">St. Ludoviskus Nyamplung</option>
+                 <option value="St. Frans. Xaverius Sumber Gamol">St. Frans. Xaverius Sumber Gamol</option>
+                 <option value="St. Theodorikus Jatimas">St. Theodorikus Jatimas</option>
+                 <option value="St. Antonius Padua Jatisawit">St. Antonius Padua Jatisawit</option>
+                 <option value="St. Kristoforus Baleasri">St. Kristoforus Baleasri</option>
                 </select>
             </div>
         </div>
     </div>
     <div class="w3-row">
-      
+     <p id="daftarumatnya"></p>
     </div>
         <table id="myTable" class="table, center">
         <tr>
@@ -183,35 +186,18 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);
         <th>Aksi</th>
         </tr>
         @foreach ($umat as $umat)
-        <tr>
+        <tr class="umat_kosong" id="data_umat">
         <td>{{$umat->nik}}</td> 
         <td>{{$umat->nama_umat}}</td>   
         <td>{{$umat->warga}}</td>    
         <td>{{$umat->tgl_lahir}}</td> 
         <td>{{$umat->jns_kelamin}}</td>
         <td>{{$umat->ling}}</td>
-        <td><a href="/prosesviewdata/{{$umat->id}}" class="btn fa fa-edit w3-orange"></a>
-        <!-- Modal -->
-        <button type="button" class="btn fa fa-trash w3-red" data-toggle="modal" data-target="#myModal"></button>
-          <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-        <div class="modal-header w3-orange">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title w3-center"><b>PERINGATAN !</b></h4>
-        </div>
-        <div class="modal-body">
-          <p>Apakah anda yakin menghapus data ini ?</p>
-        </div>
-        <div class="modal-footer">
-        <a href="/deleteumat/{{$umat->id}}" class="btn fa fa-trash w3-orangemary w3-red"> Hapus</a>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-        <a href="/profileumat/{{$umat->id}}" class="btn fa fa-eye w3-blue"></a></td>
+        <td>
+          <a href="/prosesviewdata/{{$umat->id}}" class="btn fa fa-edit w3-orange"></a>
+          <a href="/deleteumat/{{$umat->id}}" class="btn fa fa-trash w3-orangemary w3-red"></a>
+          <a href="/profileumat/{{$umat->id}}" class="btn fa fa-eye w3-blue"></a>
+        </td>
         @endforeach
         </tr>
         </div>
@@ -324,6 +310,55 @@ function myAccFunc2() {
 // Click on the "Jeans" link on page load to open the accordion for demo purposes
 document.getElementById("myBtn2").click();
 </script>
+<script>
+$(document).ready(function(){
+  $( ".target" ).on("click", function() {
+    var nilai = $( "select.target" ).val();
+    var ling = $(this).val();
+    var $nytElem = $("#data_umat")
+    // alert("The text has been changed.");
+    $.ajax({
+      type: "GET",
+      url:"/umatdaftar/"+ling,
+      dataType: 'json',
+      success:function(response){
+        var $nilainya = response.umat
+        
+        $.each(response.umat, function(i, umat) {
+          var $count = response.umat
+        // var $a = $('<a>').attr("href", doc.web_url).html(doc.headline.main);
+        // var $p = $('<p>').html(umat.nama_umat);
+        var txt1 = "<p>Text.</p>"; 
 
+        var $id = $('<td>').addClass("id").append(umat.nik);
+        var $nama = $('<td>').addClass("nama").append(umat.nama_umat);
+        var $warga = $('<td>').addClass("nama").append(umat.warga);
+        var $tanggal = $('<td>').addClass("nama").append(umat.tgl_lahir);
+        var $kelamin = $('<td>').addClass("nama").append(umat.jns_kelamin);
+        var $ling = $('<td>').addClass("nama").append(umat.ling);
+        var $edit = $('<a>').attr("href", '/prosesviewdata/'+ umat.id).addClass("btn fa fa-edit w3-orange").append($edit);
+        var $hapus = $('<a>').attr("href", '/deleteumat/'+ umat.id).addClass("btn fa fa-trash w3-orangemary w3-red").append($hapus);
+        // .append('<button type="button" class="btn fa fa-trash w3-red" data-toggle="modal" data-target="#myModal"></button>');
+        // var $li = $('<li>').addClass("article").append($a).append($p);
+        var $profil = $('<a>').attr("href", '/profileumat/'+ umat.id).addClass("btn fa fa-eye w3-blue").append($profil);
+        var $gabung = $('<td>').append($edit,$hapus,$profil);
+        console.log($count)
+        if($count <= 0){
+          $( ".umat_kosong" ).empty();
+        
+        } else {
+          $( ".umat_kosong" ).empty();
+          $nytElem.append($id,$nama,$warga,$tanggal,$kelamin,$ling,$gabung);     
+      }
+        
+        // console.log(umat.id)
+    });
+
+        // console.log(nilainya);
+      }
+    });
+} );
+});
+</script>
 </body>
 </html>

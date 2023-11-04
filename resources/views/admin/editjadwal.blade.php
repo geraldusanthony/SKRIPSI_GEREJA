@@ -52,7 +52,9 @@ tr:nth-child(even) {
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
+<div class="w3-bar w3-top w3-orange w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+</div>
 <div class="w3-main" style="margin-left:450px;margin-top:30px;margin-right:450px">
   <header class="w3-container" style="padding-top:22px">
     <h2><b>Edit Data Jadwal Misa</b></h2>

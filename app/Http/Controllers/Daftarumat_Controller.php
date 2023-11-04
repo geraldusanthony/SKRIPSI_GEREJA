@@ -11,34 +11,16 @@ class Daftarumat_Controller extends Controller
     public function daftarumat(request $request){
         $user = auth()->user();
         $umat = umat::all();
-        if ($request->ajax()) {
-            $umat = umat::select('ling');
-            return Datatables::of($data)
-                    ->addIndexColumn()
-                    ->addColumn('ling', function($row){
-                         if($row->ling){
-                            return '<span class="badge badge-primary">Active</span>';
-                         }else{
-                            return '<span class="badge badge-danger">Deactive</span>';
-                         }
-                    })
-                    ->filter(function ($instance) use ($request) {
-                        if ($request->get('ling') == '0' || $request->get('ling') == '1') {
-                            $instance->where('ling', $request->get('ling'));
-                        }
-                        
-                        if (!empty($request->get('search'))) {
-                             $instance->where(function($w) use($request){
-                                $search = $request->get('search');
-                                $w->orWhere('ling', 'LIKE', "%$search%");
-                                
-                            });
-                        }
-                    })
-                    ->rawColumns(['ling'])
-                    ->make(true);
-        }
         return view('admin.daftarumat',compact('umat','user'));
+    }
+
+    public function umatdaftar($ling){
+        $umat = umat::where('ling',$ling)->get();
+        $count = count($umat);
+        return response()->json([
+            'umat'=>$umat,
+            'count'=>$count
+        ]);
     }
 
     public function profileumat(request $request){

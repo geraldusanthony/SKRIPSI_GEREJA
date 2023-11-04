@@ -7,7 +7,8 @@ use App\Models\pendaftaran;
 use App\Models\persembahan;
 use App\Models\jadwalmisa;
 use PDF;
-
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 
 class Pendaftaran_Controller extends Controller
@@ -15,31 +16,52 @@ class Pendaftaran_Controller extends Controller
    
     
     public function homeumat(request $request){
+        $datenow = Carbon::now()->format('Y-m-d');
         $jadwalmisa = jadwalmisa::all();
-        return view('umat.home',compact('jadwalmisa'));
+        $tanggal = jadwalmisa::pluck('tanggal')->toArray();
+        $jadwalmisa = jadwalmisa::where('tanggal', '>', $datenow)->get();
+        return view('umat.home',compact('jadwalmisa','datenow'));
     }
 
     public function addpendaftaran(Request $request){ 
-        $pendaftaran=pendaftaran::create($request->all());
-        $kuota=$pendaftaran->id;
-        $jumlah =$pendaftaran->jumlah;
-        $jadwal=$pendaftaran->misa_id;
+        $pendaftaran = pendaftaran::create($request->all());
+        $kuota = $pendaftaran->id;
+        $jumlah = $pendaftaran->jumlah;
+        $jadwal = $pendaftaran->misa_id;
         if($kuota){
-            $kurangkuota=jadwalmisa::where('id',$jadwal)->first();
-            $kuotakurang=$kurangkuota->decrement('kuota', $jumlah);
-            // $sukses=$kurangkuota-1;
+            $kurangkuota = jadwalmisa::where('id',$jadwal)->first();
+            $kuotakurang = $kurangkuota->decrement('kuota', $jumlah);
         }
         return redirect('pilihjadwal')->with('sukses','Data Telah Di Tambah!');   
     }
 
-    public function validasi($id){
-        $view_daftarmisa = pendaftaran::where('id',$id)->get();
-        return view('umat.validasi',compact('view_daftarmisa'));
+    public function daftar(Request $request){
+        $pendaftaran = pendaftaran::create($request->all());
+        $kuota = $pendaftaran->id;
+        $jumlah = $pendaftaran->jumlah;
+        $jadwal = $pendaftaran->misa_id;
+        if($kuota){
+            $kurangkuota = jadwalmisa::where('id',$jadwal)->first();
+            $kuotakurang = $kurangkuota->decrement('kuota', $jumlah);
+        }
+        return redirect('/validasi')->with('sukses','Data Telah Di Tambah!');  
+    }
+
+    public function validasi(){
+        $daftarmisa = pendaftaran::where('jumlah','1')->get();
+        return view('umat.validasi', compact('daftarmisa',));
     }
 
     public function viewtiket(){
-        $daftarmisa = pendaftaran::all();
-        return view('umat.viewtiket',compact('daftarmisa'));
+        $datenow = Carbon::now()->format('Y-m-d');
+        $user = auth()->user();
+        $userid = $user->id;
+        $daftarmisa = DB::table('daftarmisa')->where('user_id', $userid)
+        ->leftJoin('jadwalmisa', 'daftarmisa.misa_id', '=', 'jadwalmisa.id')
+        ->select('daftarmisa.id','daftarmisa.misa_id','daftarmisa.jadwal','daftarmisa.nama')
+        ->whereDate('jadwalmisa.tanggal', '>', $datenow)
+        ->get();
+        return view('umat.viewtiket',compact('daftarmisa','userid'));
     }
      
     public function deletependaftaran($id){
