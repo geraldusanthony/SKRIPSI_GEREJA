@@ -128,48 +128,14 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
               <input name="tanggal" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
            </div>
           <div class="form-group">
-                 <label for="exampleInputEmail1">Tahun </label>
-                 <select class="select2 form-control" name="tahun" type="">
+                 <label for="exampleInputEmail1">Keterangan Misa</label>
+                 <select class="select2 form-control" name="keterangan" type="">
                  <option></option>
-                 <option>2020</option>
-                 <option>2021</option>
-                 <option>2022</option>
-                 <option>2023</option>
-                 <option>2024</option>
-                 <option>2025</option>
-                 <option>2026</option>
-                 <option>2027</option>
+                 @foreach($jadwalmisa as $jadwalmisa)
+                 <option>{{$jadwalmisa->keterangan}} - Hari {{$jadwalmisa->hari}} - Tanggal {{$jadwalmisa->tanggal}} - Jam {{$jadwalmisa->jam}}</option>
+                 @endforeach
                  </select>
             </div> 
-        <div class="form-group">
-                 <label for="exampleInputEmail1">Pilih Bulan</label>
-                 <select class="select2 form-control" name="bulan">
-                 <option></option>
-                 <option>Januari</option>
-                 <option>Februari</option>
-                 <option>Maret</option>
-                 <option>April</option>
-                 <option>Mei</option>
-                 <option>Juni</option>
-                 <option>Juli</option>
-                 <option>Agustus</option>
-                 <option>September</option>
-                 <option>Oktober</option>
-                 <option>November</option>
-                 <option>Desember</option>
-                 </select>
-            </div>
-            <div class="form-group">
-                 <label for="exampleInputEmail1">Pilih Minggu </label>
-                 <select class="select2 form-control" name="minggu">
-                 <option></option>
-                 <option>Minggu Ke 1</option>
-                 <option>Minggu Ke 2</option>
-                 <option>Minggu ke 3</option>
-                 <option>Minggu ke 4</option>
-                 <option>Minggu ke 5</option>
-                 </select>
-            </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Kolekte 1</label>
               <input name="jumlah" type="number" min="1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -178,19 +144,6 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
               <label for="exampleInputEmail1">Kolekte 2</label>
               <input name="jumlah2" type="number" min="1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
            </div>
-           <div class="form-group">
-              <label for="exampleInputEmail1">Keterangan</label>
-              <p>Untuk keterangan silahkan isikan keterangan terkait misa
-              (Contoh : Misa Harian, Misa Mingguan, Misa Hari Besar, atau Misa Lainnya)</p>
-              <select name="keterangan" type="" class="select2 form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <option>Misa Harian</option>
-              <option>Misa Sabtu Sore</option>
-              <option>Misa Minggu</option>
-              <option>Misa Jumat Pertama</option>
-              </select>
-           </div>
-           <p><b>- PERHATIAN! -</b></p>
-           <p>Pastikan Data Yang Anda Tambahkan Telah Benar!</p>
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary w3-orange">Tambah</button>
     </form>
@@ -205,29 +158,19 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <table class="table, center">
         <tr>
         <th>Tanggal</th>
-        <th>Tahun</th>
-        <th>Bulan</th> 
-        <th>Minggu Ke</th> 
+        <th>Keterangan Misa</th>
         <th>Kolekte 1</th>
         <th>Kolekte 2</th>
-        <th>Total</th>
-        <th>Keterangan</th>
-        <th>Input Data</th>
-        <th>Update Data</th>
+        <th>Total</th> 
         <th>Aksi</th>
         </tr>
         @foreach ($persembahan as $persembahan)
         <tr>
         <td>{{$persembahan->tanggal}}</td> 
-        <td>{{$persembahan->tahun}}</td>   
-        <td>{{$persembahan->bulan}}</td> 
-        <td>{{$persembahan->minggu}}</td> 
+        <td>{{$persembahan->keterangan}}</td>
         <td>Rp.{{$persembahan->jumlah}}</td> 
         <td>Rp.{{$persembahan->jumlah2}}</td>
         <td>Rp.{{$persembahan->jumlah + $persembahan->jumlah2}}</td>
-        <td>{{$persembahan->keterangan}}</td>
-        <td>{{$persembahan->created_at}}</td>
-        <td>{{$persembahan->updated_at}}</td>
         <td><a href="/viewdatapersembahan/{{$persembahan->id}}" class="btn fa fa-edit w3-orange"></a>
         <!-- Modal -->
         <button type="button" class="btn fa fa-trash w3-red" data-toggle="modal" data-target="#myModal"></button></td>

@@ -115,7 +115,7 @@ tr:nth-child(even) {
            <div class="form-group">
                  <label for="exampleInputEmail1">Hari </label>
                  <select class="select2 form-control @error('hari') is-invalid @enderror" required autocomplete="hari" name="hari">
-                <option></option>
+                 <option></option>
                  <option>Senin</option>
                  <option>Selasa</option>
                  <option>Rabu</option>
@@ -150,13 +150,26 @@ tr:nth-child(even) {
             </div>
            <div class="form-group"> 
                  <label for="exampleInputEmail1">Keterangan Misa </label>
-                 <p>Diisi jenis misa (Contoh : Misa Harian, Misa Mingguan, Misa Besar) serta diberikan keterangan bahasa yang digunakan.</p>
-                 <input class="form-control @error('keterangan') is-invalid @enderror" required autocomplete="keterangan" name="keterangan" type="text"></input>
+                 <select class="select2 form-control @error('keterangan') is-invalid @enderror" required autocomplete="keterangan" name="keterangan" type="text">
+                 <option></option>
+                 <option>Misa Harian</option>
+                 <option>Misa Jumat Pertama</option>
+                 <option>Misa Sabtu</option>
+                 <option>Misa Minggu</option>
+                 <option>Misa Rabu Abu</option>
+                 <option>Misa Kamis Putih</option>
+                 <option>Misa Jumat Agung</option>
+                 <option>Misa Sabtu Suci</option>
+                 <option>Misa Minggu Paskah</option>
+                 <option>Misa Natal</option>
+                 <option>Misa Arwah</option>
+                 <option>Misa Sakramen Pernikahan</option>
                  @error('keterangan')
                 <span class="invalid-feedback" role="alert" >
                 	<strong>{{ $message }}</strong>
                 </span>
                 @enderror
+                </select>
             </div>
          <div class="form-group">
             <label for="exampleInputEmail1">kuota</label> 

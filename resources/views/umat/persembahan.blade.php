@@ -75,27 +75,19 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     </div>
         <table id="myTable" class="table, center">
         <tr>
-        <th>Bulan</th> 
-        <th>Tahun</th>
+        <th>Keterangan Misa</th>
         <th>Tanggal</th>   
-        <th>Minggu Ke</th> 
         <th>Kolekte 1</th>
         <th>Kolekte 2</th>
         <th>Total Persembahan</th>
-        <th>Keterangan</th>
-        <th>Update Data</th>
         </tr>
         @foreach ($persembahan as $persembahan)
         <tr>
-        <td>{{$persembahan->bulan}}</td> 
-        <td>{{$persembahan->tahun}}</td> 
-        <td>{{$persembahan->tanggal}}</td> 
-        <td>{{$persembahan->minggu}}</td> 
+        <td>{{$persembahan->keterangan}}</td>
+        <td>{{$persembahan->tanggal}}</td>  
         <td>Rp.{{$persembahan->jumlah}}</td> 
         <td>Rp.{{$persembahan->jumlah2}}</td> 
         <td>Rp.{{$persembahan->jumlah + $persembahan->jumlah2}}</td>
-        <td>{{$persembahan->keterangan}}</td>
-        <td>{{$persembahan->updated_at}}</td> 
         @endforeach
         </tr>
         </div>

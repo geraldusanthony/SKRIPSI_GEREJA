@@ -90,4 +90,14 @@ class Pendaftaran_Controller extends Controller
     	return $pdf->stream();  
     }
 
+    public function detailmisa($id){
+        // $daftarmisa = DB::table('daftarmisa')->where('id', $id)
+        // ->leftJoin('jadwalmisa', 'daftarmisa.misa_id', '=', 'jadwalmisa.id')
+        // ->select('daftarmisa.id','daftarmisa.misa_id','daftarmisa.user_id','daftarmisa.jadwal','daftarmisa.nama','daftarmisa.jns_klmn','daftarmisa.lingkungan')
+        // ->get();
+        $daftarmisa=pendaftaran::where('misa_id', $id)->get();
+        $user = auth()->user();
+        return view('admin.detailmisa',compact('daftarmisa','user'));
+    }
+
 }

@@ -198,7 +198,7 @@ tr:hover .cut { opacity: 1; }
 <br><br><br>
 <table style="border:0px" cellpadding="" cellspacing="">
 <tr>
-<td style="width:200px; align:center; border:0px">Dibuat Oleh Sekertariat,<br><br><br><br><br>
+<td style="width:200px; align:center; border:0px">Dibuat Oleh Sekertariat, {{$persembahanling->tanggal}} <br><br><br><br><br>
 <br><br>(__________________________)
 </td>
 <td style="width:280px; align:center; border:0px"></td>

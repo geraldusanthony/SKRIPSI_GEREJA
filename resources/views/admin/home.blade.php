@@ -133,6 +133,30 @@ tr:nth-child(even) {
         <h4>Jumlah Umat</h4>
       </div>
     </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-mars w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{$laki}} Orang</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Jumlah Umat Laki-Laki</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-green w3-padding-16">
+        <div class="w3-left"><i class="fa fa-venus w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          @if($perempuan == 0)
+          <h3>Tidak Ada</h3>
+          @else
+          <h3>{{$perempuan}} Orang</h3>
+          @endif
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Jumlah Umat Perempuan</h4>
+      </div>
+    </div>
 
   <script>
     function startTime() {

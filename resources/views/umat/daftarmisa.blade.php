@@ -121,55 +121,18 @@ input[type="number"] {
     <div class="col-25">
     <input  type="hidden" name="misa_id" value="{{$jadwalmisa->id}}"/>
     <input  type="hidden" name="user_id" value="{!!$user->id!!}"/>
-    </div>
+    <input  type="hidden" name="no_hp" value="{!! $dataUmat->no_hp !!}"/>
+    <input  type="hidden" name="alamat" value="{!! $dataUmat->alamat !!}"/>
+    <input  type="hidden" name="jns_klmn" value="{!! $dataUmat->jns_kelamin !!}"/>
+    </div> 
     <h2>{{$jadwalmisa->keterangan}} {{$jadwalmisa->tanggal}}</h2>
     <br>
+    <div class="row">
       <div class="col-25">
-        <label for="fname">Pilih Lingkungan :</label>
+        <label for="lname">Lingkungan :</label>
       </div>
       <div class="col-75">
-                 <select class=" select2 @error('ling') is-invalid @enderror" required autocomplete="lingkungan" name="lingkungan">
-                 <option ></option>
-                 <option>St. Yohanes Pemandi Gamping lor</option>
-                 <option>St. Agatha Gamping Tengah</option>
-                 <option>St. Agustinus Gamping</option>
-                 <option>St. Yusuf Gamping</option>
-                 <option>St. Maria Fatimmah Demak Ijo</option>
-                 <option>St. Ignatius Loyola Kaliabu</option>
-                 <option>St. Caecilia Onggobayan</option>
-                 <option>St. Antonius Mejing</option>
-                 <option>St. Gregorius Mejing</option>
-                 <option>St. Stefanus Mejing</option>
-                 <option>St. Monica Mejing</option>
-                 <option>St. Mateus Mejing</option>
-                 <option>St. Paulus Sidoarum</option>
-                 <option>St. Thomas Aquinas Sidoarum</option>
-                 <option>St. Yustinus Martir Sidoarum</option>
-                 <option>St. Anna Gesikan</option>
-                 <option>St. Yoakim Gesikan</option>
-                 <option>St. Hieronimus Gesikan</option>
-                 <option>St. Fransiscus Asisi Pelem Hijau</option>
-                 <option>St. Lucia Ngawen</option>
-                 <option>St. Veronica Bantulan</option>
-                 <option>St. Agustinus Gancahan</option>
-                 <option>St. Petrus Gancahan</option>
-                 <option>St. Tarcisius Semboh (Perak Bulus)</option>
-                 <option>St. Maria Gancahan</option>
-                 <option>St. Yohanes Pembaptis Sidokarto</option>
-                 <option>St. Yusuf Gejawan Pasekan</option>
-                 <option>St. Margareta Gejawan Puri</option>
-                 <option>St. Georgius Nyamplung</option>
-                 <option>St. Ludoviskus Nyamplung</option>
-                 <option>St. Frans. Xaverius Sumber Gamol</option>
-                 <option>St. Theodorikus Jatimas</option>
-                 <option>St. Antonius Padua Jatisawit</option>
-                 <option>St. Kristoforus Baleasri</option>
-                 </select>
-                 @error('lingkungan')
-                <span class="invalid-feedback" role="alert" >
-                	<strong>{{ $message }}</strong>
-                </span>
-                @enderror
+        <input readonly type="text" name="lingkungan" value="{!! $dataUmat->ling !!}"/>
       </div>
     </div>
     <div class="row">
@@ -177,7 +140,7 @@ input[type="number"] {
         <label for="lname">Nama :</label>
       </div>
       <div class="col-75">
-        <input readonly type="text" name="nama" value="{!! $user->name !!}"/>
+        <input readonly type="text" name="nama" value="{!! $dataUmat->nama_umat !!}"/>
       </div>
     </div>
     <div class="row">
@@ -185,7 +148,7 @@ input[type="number"] {
         <label for="lname">Jumlah yang didaftarkan :</label>
       </div>
       <div class="col-75">
-        <input type="number" name="jumlah" min="1" max="4"/>
+        <input type="number" value="1" name="jumlah" min="1" max="4"/>
       </div>
     </div>
     <div class="row">

@@ -283,16 +283,11 @@ footer a {
 <div class="container" id="container">
 	<!-- register login -->
 	<div class="form-container sign-up-container">
+
 		<form action="/register" method="POST">
 		@csrf
 			<h1>BUAT AKUN </h1>
 			<p></p>
-			<input id="name" type="text" placeholder="Name"  class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus />
-			@if ($errors->has('name'))
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('name') }}</strong>
-                </span>
-            @endif
 			<input id="email" type="email" placeholder="Email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus />
 			@if ($errors->has('email'))
                 <span class="invalid-feedback" role="alert">
@@ -311,6 +306,7 @@ footer a {
 	<!-- register login -->
 	<!-- page login -->
 	<div class="form-container sign-in-container">
+	@include('sweetalert::alert')
 		<form action="{{ route('sublogin') }}" method="post">
 		@csrf
 		

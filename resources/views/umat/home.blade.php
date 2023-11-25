@@ -71,11 +71,12 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                  <option></option>
                  @foreach($jadwalmisa as $jadwalmisa)
                  @if($jadwalmisa->kuota == "0")
+                 <p></p>
                  @else 
                  <option>{{$jadwalmisa->keterangan}} - Hari : {{$jadwalmisa->hari}}, Tanggal : {{$jadwalmisa->tanggal}}, Jam : {{$jadwalmisa->jam}}</option>
                  @endif
-                 <input type="hidden" name="misa_id" value="{{$jadwalmisa->id}}"/>
                  @endforeach
+                 <input type="hidden" name="misa_id" value="{{$jadwalmisa->id}}"/>
                  @endif
                  </select>                 
                  @error('jadwal')

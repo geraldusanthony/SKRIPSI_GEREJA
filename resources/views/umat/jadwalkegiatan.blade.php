@@ -76,11 +76,11 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 </div>
     <header class="w3-container" style="padding-top:22px">
     <p><a href="/" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
-    <h2><b>Jadwal Kegiatan Paroki</b></h2>
-    <h4>Berikut merupakan jadwal kegiatan paroki yang akan datang</h4>
     @if(count($jadwalkegiatan) == 0)
     <h2 class="font3">Tidak Ada Jadwal Kegiatan</h2>
     @else
+    <h2><b>Jadwal Kegiatan Paroki</b></h2>
+    <h4>Berikut merupakan jadwal kegiatan paroki yang akan datang</h4>
     <input class="w3-round-large" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari hari kegiatan" title="Masukkan hari pelaksanaan">  
     <div class="w3-row">
     </div>

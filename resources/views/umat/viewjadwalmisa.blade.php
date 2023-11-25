@@ -96,10 +96,10 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 </div>
     <header class="w3-container" style="padding-top:22px">
     <p><a href="/" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
-    <h2><b>Jadwal Misa Gereja St. Maria Assumpta Gamping</b></h2>
     @if(count($jadwalmisa) == 0)
     <h2 class="font3">Jadwal Kosong</h2>
     @else
+    <h2><b>Jadwal Misa Gereja St. Maria Assumpta Gamping</b></h2>
     @foreach ($jadwalmisa as $jadwalmisa)
 <div class="w3-col l3 m6 w3-margin-top ">
 <div class="card w3-white">

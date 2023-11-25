@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\persembahan;
 use App\Models\persembahanling;
+use App\Models\jadwalmisa;
 use PDF;
 
 class Persembahan_Controller extends Controller
@@ -18,8 +19,9 @@ class Persembahan_Controller extends Controller
 
     public function persembahan(request $request){
         $persembahan = persembahan::all();
+        $jadwalmisa = jadwalmisa::all();
         $user = auth()->user();
-        return view('admin.persembahan',compact('persembahan','user'));
+        return view('admin.persembahan',compact('persembahan','user','jadwalmisa'));
     }
 
     public function deletepersembahan($id){

@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\jadwalmisa;
+use App\Models\pendaftaran;
 use PDF;
-
+use Illuminate\Support\Facades\DB;
 
 class Jadwalmisa_Controller extends Controller
 {
@@ -22,6 +23,8 @@ class Jadwalmisa_Controller extends Controller
     public function pendaftaran(request $request){
         $user = auth()->user();
         $jadwalmisa = jadwalmisa::all();
+
+        // $jumlah = pendaftaran::where('misa_id','')->count();
         return view('admin.pendaftaran',compact('jadwalmisa','user'));
     }
 

@@ -64,10 +64,10 @@ class Umat_Controller extends Controller
     public function pilihjadwal(request $request){
         $datenow = Carbon::now()->format('Y-m-d');
         $user = \Auth::user();
-        $iduser = $user->name;
-        $didaftar = pendaftaran::where('nama',$iduser)->first();
+        $iduser = $user->id;
+        $didaftar = pendaftaran::where('user_id',$iduser)->first();
         // $misaid = $didaftar->misa_id;
-        $misaid = pendaftaran::where('nama', $iduser)->pluck('misa_id')->toArray();
+        $misaid = pendaftaran::where('user_id', $iduser)->pluck('misa_id')->toArray();
         if($misaid == null)
         {$jadwalmisa = jadwalmisa::whereDate('tanggal', '>', $datenow)->get();} 
         else{
@@ -81,7 +81,8 @@ class Umat_Controller extends Controller
         $jadwalmisa = jadwalmisa::where('id',$id)->get();
         $umat = umat::all();
         $user = \Auth::user();
-        return view('umat.daftarmisa',compact('user','jadwalmisa','umat'));
+        $dataUmat = Umat::where('email', auth()->user()->email)->first();
+        return view('umat.daftarmisa',compact('user','jadwalmisa','umat','dataUmat'));
     }
 
 }

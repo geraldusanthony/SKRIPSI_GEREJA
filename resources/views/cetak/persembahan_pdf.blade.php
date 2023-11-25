@@ -40,13 +40,10 @@ p{
 	<table class='table table-bordered'>
 		<thead>
 			<tr>
-            <th>Tgl</th>
-            <th>Minggu</th> 
-            <th>Thn</th>
-            <th>Bln</th>   
+            <th>Tanggal</th>  
+            <th>Keterangan Misa</th> 
             <th>Kolekte 1</th>
-            <th>Kolekte 2</th>
-            <th>Keterangan</th>
+            <th>Kolekte 2</th>       
             <th>Total</th>
 			</tr>
 		</thead>
@@ -54,12 +51,9 @@ p{
 		<tbody>       
             <tr>
             <td>{{$persembahan->tanggal}}</td> 
-            <td>{{$persembahan->minggu}}</td> 
-            <td>{{$persembahan->tahun}}</td>   
-            <td>{{$persembahan->bulan}}</td> 
-            <td>Rp.{{$persembahan->jumlah}}</td> 
-            <td>Rp.{{$persembahan->jumlah2}}</td>
             <td>{{$persembahan->keterangan}}</td> 
+            <td>Rp.{{$persembahan->jumlah}}</td> 
+            <td>Rp.{{$persembahan->jumlah2}}</td>         
             <td>Rp.{{$persembahan->jumlah + $persembahan->jumlah2}}</td>
 			</tr>	          
 		</tbody>

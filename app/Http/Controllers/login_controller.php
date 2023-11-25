@@ -10,7 +10,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
+use App\Models\Umat;
 use App\Models\Role;
+use Alert;
 
 class login_controller extends Controller
 {
@@ -99,12 +101,20 @@ class login_controller extends Controller
 
     protected function Register(Request $request)
     {
+        $emailExist = Umat::where('email', $request->email)->exists();
+
+        if($emailExist){
+        $name = Umat::where('email', $request->email)->first()->nama_umat;
          User::create([
-            'name' => $request['name'],
+            'name' => $name,
             'email' => $request['email'],
             'role_id' => '2',
             'password' => Hash::make($request['password']),
         ]);
+    } else {
+        Alert::error('Error!', 'Anda Tidak Terdaftar Sebagai Umat');
+        return redirect()->back();
+    }
         return redirect()->back();
     }
 

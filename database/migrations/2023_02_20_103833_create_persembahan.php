@@ -16,9 +16,6 @@ return new class extends Migration
         Schema::create('persembahan', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal');
-            $table->string('tahun');
-            $table->string('bulan');
-            $table->string('minggu');
             $table->string('jumlah');
             $table->string('jumlah2');
             $table->string('keterangan');

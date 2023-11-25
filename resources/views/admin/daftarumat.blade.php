@@ -145,7 +145,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);
                  <option value="St. Gregorius Mejing">St. Gregorius Mejing</option>
                  <option value="St. Stefanus Mejing">St. Stefanus Mejing</option>
                  <option value="St. Monica Mejing">St. Monica Mejing</option>
-                 <option value="12St. Mateus Mejing">St. Mateus Mejing</option>
+                 <option value="St. Mateus Mejing">St. Mateus Mejing</option>
                  <option value="St. Paulus Sidoarum">St. Paulus Sidoarum</option>
                  <option value="St. Thomas Aquinas Sidoarum">St. Thomas Aquinas Sidoarum</option>
                  <option value="St. Yustinus Martir Sidoarum">St. Yustinus Martir Sidoarum</option>

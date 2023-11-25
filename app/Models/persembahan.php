@@ -10,5 +10,5 @@ class persembahan extends Model
     use HasFactory;
     protected $table = 'persembahan';
     protected $primarykey = 'id';
-    protected $fillable = ['tanggal','tahun','bulan','minggu','jumlah','jumlah2',"keterangan"]; 
+    protected $fillable = ['tanggal','jumlah','jumlah2','keterangan']; 
 }

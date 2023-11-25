@@ -10,7 +10,9 @@ class Admin_Controller extends Controller
     public function homeadmin(){
         $user = auth()->user();
         $umat = umat::get();
-        return view('admin.home', compact('user','umat'));
+        $laki = umat::where('jns_kelamin','Laki-laki')->count();
+        $perempuan = umat::where('jns_kelamin','Perempuan')->count();
+        return view('admin.home', compact('user','umat','laki','perempuan'));
     }
 
     public function login(){

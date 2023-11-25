@@ -203,8 +203,6 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
               <label for="exampleInputEmail1">Jumlah Persembahan</label>
               <input name="jumlah" type="number" min="1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
            </div>
-           <p><b>- PERHATIAN! -</b></p>
-           <p>Pastikan Data Yang Anda Tambahkan Telah Benar!</p>
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary w3-orange">Tambah</button>
     </form>

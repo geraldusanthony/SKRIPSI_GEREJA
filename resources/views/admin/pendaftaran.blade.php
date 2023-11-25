@@ -132,6 +132,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <th>Jam</th>
         <th>Keterangan</th>
         <th>Kuota</th>
+        <th>Lihat</th>
         <th>Aksi</th>
         </tr>
         @foreach ($jadwalmisa as $jadwalmisa)
@@ -141,7 +142,9 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <td>{{$jadwalmisa->jam}}</td>
         <td>{{$jadwalmisa->keterangan}}</td>  
         <td>{{$jadwalmisa->kuota}}</td> 
-        <td><a href="/viewdatamisa/{{$jadwalmisa->id}}" class="btn fa fa-edit w3-orange"></a>
+        <td><a href="/detailmisa/{{$jadwalmisa->id}}" class="btn fa fa-eye w3-blue"> Lihat Detail</a></td>
+        <td>
+        <a href="/viewdatamisa/{{$jadwalmisa->id}}" class="btn fa fa-edit w3-orange"></a>
         <!-- Modal -->
         <button type="button" class="btn fa fa-trash w3-red" data-toggle="modal" data-target="#myModal"></button></td>
           <div class="modal fade" id="myModal" role="dialog">

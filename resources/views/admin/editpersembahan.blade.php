@@ -59,22 +59,11 @@ tr:nth-child(even) {
           <div class="form-group">
               <label for="exampleInputEmail1">Tanggal</label>
               <input name="tanggal" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$persembahan->tanggal}}" disabled>
+           </div>          
+           <div class="form-group">
+              <label for="exampleInputEmail1">Keterangan Misa</label>
+              <input name="keterangan"type="" class="select2 form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$persembahan->keterangan}}" disabled>
            </div>
-          <div class="form-group">
-                 <label for="exampleInputEmail1">Tahun </label>
-                 <input class="select2 form-control" name="tahun" value="{{$persembahan->tahun}}" disabled>
-                 </input>
-            </div> 
-        <div class="form-group">
-                 <label for="exampleInputEmail1">Input Bulan </label>
-                 <input class="select2 form-control" name="bulan" value="{{$persembahan->bulan}}" disabled>
-                 </input>
-            </div>
-            <div class="form-group">
-                 <label for="exampleInputEmail1">Input Minggu </label>
-                 <input class="select2 form-control" name="minggu" value="{{$persembahan->minggu}}" disabled>
-                 </input>
-            </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Kolekte 1</label>
               <input name="jumlah"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$persembahan->jumlah}}">
@@ -82,10 +71,6 @@ tr:nth-child(even) {
            <div class="form-group">
               <label for="exampleInputEmail1">Kolekte 2</label>
               <input name="jumlah2"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$persembahan->jumlah2}}">
-           </div>
-           <div class="form-group">
-              <label for="exampleInputEmail1">Keterangan</label>
-              <input name="keterangan"type="" class="select2 form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$persembahan->keterangan}}" disabled>
            </div>
         </div>
         <div class="modal-footer">
