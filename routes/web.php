@@ -55,7 +55,8 @@ route::get('/viewdatamisa/{id}','Jadwalmisa_Controller@findjadwal')->middleware(
 route::get('/editjadwal/{id}','Jadwalmisa_Controller@editjadwal')->name('editjadwal')->middleware(['auth', 'admin']); 
 route::get('/cetakjadwalmisa_pdf','Jadwalmisa_Controller@cetakjadwalmisa_pdf')->middleware(['auth', 'admin']); 
 Route::get('/pendaftaran','Jadwalmisa_Controller@pendaftaran')->middleware(['auth', 'admin']); 
-Route::get('/detailmisa/{id}','Pendaftaran_Controller@detailmisa')->middleware(['auth', 'admin']); 
+Route::get('/detailmisa/{id}','Pendaftaran_Controller@detailmisa')->middleware(['auth', 'admin']);
+Route::get('/cetakdetailmisa_pdf/{id}','Jadwalmisa_Controller@cetakdetailmisa_pdf')->middleware(['auth', 'admin']); 
 
     // Persembahan Kolekte
 Route::get('/persembahan','Persembahan_Controller@persembahan')->middleware(['auth', 'admin']);  

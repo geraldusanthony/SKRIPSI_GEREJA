@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+@foreach ($daftarmisa as $daftarmisa)
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tiket Misa</title>
+  <title>Tiket Misa {{$daftarmisa->nama}} {{$daftarmisa->lingkungan}}</title>
   <style>
     @import url('https://fonts.googleapis.com/css?family=Oswald:400,500,700');
 *
@@ -96,7 +97,7 @@ a
   </style>
 </head>
 <body>
-@foreach ($daftarmisa as $daftarmisa)
+
 <div class="product-card">
 		<div class="badge">Bukti Pendaftaran Misa</div>
 		<div class="product-tumb">

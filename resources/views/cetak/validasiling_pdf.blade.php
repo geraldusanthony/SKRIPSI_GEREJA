@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+@foreach ($view_data as $persembahanling)
 	<head>
 		<meta charset="utf-8">
-		<title>Bukti Penyerahan Persembahan</title>
+		<title>Bukti Penyerahan Persembahan {{$persembahanling->nama_ling}}</title>
 		<link rel="stylesheet" href="style.css">
 		<link rel="license" href="https://www.opensource.org/licenses/mit-license/">
 		<script src="script.js"></script>
@@ -158,7 +159,7 @@ tr:hover .cut { opacity: 1; }
 
         </style>
 	<body>
-	@foreach ($view_data as $persembahanling)
+	
 		<header>
 		<img src="asset/images/logogerejabaru.jpg" width="180"><img>
 			<h1>Bukti Penyerahan Persembahan Lingkungan</h1>

@@ -55,15 +55,15 @@ class Persembahan_Controller extends Controller
 
     public function addpersembahanling(Request $request){ 
         // persembahanling::create($request->all());
-        $jumlahinput = $request->jumlah;
-        $jumlahbefore = $jumlahinput*(10/100);
-        $jumlahdiskon = $jumlahinput-$jumlahbefore; 
+        // $jumlahinput = $request->jumlah;
+        // $jumlahbefore = $jumlahinput*(10/100);
+        // $jumlahdiskon = $jumlahinput-$jumlahbefore; 
         $data = [
             'tanggal'=>$request->tanggal,
             'tahun'=>$request->tahun,
             'ket'=>$request->ket,
             'nama_ling'=>$request->nama_ling,
-            'jumlah'=>$jumlahdiskon
+            'jumlah'=>$request->jumlah,
         ];
         persembahanling::create($data);
         return redirect('persembahanling')->with('sukses','Data Telah Di Tambah!');   
@@ -79,7 +79,7 @@ class Persembahan_Controller extends Controller
     {
     	$persembahanling = persembahanling::all();
     	$pdf = PDF::loadview('cetak.persembahanling_pdf',['persembahanling'=>$persembahanling]);
-    	return $pdf->stream();
+    	return $pdf->stream('Data Persembahan Lingkungan.pdf');
     }
 
     public function deletepersembahanling($id){
@@ -106,7 +106,7 @@ class Persembahan_Controller extends Controller
     public function viewdata($id){
         $view_data = persembahanling::where('id',$id)->get();
         $pdf = PDF::loadview('cetak.validasiling_pdf',['view_data'=>$view_data]);
-    	return $pdf->stream();
+    	return $pdf->stream('Tanda Terima Persembahan Lingkungan.pdf');
     }
     
 }

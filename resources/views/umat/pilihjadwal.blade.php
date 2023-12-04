@@ -20,7 +20,7 @@
 
 .font {
   color: orange;
-  font-size: 17px;
+  font-size: 18px;
   text-transform: uppercase;
 }
 
@@ -71,9 +71,11 @@
 <div class="w3-col l3 m6 w3-margin-top ">
 <div class="card">
   <img class="w3-round-large" src="asset/images/gamping.png" alt="Denim Jeans" style="width:52%">
-  <h4 class="font2">{{$jadwalmisa->hari}} - {{$jadwalmisa->tanggal}}</h4>
-  <h4 class="font">Kuota Tersedia : {{$jadwalmisa->kuota}}</h4>
-  <p class="font">{{$jadwalmisa->keterangan}} - {{$jadwalmisa->jam}}</p>
+  <h4 class="font2">{{$jadwalmisa->hari}}, {{$jadwalmisa->tanggal}}</h4>
+  <!-- <h4 class="font">Kuota Tersedia : {{$jadwalmisa->kuota}}</h4> -->
+  <p class="font">{{$jadwalmisa->keterangan}}</p>
+  <p class="font">Jam {{$jadwalmisa->jam}}</p>
+  <p class="font">{{count($misaid)}}</p>
   @if($jadwalmisa->kuota == "0")
   <p class="w3-red font w3-round-large">KUOTA TELAH PENUH</p>
   @else

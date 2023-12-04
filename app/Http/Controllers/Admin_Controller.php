@@ -12,9 +12,11 @@ class Admin_Controller extends Controller
         $umat = umat::get();
         $laki = umat::where('jns_kelamin','Laki-laki')->count();
         $perempuan = umat::where('jns_kelamin','Perempuan')->count();
-        return view('admin.home', compact('user','umat','laki','perempuan'));
+        $baptis = umat::where('baptis','sudah')->count();
+        $komuni = umat::where('komuni','sudah')->count();
+        return view('admin.home', compact('user','umat','laki','perempuan','baptis','komuni'));
     }
-
+    
     public function login(){
         return view('admin.loginpage');
     }

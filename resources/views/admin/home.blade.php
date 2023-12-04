@@ -135,7 +135,7 @@ tr:nth-child(even) {
     </div>
     <div class="w3-quarter">
       <div class="w3-container w3-blue w3-padding-16">
-        <div class="w3-left"><i class="fa fa-mars w3-xxxlarge"></i></div>
+        <div class="w3-left"><i class="	fa fa-child w3-xxxlarge"></i></div>
         <div class="w3-right">
           <h3>{{$laki}} Orang</h3>
         </div>
@@ -145,7 +145,7 @@ tr:nth-child(even) {
     </div>
     <div class="w3-quarter">
       <div class="w3-container w3-green w3-padding-16">
-        <div class="w3-left"><i class="fa fa-venus w3-xxxlarge"></i></div>
+        <div class="w3-left"><i class="fa fa-female w3-xxxlarge"></i></div>
         <div class="w3-right">
           @if($perempuan == 0)
           <h3>Tidak Ada</h3>
@@ -157,6 +157,35 @@ tr:nth-child(even) {
         <h4>Jumlah Umat Perempuan</h4>
       </div>
     </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-orange w3-padding-16">
+        <div class="w3-left"><i class="fa fa-group w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          @if($baptis == 0)
+          <h3>Tidak Ada</h3>
+          @else
+          <h3>{{$baptis}} Orang</h3>
+          @endif
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Jumlah Umat Telah Baptis</h4>
+      </div>
+    </div>
+    <div class="w3-quarter" style="padding-top:16px">
+      <div class="w3-container w3-gray w3-padding-16">
+        <div class="w3-left"><i class="fa fa-group w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          @if($komuni == 0)
+          <h3>Tidak Ada</h3>
+          @else
+          <h3>{{$komuni}} Orang</h3>
+          @endif
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Jumlah Umat Telah Komuni</h4>
+      </div>
+    </div>
+  </div>
 
   <script>
     function startTime() {

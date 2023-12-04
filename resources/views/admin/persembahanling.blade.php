@@ -133,7 +133,6 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
                  <label for="exampleInputEmail1">Tahun </label>
                  <select class="select2 form-control" name="tahun" type="">
                  <option></option>
-                 <option>2022</option>
                  <option>2023</option>
                  <option>2024</option>
                  <option>2025</option>
@@ -225,13 +224,16 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <th>Aksi</th>
         </tr>
         @foreach ($persembahanling as $persembahanling)
+        <?php 
+                  $temp = explode(' ',$persembahanling->created_at);
+                ?>
         <tr>
         <td>{{$persembahanling->tanggal}}</td>   
         <td>{{$persembahanling->tahun}}</td> 
         <td>{{$persembahanling->ket}}</td>
         <td>{{$persembahanling->nama_ling}}</td> 
         <td>Rp.{{$persembahanling->jumlah}}</td>
-        <td>{{$persembahanling->updated_at}}</td> 
+        <td>{{$temp[0]}}</td>
         <td><a href="/viewdatapersembahanling/{{$persembahanling->id}}" class="btn fa fa-edit w3-orange"></a>
         <a href="/viewdata/{{$persembahanling->id}}" class="btn fa fa-download w3-blue"></a>
         <button type="button" class="btn fa fa-trash w3-red" data-toggle="modal" data-target="#myModal"></button></td>

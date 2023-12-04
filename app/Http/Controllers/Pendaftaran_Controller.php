@@ -87,7 +87,7 @@ class Pendaftaran_Controller extends Controller
     public function downloaddata($id){
         $daftarmisa = pendaftaran::where('id',$id)->get();
         $pdf = PDF::loadview('cetak.validasimisa_pdf',['daftarmisa'=>$daftarmisa]);
-    	return $pdf->stream();  
+    	return $pdf->stream('TiketMisa.pdf');  
     }
 
     public function detailmisa($id){
@@ -95,9 +95,10 @@ class Pendaftaran_Controller extends Controller
         // ->leftJoin('jadwalmisa', 'daftarmisa.misa_id', '=', 'jadwalmisa.id')
         // ->select('daftarmisa.id','daftarmisa.misa_id','daftarmisa.user_id','daftarmisa.jadwal','daftarmisa.nama','daftarmisa.jns_klmn','daftarmisa.lingkungan')
         // ->get();
-        $daftarmisa=pendaftaran::where('misa_id', $id)->get();
+        $id = pendaftaran::where('misa_id', $id)->first()->misa_id;
+        $daftarmisa = pendaftaran::where('misa_id', $id)->get();
         $user = auth()->user();
-        return view('admin.detailmisa',compact('daftarmisa','user'));
+        return view('admin.detailmisa',compact('daftarmisa','user','id'));
     }
 
 }

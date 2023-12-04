@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Laporan Data Persembahan Kolekte Gereja St. Maria Assumpta Gamping</title>
+	<title>Data Jadwal Misa Gereja St. Maria Assumpta Gamping</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -44,7 +44,6 @@ p{
             <th>Tanggal</th> 
             <th>Jam</th>
             <th>Keterangan</th>
-            <th>Kuota</th>
 			</tr>
 		</thead>
         @foreach($jadwalmisa as $jadwalmisa) 
@@ -53,8 +52,7 @@ p{
             <td>{{$jadwalmisa->hari}}</td>   
             <td>{{$jadwalmisa->tanggal}}</td>  
             <td>{{$jadwalmisa->jam}}</td>
-            <td>{{$jadwalmisa->keterangan}}</td>  
-            <td>{{$jadwalmisa->kuota}}</td> 
+            <td>{{$jadwalmisa->keterangan}}</td>   
 			</tr>	          
 		</tbody>
         @endforeach

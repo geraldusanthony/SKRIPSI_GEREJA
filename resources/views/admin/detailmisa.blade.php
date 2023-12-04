@@ -47,8 +47,9 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     <header class="w3-container" style="padding-top:22px">
     <p><a href="/pendaftaran" class="w3-button w3-orange w3-round-large"><i class="fa fa-home"> </i>Kembali</a></p>
     <h2><b>Data umat yang telah mendaftar misa</b></h2>
-    <h4><b>Jumlah Umat {{count($daftarmisa)}} Orang</b></h4>
-    
+    <h2 class="font3">Jadwal Kosong</h2>
+    <button type="button" class="btn fa fa-download w3-blue" onclick="window.location.href='/cetakdetailmisa_pdf/{{$id}}';"> Download Data</button>
+    <h4>Jumlah Umat Terdaftar : <b>{{count($daftarmisa)}} Orang</b></h4>
     <div class="w3-row">
     </div>
         <table id="myTable" class="table, center">
@@ -69,5 +70,6 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         </div>
       </div>
   </header>
+  
   </body>
 </html>

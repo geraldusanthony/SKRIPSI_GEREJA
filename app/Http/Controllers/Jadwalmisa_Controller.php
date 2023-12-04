@@ -23,7 +23,6 @@ class Jadwalmisa_Controller extends Controller
     public function pendaftaran(request $request){
         $user = auth()->user();
         $jadwalmisa = jadwalmisa::all();
-
         // $jumlah = pendaftaran::where('misa_id','')->count();
         return view('admin.pendaftaran',compact('jadwalmisa','user'));
     }
@@ -57,6 +56,13 @@ class Jadwalmisa_Controller extends Controller
     {
     	$jadwalmisa = jadwalmisa::all();
     	$pdf = PDF::loadview('cetak.jadwalmisa_pdf',['jadwalmisa'=>$jadwalmisa]);
+    	return $pdf->stream('Data Jadwal Misa Paroki.pdf');
+    }
+    
+    public function cetakdetailmisa_pdf($id)
+    {
+        $view_data = pendaftaran::where('misa_id', $id)->get();
+    	$pdf = PDF::loadview('cetak.detailmisa_pdf',['view_data'=>$view_data])->setPaper('a4', 'landscape');
     	return $pdf->stream();
     }
 }
