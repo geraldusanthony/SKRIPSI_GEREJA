@@ -73,9 +73,8 @@
   <img class="w3-round-large" src="asset/images/gamping.png" alt="Denim Jeans" style="width:52%">
   <h4 class="font2">{{$jadwalmisa->hari}}, {{$jadwalmisa->tanggal}}</h4>
   <!-- <h4 class="font">Kuota Tersedia : {{$jadwalmisa->kuota}}</h4> -->
-  <p class="font">{{$jadwalmisa->keterangan}}</p>
-  <p class="font">Jam {{$jadwalmisa->jam}}</p>
-  <p class="font">{{count($misaid)}}</p>
+  <p class="font">{{$jadwalmisa->keterangan}}, Jam {{$jadwalmisa->jam}}</p>
+  <p class="font">Jumlah Pendaftar : </p>
   @if($jadwalmisa->kuota == "0")
   <p class="w3-red font w3-round-large">KUOTA TELAH PENUH</p>
   @else

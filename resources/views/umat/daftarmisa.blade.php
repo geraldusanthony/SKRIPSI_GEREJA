@@ -102,6 +102,12 @@ input[type="number"] {
   width: 100px;
   margin-top: 10px;
 }
+
+.font2 {
+  color: orange;
+  font-size: 30px;
+  text-transform: uppercase;
+}
 </style>
 </head>
 <body class="w3-light-gray">
@@ -125,7 +131,7 @@ input[type="number"] {
     <input  type="hidden" name="alamat" value="{!! $dataUmat->alamat !!}"/>
     <input  type="hidden" name="jns_klmn" value="{!! $dataUmat->jns_kelamin !!}"/>
     </div> 
-    <h2>{{$jadwalmisa->keterangan}} {{$jadwalmisa->tanggal}}</h2>
+    <p class="font2">{{$jadwalmisa->keterangan}} {{$jadwalmisa->tanggal}}, Jam : {{$jadwalmisa->jam}}</p>
     <br>
     <div class="row">
       <div class="col-25">
